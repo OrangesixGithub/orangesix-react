@@ -1,0 +1,94 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    //Exigir ponto e vírgula em vez
+    "semi": [
+      "error"
+    ],
+    "curly": [
+      "error"
+    ],
+    //Exige o uso consistente de aspas duplas para strings
+    "quotes": [
+      "error",
+      "double"
+    ],
+    //Espaços dentro de objetos
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    //Exibe as propriedades dos componentes uma por linha
+    "react/jsx-max-props-per-line": [
+      "error"
+    ],
+    //Aplicar recuo JSX
+    "react/jsx-indent": [
+      "error",
+      4
+    ],
+    //Aplicar espaços em branco dentro e ao redor dos colchetes de abertura e fechamento JSX
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "never",
+        "afterOpening": "never"
+      }
+    ],
+    //Impor a localização do colchete de fechamento em JSX
+    "react/jsx-closing-bracket-location": [
+      "error",
+      "after-props"
+    ],
+    //Aplicar classificação alfabética de adereços
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "ignoreCase": true,
+        "multiline": "first",
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "locale": "auto"
+      }
+    ],
+    //Proibir propriedades duplicadas em JSX
+    "react/jsx-no-duplicate-props": [
+      "error",
+      {
+        "ignoreCase": true
+      }
+    ],
+    //Proibir vários espaços entre adereços JSX embutidos
+    "react/jsx-props-no-multi-spaces": [
+      "error"
+    ],
+    //Proibir expressões JSX desnecessárias
+    "react/jsx-curly-brace-presence": [
+      "error",
+      "never"
+    ],
+    //Garanta a desestruturação e a nomenclatura simétrica useState
+    "react/hook-use-state": [
+      "warn",
+      {
+        "allowDestructuredState": true
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@orangesix/react",
+  "version": "1.0.0",
+  "description": "Set of components and functions available to be used in a React project.",
+  "author": "Luiz Fernando Bernardes de Paula",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext .ts --ext .tsx",
+    "lint:fix": "eslint . --ext .ts --ext .tsx --fix"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "primereact": "^10.6.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
+    "vite": "^5.2.11"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "react",
+    "primereact",
+    "ui-kit",
+    "ui library",
+    "component library"
+  ],
+  "peerDependencies": {
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  }
+}
