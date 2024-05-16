@@ -1,0 +1,8 @@
+{
+  "bail": true,
+  "verbose": true,
+  "testEnvironment": "jsdom",
+  "testEnvironmentOptions": {
+    "url": "https://jestjs.io/"
+  }
+}

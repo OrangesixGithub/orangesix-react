@@ -1,5 +1,6 @@
 {
   "name": "@orangesix/react",
+  "type": "module",
   "version": "1.0.0",
   "description": "Set of components and functions available to be used in a React project.",
   "author": "Luiz Fernando Bernardes de Paula",
@@ -7,17 +8,22 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:package": "rollup -c",
+    "test": "jest",
     "lint": "eslint . --ext .ts --ext .tsx",
     "lint:fix": "eslint . --ext .ts --ext .tsx --fix"
   },
   "dependencies": {
     "axios": "^1.6.8",
     "primereact": "^10.6.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "typescript": "^5.4.5"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.24.5",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
@@ -25,6 +31,12 @@
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "rollup": "^4.17.2",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.4.5",
     "vite": "^5.2.11"
   },
   "files": [
@@ -39,8 +51,7 @@
     "component library"
   ],
   "peerDependencies": {
-    "@types/react": "^17.0.0 || ^18.0.0",
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }
