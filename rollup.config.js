@@ -19,7 +19,7 @@ const configs = __folder.map(folder => defineConfig({
             format: "esm",
         },
     ],
-    external: ["axios"],
+    external: ["axios", "jquery", "sweetalert2"],
     plugins: [
         typescript({
             tsconfig: "./tsconfig.json",

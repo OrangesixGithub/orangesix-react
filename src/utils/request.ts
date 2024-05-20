@@ -1,17 +1,20 @@
 import axios from "axios";
 import { BASE, TOKEN } from "./const";
 import { IUtilsRequestPostOptions } from "./@types";
+import { messageFieldClear, response } from "./response";
 
 /**
  * Simplifies the POST HTTP request using the axios library behind the scenes.
  */
-function POST<IResponseData>(
+export function post<IResponseData>(
     route: string,
     body: any,
+    form: string = "",
     options?: IUtilsRequestPostOptions
 ): Promise<IResponseData> {
     return new Promise((resolve, reject) => {
         let url = BASE + (route.startsWith("/") ? "" : "/") + route;
+        messageFieldClear(form);
         handleToManyRequest(options?.url ?? url, options?.blockedToManyRequest ?? false);
         axios<IResponseData>({
             method: "post",
@@ -22,7 +25,10 @@ function POST<IResponseData>(
             if (response?.data !== undefined) {
                 resolve(response.data);
             }
-        }).catch(error => reject(error));
+        }).catch(error => {
+            response<any>(error.response?.data, form);
+            reject(error);
+        });
     });
 }
 
@@ -51,5 +57,3 @@ function handleToManyRequest(url: string, blocked: boolean): void {
         return Promise.reject(error);
     });
 }
-
-export { POST };
