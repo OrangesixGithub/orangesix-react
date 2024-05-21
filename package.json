@@ -1,7 +1,7 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.3-x3",
   "description": "Set of components and functions available to be used in a React project.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",
@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^1.6.8",
     "jquery": "^3.7.1",
+    "node-snackbar": "^0.1.16",
     "primereact": "^10.6.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -40,7 +41,8 @@
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.4.5",
-    "vite": "^5.2.11"
+    "vite": "^5.2.11",
+    "vite-plugin-dynamic-import": "^1.5.0"
   },
   "files": [
     "dist"

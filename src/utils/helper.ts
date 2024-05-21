@@ -17,8 +17,8 @@ export function windowMessageEvent(): void {
 /**
  * Search for the ZIP code in the public api "https://viacep.com.br/ws/"
  */
-export async function getCep(value: string): Promise<IUtilsHelperResponse["GET_CEP"]> {
+export async function getCep(value: string): Promise<IUtilsHelperResponse["gep_cep"]> {
     let cep = value.length === 0 ? "00000000" : value.replace("-", "");
-    return await axios.get<IUtilsHelperResponse["GET_CEP"]>("https://viacep.com.br/ws/" + cep + "/json/")
+    return await axios.get<IUtilsHelperResponse["gep_cep"]>("https://viacep.com.br/ws/" + cep + "/json/")
         .then(data => data.data);
 }

@@ -27,77 +27,12 @@ export function response<Type>(
     }
 
     if (data.message) {
-        sendMessage<"sweetAlert">({
+        sendMessage<"snackbar">({
             message: { ...data.message },
-            type: "toast",
-            library: "sweetAlert"
+            type: "message",
+            library: "snackbar"
         });
     }
-}
-
-/**
- * Clear feedback messages from the form provided
- */
-export function messageFieldClear(
-    form: string = ""
-): void {
-    // @ts-ignore
-    let body = window.self === window.top ? $("body") : $(window.frameElement).parents("body");
-    let formulario = body.find("#" + form);
-    if (formulario.length === 0) {
-        return;
-    }
-
-    let validationClass: string[] = ["is-invalid", "is-valid", "p-invalid"];
-    let validationFeedbackClass: string[] = ["invalid-feedback", "valid-feedback"];
-
-    $.each(formulario.find("input"), function () {
-        $(this)
-            .removeClass(validationClass)
-            .parent()
-            .find("#j_feedback")
-            .removeClass(validationFeedbackClass)
-            .html("");
-
-        $(this)
-            .removeClass(validationClass)
-            .parent()
-            .parent()
-            .find("#j_feedback")
-            .removeClass(validationFeedbackClass)
-            .html("");
-
-        $(this)
-            .removeClass(validationClass)
-            .parent()
-            .parent()
-            .parent()
-            .find("#j_feedback")
-            .removeClass(validationFeedbackClass)
-            .html("");
-    });
-
-    $.each(formulario.find("select"), function () {
-        $(this)
-            .removeClass(validationClass)
-            .parent()
-            .find("#j_feedback")
-            .removeClass(validationFeedbackClass)
-            .html("");
-    });
-
-    $.each(formulario.find("textarea"), function () {
-        $(this)
-            .removeClass(validationClass)
-            .parent()
-            .find("#j_feedback")
-            .removeClass(validationFeedbackClass)
-            .html("");
-    });
-
-    $.each(formulario.find("#j_feedback"), function () {
-        $(this).removeClass(validationClass).html("");
-    });
 }
 
 /**
@@ -170,6 +105,71 @@ export function messageField(
 }
 
 /**
+ * Clear feedback messages from the form provided
+ */
+export function messageFieldClear(
+    form: string = ""
+): void {
+    // @ts-ignore
+    let body = window.self === window.top ? $("body") : $(window.frameElement).parents("body");
+    let formulario = body.find("#" + form);
+    if (formulario.length === 0) {
+        return;
+    }
+
+    let validationClass: string[] = ["is-invalid", "is-valid", "p-invalid"];
+    let validationFeedbackClass: string[] = ["invalid-feedback", "valid-feedback"];
+
+    $.each(formulario.find("input"), function () {
+        $(this)
+            .removeClass(validationClass)
+            .parent()
+            .find("#j_feedback")
+            .removeClass(validationFeedbackClass)
+            .html("");
+
+        $(this)
+            .removeClass(validationClass)
+            .parent()
+            .parent()
+            .find("#j_feedback")
+            .removeClass(validationFeedbackClass)
+            .html("");
+
+        $(this)
+            .removeClass(validationClass)
+            .parent()
+            .parent()
+            .parent()
+            .find("#j_feedback")
+            .removeClass(validationFeedbackClass)
+            .html("");
+    });
+
+    $.each(formulario.find("select"), function () {
+        $(this)
+            .removeClass(validationClass)
+            .parent()
+            .find("#j_feedback")
+            .removeClass(validationFeedbackClass)
+            .html("");
+    });
+
+    $.each(formulario.find("textarea"), function () {
+        $(this)
+            .removeClass(validationClass)
+            .parent()
+            .find("#j_feedback")
+            .removeClass(validationFeedbackClass)
+            .html("");
+    });
+
+    $.each(formulario.find("#j_feedback"), function () {
+        $(this).removeClass(validationClass).html("");
+    });
+}
+
+/**
  * Activates the TabView when the field presents an error
  */
 export function tabViewActiveError(
@@ -197,4 +197,4 @@ export function tabViewActiveError(
             }
         }
     });
-};
+}

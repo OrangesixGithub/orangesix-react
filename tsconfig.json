@@ -18,6 +18,10 @@
     "noUnusedParameters": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "paths": {}
+    "paths": {
+      "@orangesix/*": [
+        "./dist/*"
+      ]
+    }
   }
 }

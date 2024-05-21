@@ -1,9 +1,16 @@
+import * as path from "path";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import viteReact from "@vitejs/plugin-react";
+import viteDynamicImport from "vite-plugin-dynamic-import";
 
 export default defineConfig({
-    plugins: [react()],
+    plugins: [
+        viteReact(),
+        viteDynamicImport({})
+    ],
     resolve: {
-        alias: {}
+        alias: {
+            "@orangesix": path.resolve(__dirname, "./dist"),
+        }
     }
 });

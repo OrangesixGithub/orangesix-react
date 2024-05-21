@@ -6,9 +6,9 @@ import { SweetAlertOptions } from "sweetalert2";
  * @author Luiz Fernando Bernardes de Paula
  * @module utils
  */
-declare const BASE: null | string;
-declare const TOKEN: null | string;
-declare const USER: null | string;
+export declare const BASE: null | string;
+export declare const TOKEN: null | string;
+export declare const USER: null | string;
 
 /**
  * Returns the typing of the <b>request.ts</b> file
@@ -21,7 +21,7 @@ export interface IUtilsRequestPostOptions {
     url?: string
 }
 
-declare function post<IResponseData>(route: string, body: any, form: string = "", options?: IUtilsRequestPostOptions): Promise<IResponseData>;
+export declare function post<IResponseData>(route: string, body: any, form: string = "", options?: IUtilsRequestPostOptions): Promise<IResponseData>;
 
 /**
  * Returns the typing of the <b>helper.ts</b> file
@@ -30,7 +30,7 @@ declare function post<IResponseData>(route: string, body: any, form: string = ""
  * @module utils
  */
 export interface IUtilsHelperResponse {
-    GET_CEP: {
+    gep_cep: {
         bairro: string
         cep: string
         complemento: string
@@ -40,9 +40,9 @@ export interface IUtilsHelperResponse {
     }
 }
 
-declare function windowMessageEvent(): void
+export declare function windowMessageEvent(): void
 
-declare async function getCep(value: string): Promise<IUtilsHelperResponse["GET_CEP"]>
+export declare async function getCep(value: string): Promise<IUtilsHelperResponse["gep_cep"]>
 
 /**
  * Returns the typing of the <b>response.ts</b> file
@@ -82,13 +82,13 @@ export interface IUtilsResponseMessage {
     icon?: string
 }
 
-declare function response<Type>(response: IUtilsResponseType<Type>, form: string = ""): void
+export declare function response<Type>(response: IUtilsResponseType<Type>, form: string = ""): void
 
-declare function messageField(data: IUtilsResponseError, form: string = "", type: string = "is-invalid"): void
+export declare function messageField(data: IUtilsResponseError, form: string = "", type: string = "is-invalid"): void
 
-declare function messageFieldClear(form: string = ""): void
+export declare function messageFieldClear(form: string = ""): void
 
-declare function tabViewActiveError(form: string = "", errors: IUtilsResponseError): void
+export declare function tabViewActiveError(form: string = "", errors: IUtilsResponseError): void
 
 /**
  * Returns the typing of the <b>message.ts</b> file
@@ -96,10 +96,6 @@ declare function tabViewActiveError(form: string = "", errors: IUtilsResponseErr
  * @author Luiz Fernando Bernardes de Paula
  * @module utils
  */
-export interface IUtilsMessageOptions {
-    sweetAlert: SweetAlertOptions
-}
-
 export interface IUtilsMessage<T extends keyof IUtilsMessageOptions> {
     message: IUtilsResponseMessage,
     type?: "toast" | "message",
@@ -107,15 +103,11 @@ export interface IUtilsMessage<T extends keyof IUtilsMessageOptions> {
     library?: keyof IUtilsMessageOptions
 }
 
-export {
-    BASE,
-    TOKEN,
-    USER,
-    post,
-    getCep,
-    response,
-    messageField,
-    messageFieldClear,
-    tabViewActiveError
-};
+export interface IUtilsMessageOptions {
+    sweetAlert: SweetAlertOptions,
+    snackbar: SnackbarOptions
+}
 
+export declare function sendMessage<T extends keyof IUtilsMessageOptions>(params: IUtilsMessage<T>)
+
+export declare function message<T extends keyof IUtilsMessageOptions>(params: IUtilsMessage<T>)
