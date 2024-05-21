@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "jsx": "react",
+    "jsx": "preserve",
     "experimentalDecorators": true,
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "baseUrl": "./",
     "noEmitOnError": true,
     "esModuleInterop": true,

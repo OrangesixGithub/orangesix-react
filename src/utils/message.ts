@@ -53,11 +53,12 @@ export function message<T extends keyof IUtilsMessageOptions>(params: IUtilsMess
             break;
         case "snackbar":
             let config: any = options;
+            let text: string = message.message ?? message.text ?? message.title ?? "Não foi possível carregar a mensagem.";
             Snackbar.show(config === undefined ? {
                 pos: "top-right",
                 showAction: false,
                 customClass: message.type,
-                text: "<p class='d-flex m-0 align-items-center'><i class='me-2 " + message.icon + "'></i>" + message.title + "</p>",
+                text: "<p class='d-flex m-0 align-items-center'><i class='me-2 " + message.icon + "'></i>" + text + "</p>",
             } : config);
             break;
     }

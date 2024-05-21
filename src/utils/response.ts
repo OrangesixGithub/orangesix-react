@@ -45,9 +45,12 @@ export function messageField(
 ): void {
     // @ts-ignore
     let body = window.self === window.top ? $("body") : $(window.frameElement).parents("body");
-    let formulario = body.find("#" + form);
-    tabViewActiveError(form, data);
+    let formulario = body.find(form.length > 0 ? "#" + form : null);
+    if (formulario.length === 0) {
+        return;
+    }
 
+    tabViewActiveError(form, data);
     let validationFeedbackClass: string = type === "is-invalid" ? "invalid-feedback" : "valid-feedback";
     let removeValidationFeedbackClass: string = type === "is-invalid" ? "is-valid" : "is-invalid";
 
@@ -112,7 +115,7 @@ export function messageFieldClear(
 ): void {
     // @ts-ignore
     let body = window.self === window.top ? $("body") : $(window.frameElement).parents("body");
-    let formulario = body.find("#" + form);
+    let formulario = body.find(form.length > 0 ? "#" + form : null);
     if (formulario.length === 0) {
         return;
     }
@@ -178,7 +181,7 @@ export function tabViewActiveError(
 ): void {
     // @ts-ignore
     let body = window.self === window.top ? $("body") : $(window.frameElement).parents("body");
-    let TabView = body.find("#" + form);
+    let TabView = body.find(form.length > 0 ? "#" + form : null);
     if (TabView.length === 0) {
         return;
     }

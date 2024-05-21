@@ -76,8 +76,9 @@ export interface IUtilsResponseModal {
 }
 
 export interface IUtilsResponseMessage {
-    title: string
-    type: "success" | "warning" | "error" | "info"
+    type?: "success" | "warning" | "error" | "info"
+    title?: string
+    message?: string
     text?: string
     icon?: string
 }
