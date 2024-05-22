@@ -17,11 +17,24 @@ export declare const USER: null | string;
  * @module utils
  */
 export interface IUtilsRequestPostOptions {
+
+    /**
+     * Blocks multiple simultaneous requests
+     */
     blockedToManyRequest?: boolean
+
+    /**
+     * Blocks the execution of the response method upon return from the post.
+     */
+    blockedResponse?: boolean
+
+    /**
+     * Replace the BASE url with the absolute url provided
+     */
     url?: string
 }
 
-export declare function post<IResponseData>(route: string, body: any, form: string = "", options?: IUtilsRequestPostOptions): Promise<IResponseData>;
+export declare function post<TypeDataResponse extends IUtilsResponseType<any>>(route: string, body: any, form: string, options?: IUtilsRequestPostOptions): Promise<TypeDataResponse>;
 
 /**
  * Returns the typing of the <b>helper.ts</b> file
@@ -83,13 +96,13 @@ export interface IUtilsResponseMessage {
     icon?: string
 }
 
-export declare function response<Type>(response: IUtilsResponseType<Type>, form: string = ""): void
+export declare function response<Type>(response: IUtilsResponseType<Type>, form: string): void
 
-export declare function messageField(data: IUtilsResponseError, form: string = "", type: string = "is-invalid"): void
+export declare function messageField(data: IUtilsResponseError, form: string, type: string): void
 
-export declare function messageFieldClear(form: string = ""): void
+export declare function messageFieldClear(form: string): void
 
-export declare function tabViewActiveError(form: string = "", errors: IUtilsResponseError): void
+export declare function tabViewActiveError(form: string, errors: IUtilsResponseError): void
 
 /**
  * Returns the typing of the <b>message.ts</b> file

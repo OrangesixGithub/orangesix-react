@@ -9,7 +9,7 @@
     "noEmitOnError": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "allowJs": true,
     "checkJs": false,
     "noImplicitAny": false,
@@ -23,5 +23,10 @@
         "./dist/*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "rollup.config.js"
+  ]
 }

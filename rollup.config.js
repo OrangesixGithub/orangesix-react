@@ -40,7 +40,7 @@ function addPackageJson() {
             "component library"
         ],
         "dependencies": {
-            "axios": "^1.6.8",
+            "axios": "^1.7.2",
             "jquery": "^3.7.1",
             "node-snackbar": "^0.1.16",
             "primereact": "^10.6.5",
