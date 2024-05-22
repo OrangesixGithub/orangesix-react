@@ -34,7 +34,7 @@ export interface IUtilsRequestPostOptions {
     url?: string
 }
 
-export declare function post<TypeDataResponse extends IUtilsResponseType<any>>(route: string, body: any, form: string, options?: IUtilsRequestPostOptions): Promise<TypeDataResponse>;
+export declare function post<TypeDataResponse extends IUtilsResponseType<any>>(route: string, body: any, form?: string, options?: IUtilsRequestPostOptions): Promise<TypeDataResponse>;
 
 /**
  * Returns the typing of the <b>helper.ts</b> file

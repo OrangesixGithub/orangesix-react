@@ -9,7 +9,7 @@ import { IUtilsRequestPostOptions, IUtilsResponseType } from "./@types";
 export function post<TypeDataResponse = IUtilsResponseType<any>>(
     route: string,
     body: any,
-    form: string = "",
+    form?: string,
     options?: IUtilsRequestPostOptions
 ): Promise<TypeDataResponse> {
     return new Promise((resolve, reject) => {
@@ -26,7 +26,7 @@ export function post<TypeDataResponse = IUtilsResponseType<any>>(
                 resolve(data.data);
             }
             if (typeof options?.blockedResponse !== "boolean" || options?.blockedResponse === false) {
-                response<TypeDataResponse>((data?.data as IUtilsResponseType<TypeDataResponse>));
+                response<TypeDataResponse>((data?.data as IUtilsResponseType<TypeDataResponse>), form);
             }
         }).catch(error => {
             response<TypeDataResponse>(error.response?.data, form);

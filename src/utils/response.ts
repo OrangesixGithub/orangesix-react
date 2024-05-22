@@ -26,7 +26,7 @@ export function response<Type>(
         messageField(data.accept, form.length === 0 ? "" : form, "is-valid");
     }
 
-    if (data.message) {
+    if (data.message && data?.errors === undefined) {
         sendMessage<"snackbar">({
             message: { ...data.message },
             type: "message",
