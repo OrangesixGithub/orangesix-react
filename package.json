@@ -1,14 +1,14 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.0.3-x8",
+  "version": "1.0.3-x9",
   "description": "Set of components and functions available to be used in a React project.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:package": "rollup -c",
+    "build:package": "npm run test && rollup -c",
     "test": "jest",
     "lint": "eslint . --ext .ts --ext .tsx",
     "lint:fix": "eslint . --ext .ts --ext .tsx --fix"

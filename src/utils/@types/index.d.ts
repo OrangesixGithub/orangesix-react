@@ -57,6 +57,8 @@ export declare function windowMessageEvent(): void
 
 export declare async function getCep(value: string): Promise<IUtilsHelperResponse["gep_cep"]>
 
+export declare async function getElementDOM(element: string, preloadTimeOut: number): Promise<null | JQuery<HTMLElement>>
+
 /**
  * Returns the typing of the <b>response.ts</b> file
  *
