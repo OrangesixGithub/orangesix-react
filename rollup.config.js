@@ -43,7 +43,7 @@ function addPackageJson() {
             "axios": "^1.7.2",
             "jquery": "^3.7.1",
             "node-snackbar": "^0.1.16",
-            "primereact": "^10.6.5",
+            "primereact": "^10.6.6",
             "react": "^18.0.0",
             "react-dom": "^18.0.0",
             "sweetalert2": "^11.11.0"

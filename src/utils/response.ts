@@ -4,7 +4,7 @@ import { getElementDOM } from "./helper";
 import { IUtilsResponseType, IUtilsResponseError } from "./@types";
 
 /**
- * Performed application response management
+ * Realizei o gerenciamento do objeto de resposta
  */
 export function response<Type>(
     response: IUtilsResponseType<Type>,
@@ -37,7 +37,7 @@ export function response<Type>(
 }
 
 /**
- * Displays the message within the form field
+ * Exibe a mensagem no campo do formulário
  */
 export function messageField(
     data: IUtilsResponseError,
@@ -109,7 +109,7 @@ export function messageField(
 }
 
 /**
- * Clear feedback messages from the form provided
+ * Limpar as mensagens de feedback do formulário
  */
 export function messageFieldClear(
     form: string = ""
@@ -174,7 +174,7 @@ export function messageFieldClear(
 }
 
 /**
- * Activates the TabView when the field presents an error
+ * Ativa o TabView quando o campo apresenta erro
  */
 export function tabViewActiveError(
     form: string = "",

@@ -1,20 +1,20 @@
 import { SweetAlertOptions } from "sweetalert2";
 
 /**
- * Returns the typing of the <b>const.ts</b> file
+ * Retorna os tipos do arquivo <b>const.ts</b>
  *
- * @author Luiz Fernando Bernardes de Paula
  * @module utils
+ * @author Luiz Fernando Bernardes de Paula
  */
 export declare const BASE: null | string;
 export declare const TOKEN: null | string;
 export declare const USER: null | string;
 
 /**
- * Returns the typing of the <b>request.ts</b> file
+ * Retorna os tipos do arquivo <b>request.ts</b>
  *
- * @author Luiz Fernando Bernardes de Paula
  * @module utils
+ * @author Luiz Fernando Bernardes de Paula
  */
 export interface IUtilsRequestPostOptions {
 
@@ -37,10 +37,10 @@ export interface IUtilsRequestPostOptions {
 export declare function post<TypeDataResponse extends IUtilsResponseType<any>>(route: string, body: any, form?: string, options?: IUtilsRequestPostOptions): Promise<TypeDataResponse>;
 
 /**
- * Returns the typing of the <b>helper.ts</b> file
+ * Retorna os tipos do arquivo <b>helper.ts</b>
  *
- * @author Luiz Fernando Bernardes de Paula
  * @module utils
+ * @author Luiz Fernando Bernardes de Paula
  */
 export interface IUtilsHelperResponse {
     gep_cep: {
@@ -55,15 +55,18 @@ export interface IUtilsHelperResponse {
 
 export declare function windowMessageEvent(): void
 
+export declare function getMetaContent(id: string): string | null
+
 export declare async function getCep(value: string): Promise<IUtilsHelperResponse["gep_cep"]>
 
-export declare async function getElementDOM(element: string, preloadTimeOut: number): Promise<null | JQuery<HTMLElement>>
+export declare async function getElementDOM(element?: string, preloadTimeOut?: number): Promise<null | JQuery<HTMLElement>>
+
 
 /**
- * Returns the typing of the <b>response.ts</b> file
+ * Retorna os tipos do arquivo <b>response.ts</b>
  *
- * @author Luiz Fernando Bernardes de Paula
  * @module utils
+ * @author Luiz Fernando Bernardes de Paula
  */
 export interface IUtilsResponseType<T> {
     data?: T
@@ -107,10 +110,10 @@ export declare function messageFieldClear(form: string): void
 export declare function tabViewActiveError(form: string, errors: IUtilsResponseError): void
 
 /**
- * Returns the typing of the <b>message.ts</b> file
+ * Retorna os tipos do arquivo <b>message.ts</b>
  *
- * @author Luiz Fernando Bernardes de Paula
  * @module utils
+ * @author Luiz Fernando Bernardes de Paula
  */
 export interface IUtilsMessage<T extends keyof IUtilsMessageOptions> {
     message: IUtilsResponseMessage,

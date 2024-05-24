@@ -4,7 +4,7 @@ import { messageFieldClear, response } from "./response";
 import { IUtilsRequestPostOptions, IUtilsResponseType } from "./@types";
 
 /**
- * Simplifies the POST HTTP request using the axios library behind the scenes.
+ * Simplifica a solicitação POST HTTP usando a biblioteca axios
  */
 export function post<TypeDataResponse = IUtilsResponseType<any>>(
     route: string,
@@ -36,7 +36,7 @@ export function post<TypeDataResponse = IUtilsResponseType<any>>(
 }
 
 /**
- * Blocks multiple simultaneous requests
+ * Bloqueia várias solicitações simultâneas
  */
 function handleToManyRequest(url: string, blocked: boolean): void {
     let requestCount = 0;

@@ -9,8 +9,7 @@ import React, { useEffect } from "react";
  */
 export function Example() {
 
-    useEffect(() => {
-    }, []);
+    useEffect(() => {}, []);
 
     return (
         <div className="container p-2">

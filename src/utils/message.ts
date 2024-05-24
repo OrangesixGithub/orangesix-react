@@ -3,7 +3,7 @@ import Snackbar from "node-snackbar";
 import { IUtilsMessage, IUtilsMessageOptions } from "./@types";
 
 /**
- * Sends the message to the window's message event
+ * Envia a mensagem para o evento da janela
  */
 export function sendMessage<T extends keyof IUtilsMessageOptions>(params: IUtilsMessage<T>) {
     let Window: Window = window.self === window.top ? window : window.parent;
@@ -20,7 +20,7 @@ export function sendMessage<T extends keyof IUtilsMessageOptions>(params: IUtils
 }
 
 /**
- * Returns the message object according to the given parameters
+ * Retorna o objeto mensagem de acordo com os parâmetros
  */
 export function message<T extends keyof IUtilsMessageOptions>(params: IUtilsMessage<T>) {
     let { message, library, type, options } = params;

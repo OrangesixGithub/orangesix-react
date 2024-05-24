@@ -1,7 +1,7 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.0.3-x9",
+  "version": "1.0.3",
   "description": "Set of components and functions available to be used in a React project.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "axios": "^1.7.2",
     "jquery": "^3.7.1",
     "node-snackbar": "^0.1.16",
-    "primereact": "^10.6.5",
+    "primereact": "^10.6.6",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sweetalert2": "^11.11.0"
@@ -49,9 +49,9 @@
   ],
   "keywords": [
     "react",
-    "primereact",
     "ui-kit",
     "ui library",
+    "primereact",
     "component library"
   ]
 }
