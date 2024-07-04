@@ -1,5 +1,5 @@
-import SweetAlert from "sweetalert2";
 import Snackbar from "node-snackbar";
+import SweetAlert, { SweetAlertOptions } from "sweetalert2";
 import { IUtilsMessage, IUtilsMessageOptions } from "./@types";
 
 /**
@@ -28,24 +28,24 @@ export function message<T extends keyof IUtilsMessageOptions>(params: IUtilsMess
     library = library ?? "snackbar";
     switch (library) {
         case "sweetAlert":
-            let swal = {
+            let swal: any = {
                 icon: message.type,
                 title: message.title,
                 text: message.text
             };
             if (type === "toast") {
-                const Toast = SweetAlert.mixin(options !== undefined ? options
-                    : {
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.onmouseenter = SweetAlert.stopTimer;
-                            toast.onmouseleave = SweetAlert.resumeTimer;
-                        }
-                    });
+                let config: SweetAlertOptions = options as SweetAlertOptions ?? {
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = SweetAlert.stopTimer;
+                        toast.onmouseleave = SweetAlert.resumeTimer;
+                    }
+                };
+                const Toast = SweetAlert.mixin(config);
                 Toast.fire(swal);
             } else {
                 SweetAlert.fire({ ...swal, ...options });

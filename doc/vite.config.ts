@@ -10,7 +10,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            "@orangesix": path.resolve(__dirname, "./dist"),
+            "@orangesix": path.resolve(__dirname, "../dist"),
         }
     }
 });

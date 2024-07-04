@@ -1,8 +1,13 @@
 import fs from "fs";
 import path from "path";
+
 import { defineConfig } from "rollup";
-import copy from "rollup-plugin-copy";
-import typescript from "rollup-plugin-typescript2";
+import RollupCopy from "rollup-plugin-copy";
+import RollupBabel from "@rollup/plugin-babel";
+import RollupTerser from "@rollup/plugin-terser";
+import RollupCommonJs from "@rollup/plugin-commonjs";
+import RollupResolve from "@rollup/plugin-node-resolve";
+import RollupTypescript from "@rollup/plugin-typescript";
 
 import pkg from "./package.json" assert { type: "json" };
 
@@ -11,7 +16,17 @@ import pkg from "./package.json" assert { type: "json" };
  */
 const __dir = "./src";
 const __folder = fs.readdirSync(__dir).filter(file => fs.statSync(path.join(__dir, file)).isDirectory());
-const __dependeciesExternal = ["axios", "jquery", "sweetalert2", "node-snackbar"];
+const __dependeciesExternal = [
+    "react",
+    "axios",
+    "jquery",
+    "react-dom",
+    "bootstrap",
+    "sweetalert2",
+    "node-snackbar",
+    "@stitches/react",
+    "primereact/avatar"
+];
 
 /**
  * Gera o package.json do pacote a ser publicado
@@ -40,13 +55,15 @@ function addPackageJson() {
             "component library"
         ],
         "dependencies": {
+            "@stitches/react": "^1.2.8",
             "axios": "^1.7.2",
+            "bootstrap": "^5.3.3",
             "jquery": "^3.7.1",
             "node-snackbar": "^0.1.16",
             "primereact": "^10.6.6",
             "react": "^18.0.0",
             "react-dom": "^18.0.0",
-            "sweetalert2": "^11.11.0"
+            "sweetalert2": "^11.11.1"
         }
     }`;
     fs.writeFileSync(path.join(outputDir, "package.json"), packageJson);
@@ -62,22 +79,40 @@ const components = __folder.map(folder => {
             {
                 file: `./dist/${folder}/index.cjs.js`,
                 format: "cjs",
+                sourcemap: true
             },
             {
                 file: `./dist/${folder}/index.esm.js`,
                 format: "esm",
+                sourcemap: true
             },
         ],
         external: __dependeciesExternal,
         plugins: [
-            typescript({ tsconfig: "./tsconfig.json" }),
-            copy({
+            RollupResolve({
+                extensions: [".js", ".jsx", ".ts", ".tsx"]
+            }),
+            RollupCommonJs(),
+            RollupTypescript({ tsconfig: "./tsconfig.json" }),
+            RollupBabel({
+                exclude: "node_modules/**",
+                babelHelpers: "bundled",
+                presets: [
+                    "@babel/preset-env",
+                    "@babel/preset-react",
+                    "@babel/preset-typescript"
+                ]
+            }),
+            RollupCopy({
                 targets: [
+                    { src: `./src/${folder}/css`, dest: `./dist/${folder}` },
+                    { src: `./src/${folder}/scss`, dest: `./dist/${folder}` },
+                    { src: `./src/${folder}/package.json`, dest: `./dist/${folder}/` },
                     { src: `./src/${folder}/@types/index.d.ts`, dest: `./dist/${folder}` },
-                    { src: `./src/${folder}/package.json`, dest: `./dist/${folder}/` }
                 ],
                 verbose: true
-            })
+            }),
+            RollupTerser()
         ]
     };
 });

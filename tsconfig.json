@@ -1,31 +1,23 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "jsx": "preserve",
-    "experimentalDecorators": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "baseUrl": "./",
-    "noEmitOnError": true,
+    "jsx": "react",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": false,
-    "allowJs": true,
-    "checkJs": false,
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "paths": {
-      "@orangesix/*": [
-        "./dist/*"
-      ]
-    }
+    "forceConsistentCasingInFileNames": true
   },
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
     "dist",
+    "doc",
     "node_modules",
     "rollup.config.js"
   ]
