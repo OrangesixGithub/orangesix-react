@@ -8,7 +8,8 @@
     "build": "storybook build"
   },
   "dependencies": {
-    "@orangesix/react": "*",
+    "@storybook/addon-a11y": "^8.1.11",
+    "bootstrap": "^5.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -26,6 +27,8 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "node-sass": "^9.0.0",
+    "sass": "^1.77.8",
     "storybook": "^8.1.11",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",

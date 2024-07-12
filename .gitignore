@@ -1,5 +1,8 @@
-node_modules/
-package-lock.json
-dist
+dist/
 .idea/
-/src/theme/css/
+node_modules/
+debug/assets/css
+debug/node_modules
+package-lock.json
+
+
