@@ -37,7 +37,7 @@ export const Box = ({ children, ...props }: BoxProps) => {
 
     const attr: HTMLAttributes<"div"> & Omit<BoxProps, "children"> = {
         css: { ...css, ...props.css },
-        className: props.className ?? "debug",
+        className: props.className ?? "",
         direction: props.direction
     };
 
