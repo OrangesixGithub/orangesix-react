@@ -88,11 +88,6 @@ const components = __folder.map(folder => {
         ],
         external: __dependeciesExternal,
         plugins: [
-            RollupResolve({
-                extensions: [".js", ".jsx", ".ts", ".tsx"]
-            }),
-            RollupCommonJs(),
-            RollupTypescript({ tsconfig: "./tsconfig.json" }),
             RollupBabel({
                 exclude: "node_modules/**",
                 babelHelpers: "bundled",
@@ -111,7 +106,14 @@ const components = __folder.map(folder => {
                 ],
                 verbose: true
             }),
-            RollupTerser()
+            RollupTerser(),
+            RollupCommonJs(),
+            RollupTypescript({
+                tsconfig: "./tsconfig.json"
+            }),
+            RollupResolve({
+                extensions: [".js", ".jsx", ".ts", ".tsx"]
+            }),
         ]
     };
 });

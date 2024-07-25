@@ -1,48 +1,21 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    // Qual versão o typescript vai interpretar (ESNext - sempre a versão mais atual).
-
     "module": "ESNext",
-    // Define o sistema de módulo do typescript.
-
     "baseUrl": "./",
-    // Define um diretório base a partir do qual resolver nomes de módulos.
-
     "moduleResolution": "node",
-    // Especifique a estratégia de resolução do módulo.
-
     "jsx": "react",
-    // Controla como as construções JSX são emitidas em arquivos JavaScript
-
     "experimentalDecorators": true,
-    // Habilita a utilização de decorators.
-
+    "esModuleInterop": true,
     "noEmitOnError": true,
-    // Não emita arquivos de saída do compilador.
-
     "strict": true,
-    // Aplicar a regra de validações estrita do typescript.
-
     "allowJs": true,
-    // Permita que arquivos JavaScript sejam importados dentro do seu projeto.
-
     "checkJs": false,
-    // Realiza validações em arquivo javascript.
-
     "noImplicitAny": false,
-    // O TypeScript retornará a um tipo de any para uma variável quando não puder inferir o tipo.
-
     "strictNullChecks": true,
-    // Emite erro quando tentar utilizar variável undefined ou null.
-
     "noUnusedLocals": true,
-    // Relate erros em variáveis locais não utilizadas.
-
     "noUnusedParameters": true,
-    // Relate erros em parâmetros não utilizados em funções.
-
-    "allowSyntheticDefaultImports": true
-    // Permite escrever uma importação como "import React from "react"";
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   }
 }

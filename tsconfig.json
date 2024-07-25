@@ -1,23 +1,19 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "ESNext",
     "module": "ESNext",
     "jsx": "react",
-    "declaration": false,
-    "sourceMap": true,
-    "outDir": "dist",
     "strict": true,
-    "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
-    "dist",
     "doc",
-    "node_modules",
-    "rollup.config.js"
+    "dist",
+    "debug"
   ]
 }

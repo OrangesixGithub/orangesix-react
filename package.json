@@ -15,6 +15,7 @@
     "lint:fix": "eslint . --ext .ts --ext .tsx --fix"
   },
   "dependencies": {
+    "@stitches/react": "^1.2.8",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
@@ -35,7 +36,6 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@stitches/react": "^1.2.8",
     "@types/jest": "^29.5.12",
     "@types/jquery": "^3.5.30",
     "@types/node": "^20.14.9",
