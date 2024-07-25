@@ -27,9 +27,8 @@ import React, { HTMLAttributes, useContext } from "react";
  */
 export const Box = ({ children, ...props }: BoxProps) => {
     const theme: any = useContext(ThemeProvider);
-
     const css: CSS = {
-        $$size: String((props.size ?? "100")) + "%",
+        $$size: `var(--${String(theme.prefix)}-sizes-${String(props.size ?? "100")})`,
         $$margin: `var(--${String(theme.prefix)}-space-${String(props.margin ?? "2")})`,
         $$padding: `var(--${String(theme.prefix)}-space-${(String(props.padding ?? "1"))})`,
         $$align: props.align ?? "initial",
@@ -38,7 +37,7 @@ export const Box = ({ children, ...props }: BoxProps) => {
 
     const attr: HTMLAttributes<"div"> & Omit<BoxProps, "children"> = {
         css: { ...css, ...props.css },
-        className: props.className ?? "",
+        className: props.className ?? "debug",
         direction: props.direction
     };
 
