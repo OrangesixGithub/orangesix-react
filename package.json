@@ -1,7 +1,7 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4-x2",
   "description": "Set of components and functions available to be used in a React project.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "primereact": "^10.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sweetalert2": "^11.12.2"
+    "sweetalert2": "^11.12.3"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
@@ -49,6 +49,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "rollup": "^4.18.0",
     "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.1",
     "tslib": "^2.6.3",
     "typescript": "^5.5.3"
   },

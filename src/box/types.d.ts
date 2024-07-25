@@ -1,7 +1,7 @@
 import React from "react";
-import { AlignItemsProps, APIComponentProps, JustifyContentProps } from "../../api/@types";
+import { AlignItemsProps, ApiComponentProps, JustifyContentProps } from "../api/types";
 
-export interface BoxProps extends APIComponentProps {
+export interface BoxProps extends ApiComponentProps {
 
     /**
      * A propriedade `direction` determina o valor do estilo CSS `flex-direction`,
@@ -28,26 +28,3 @@ export interface BoxProps extends APIComponentProps {
      */
     children: React.ReactNode
 }
-
-/**
- * Componente - `Box`
- *
- * Um componente versátil que pode ser utilizado para criar seções ou caixas em uma página.
- * Permite personalizar o estilo e o conteúdo através de propriedades.
- *
- * Exemplo de uso:
- * ```tsx
- * <Box css={{
- *   "@md": {
- *      width: "calc(50% - $$margin)"
- *                 }
- *   }}
- *   align="flex-end"
- *   justify="space-between"
- *   padding="4"
- *   size="25">
- *   ...conteúdo HTML
- *   </Box>
- * ```
- */
-export declare const Box: React.FC<BoxProps>;

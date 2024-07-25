@@ -1,7 +1,7 @@
-import { BoxProps } from "./@types";
+import { BoxProps } from "./types";
 import { Container } from "./styled";
 import { CSS } from "@stitches/react";
-import { ThemeProps, ThemeProvider } from "../api";
+import { ThemeProvider } from "../api";
 import React, { HTMLAttributes, useContext } from "react";
 
 /**
@@ -26,19 +26,19 @@ import React, { HTMLAttributes, useContext } from "react";
  * ```
  */
 export const Box = ({ children, ...props }: BoxProps) => {
-    const theme: ThemeProps = useContext(ThemeProvider);
-    
+    const theme: any = useContext(ThemeProvider);
+
     const css: CSS = {
-        $$size: (props.size ?? "100") + "%",
-        $$margin: `var(--${theme.prefix}-space-${(props.margin ?? "2")})`,
-        $$padding: `var(--${theme.prefix}-space-${(props.padding ?? "1")})`,
+        $$size: String((props.size ?? "100")) + "%",
+        $$margin: `var(--${String(theme.prefix)}-space-${String(props.margin ?? "2")})`,
+        $$padding: `var(--${String(theme.prefix)}-space-${(String(props.padding ?? "1"))})`,
         $$align: props.align ?? "initial",
         $$justify: props.justify ?? "initial"
     };
 
     const attr: HTMLAttributes<"div"> & Omit<BoxProps, "children"> = {
         css: { ...css, ...props.css },
-        className: props.className ?? "debug",
+        className: props.className ?? "",
         direction: props.direction
     };
 

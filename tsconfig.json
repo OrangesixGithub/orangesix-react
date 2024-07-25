@@ -3,6 +3,7 @@
     "baseUrl": "./",
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "Node",
     "jsx": "react",
     "strict": true,
     "skipLibCheck": true,

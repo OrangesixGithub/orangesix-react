@@ -66,8 +66,6 @@ export const ThemeDefault = {
     }
 };
 
-export type ThemeProps = typeof ThemeDefault;
-
 const ThemeStitches = createStitches(ThemeDefault);
 
 export const ThemeProvider: any = React.createContext({ ...ThemeStitches });

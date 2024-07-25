@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import { defineConfig } from "rollup";
+import { dts } from "rollup-plugin-dts";
 import RollupCopy from "rollup-plugin-copy";
 import RollupBabel from "@rollup/plugin-babel";
 import RollupTerser from "@rollup/plugin-terser";
@@ -24,8 +25,7 @@ const __dependeciesExternal = [
     "bootstrap",
     "sweetalert2",
     "node-snackbar",
-    "@stitches/react",
-    "primereact/avatar"
+    "@stitches/react"
 ];
 
 /**
@@ -47,23 +47,8 @@ function addPackageJson() {
         "bugs": {
             "url": "https://github.com/Nandovga/orangesix-react/issues"
         },
-        "keywords": [
-            "react",
-            "primereact",
-            "ui-kit",
-            "ui library",
-            "component library"
-        ],
-        "dependencies": {
-            "axios": "^1.7.2",
-            "bootstrap": "^5.3.3",
-            "jquery": "^3.7.1",
-            "node-snackbar": "^0.1.16",
-            "primereact": "^10.7.0",
-            "react": "^18.3.1",
-            "react-dom": "^18.3.1",
-            "sweetalert2": "^11.12.2"
-        }
+        "keywords": ${JSON.stringify(pkg.keywords, null, 2)},
+        "dependencies": ${JSON.stringify(pkg.dependencies, null, 2)}
     }`;
     fs.writeFileSync(path.join(outputDir, "package.json"), packageJson);
 }
@@ -73,7 +58,7 @@ function addPackageJson() {
  */
 const components = __folder.map(folder => {
     return {
-        input: `./src/${folder}/index.ts`,
+        input: `./src/${folder}/index`,
         output: [
             {
                 file: `./dist/${folder}/index.cjs.js`,
@@ -99,10 +84,7 @@ const components = __folder.map(folder => {
             }),
             RollupCopy({
                 targets: [
-                    { src: `./src/${folder}/css`, dest: `./dist/${folder}` },
-                    { src: `./src/${folder}/scss`, dest: `./dist/${folder}` },
                     { src: `./src/${folder}/package.json`, dest: `./dist/${folder}/` },
-                    { src: `./src/${folder}/@types/index.d.ts`, dest: `./dist/${folder}` },
                 ],
                 verbose: true
             }),
@@ -118,5 +100,20 @@ const components = __folder.map(folder => {
     };
 });
 
+/**
+ * Realiza a leitura da pasta "src" para gerar o index.d.ts dos components
+ */
+const componentsDts = __folder.map(folder => {
+    return {
+        input: `./src/${folder}/index.ts`,
+        output: {
+            file: `./dist/${folder}/index.d.ts`,
+            format: "es"
+        },
+        plugins: [dts()]
+    };
+});
+
 addPackageJson();
-export default defineConfig([...components]);
+
+export default defineConfig([...components, ...componentsDts]);

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import Core from "./src/core/index";
 import { Theme } from "./src/theme/theme";
-import { ThemeProvider } from "../src/api";
+import { ThemeProvider } from "../dist/api";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>

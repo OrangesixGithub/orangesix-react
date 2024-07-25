@@ -1,16 +1,6 @@
 import { SweetAlertOptions } from "sweetalert2";
 
 /**
- * Retorna os tipos do arquivo <b>const.ts</b>
- *
- * @module utils
- * @author Luiz Fernando Bernardes de Paula
- */
-export declare const BASE: null | string;
-export declare const TOKEN: null | string;
-export declare const USER: null | string;
-
-/**
  * Retorna os tipos do arquivo <b>request.ts</b>
  *
  * @module utils
@@ -34,8 +24,6 @@ export interface IUtilsRequestPostOptions {
     url?: string
 }
 
-export declare function post<TypeDataResponse extends IUtilsResponseType<any>>(route: string, body: any, form?: string, options?: IUtilsRequestPostOptions): Promise<TypeDataResponse>;
-
 /**
  * Retorna os tipos do arquivo <b>helper.ts</b>
  *
@@ -52,15 +40,6 @@ export interface IUtilsHelperResponse {
         uf: string
     }
 }
-
-export declare function windowMessageEvent(): void
-
-export declare function getMetaContent(id: string): string | null
-
-export declare async function getCep(value: string): Promise<IUtilsHelperResponse["gep_cep"]>
-
-export declare async function getElementDOM(element?: string, preloadTimeOut?: number): Promise<null | JQuery<HTMLElement>>
-
 
 /**
  * Retorna os tipos do arquivo <b>response.ts</b>
@@ -101,14 +80,6 @@ export interface IUtilsResponseMessage {
     icon?: string
 }
 
-export declare function response<Type>(response: IUtilsResponseType<Type>, form: string): void
-
-export declare function messageField(data: IUtilsResponseError, form: string, type: string): void
-
-export declare function messageFieldClear(form: string): void
-
-export declare function tabViewActiveError(form: string, errors: IUtilsResponseError): void
-
 /**
  * Retorna os tipos do arquivo <b>message.ts</b>
  *
@@ -126,7 +97,3 @@ export interface IUtilsMessageOptions {
     sweetAlert: SweetAlertOptions,
     snackbar: SnackbarOptions
 }
-
-export declare function sendMessage<T extends keyof IUtilsMessageOptions>(params: IUtilsMessage<T>)
-
-export declare function message<T extends keyof IUtilsMessageOptions>(params: IUtilsMessage<T>)
