@@ -6,7 +6,8 @@
   },
   "dependencies": {
     "@orangesix/react": "^1.0.3",
-    "@stitches/react": "^1.2.8"
+    "@stitches/react": "^1.2.8",
+    "bootstrap-icons": "^1.11.3"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",

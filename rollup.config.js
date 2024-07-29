@@ -25,7 +25,10 @@ const __dependeciesExternal = [
     "bootstrap",
     "sweetalert2",
     "node-snackbar",
-    "@stitches/react"
+    "@stitches/react",
+    "primereact/utils",
+    "primereact/column",
+    "primereact/datatable"
 ];
 
 /**

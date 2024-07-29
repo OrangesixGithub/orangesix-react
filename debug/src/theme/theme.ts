@@ -1,6 +1,13 @@
 import { createStitches } from "@stitches/react";
 import { ThemeDefault } from "../../../src/api";
 
-const ThemeCustom = {};
+const ThemeCustom = {
+    ...ThemeDefault,
+    theme: {
+        colors: {
+            primary: "#13b497",
+        },
+    },
+};
 
-export const Theme = createStitches({ ...ThemeDefault, ...ThemeCustom });
+export const Theme = createStitches(ThemeCustom);
