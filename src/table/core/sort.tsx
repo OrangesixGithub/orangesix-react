@@ -1,6 +1,4 @@
-import React from "react";
 import { TableProps } from "../types";
-import { STOREAction } from "../@types/context";
 import { DataTableProps, DataTableStateEvent } from "primereact/datatable";
 
 /**
@@ -9,26 +7,18 @@ import { DataTableProps, DataTableStateEvent } from "primereact/datatable";
  * Define as configurações do modo de ordenação de resultado.
  */
 export function tableSort(
-    DTOState: TableProps<any>,
-    DTOSetState: React.Dispatch<STOREAction>
+    props: TableProps<any>
 ): Partial<DataTableProps<any>> {
 
     function onSort(event: DataTableStateEvent) {
-        DTOSetState({
-            type: "setLazy", payload: {
-                ...event,
-                paginationPage: event.first,
-                paginationTotal: DTOState?.lazy?.paginationTotal ?? undefined
-            }
-        });
-        if (DTOState.onSort) {
-            DTOState.onSort(event.sortField, event.sortOrder);
+        if (props.onSort) {
+            props.onSort(event.sortField, event.sortOrder);
         }
     }
 
     return {
-        sortField: DTOState.lazy?.sortField,
-        sortOrder: DTOState.lazy?.sortOrder ?? null,
-        onSort: DTOState.lazy !== undefined ? onSort : undefined
+        sortField: props.lazy?.sortField,
+        sortOrder: props.lazy?.sortOrder ?? null,
+        onSort: props.lazy !== undefined ? onSort : undefined
     };
 }

@@ -7,6 +7,29 @@ import { TableTemplateProps } from "./@types/template";
 import { TableSelectionProps } from "./@types/selection";
 import { TablePaginationProps } from "./@types/pagination";
 
+export type TableLazyProps = {
+
+    /**
+     * Define qual campo vem com a ordernação padrão do back-end
+     */
+    sortField?: string
+
+    /**
+     * Define qual é o tipo de ordenação padrão do back-end
+     */
+    sortOrder?: SortOrder
+
+    /**
+     * Define qual é paginação inicial
+     */
+    paginationPage?: number
+
+    /**
+     * Define o número total de registro da tabela
+     */
+    paginationTotal?: number
+}
+
 export interface TableProps<T> extends TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, Omit<ApiComponentProps, | "margin" | "padding"> {
 
     /**
@@ -27,10 +50,5 @@ export interface TableProps<T> extends TableStyleProps, TableSelectionProps, Tab
     /**
      * Define se a gerenciamento da tabela vai ser manual ou dinamica
      */
-    lazy?: {
-        sortField?: string
-        sortOrder?: SortOrder
-        paginationPage?: number
-        paginationTotal?: number
-    }
+    lazy?: TableLazyProps
 }

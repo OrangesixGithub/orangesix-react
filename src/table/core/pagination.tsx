@@ -1,6 +1,5 @@
 import React from "react";
 import { TableProps } from "../types";
-import { STOREAction } from "../@types/context";
 import { PaginatorChangeEvent } from "primereact/paginator";
 import { DataTableBaseProps, DataTableStateEvent } from "primereact/datatable";
 
@@ -10,33 +9,23 @@ import { DataTableBaseProps, DataTableStateEvent } from "primereact/datatable";
  * Define as configurações do modo de paginação de resultado.
  */
 export function tablePagination(
-    DTOState: TableProps<any>,
-    DTOSetState: React.Dispatch<STOREAction>
+    props: TableProps<any>
 ): Partial<DataTableBaseProps<any>> {
 
     function onPage(event: DataTableStateEvent) {
-        let paginationPage = event.first / (DTOState.paginatorRow ?? 10);
-        DTOSetState({ type: "setPaginatorRow", payload: event.rows });
-        DTOSetState({
-            type: "setLazy",
-            payload: {
-                ...event,
-                paginationPage: paginationPage === 0 ? 1 : paginationPage + 1,
-                paginationTotal: DTOState?.lazy?.paginationTotal ?? undefined
-            }
-        });
-        if (DTOState.onPaginator) {
-            DTOState.onPaginator(paginationPage + 1, event.rows);
+        let paginationPage = event.first / (props.paginatorRow ?? 10);
+        if (props.onPaginator) {
+            props.onPaginator(paginationPage + 1, event.rows);
         }
     }
 
     return {
-        first: DTOState?.lazy?.paginationPage === undefined ? 0 : ((DTOState?.lazy?.paginationPage ?? 0) - 1) * (DTOState.paginatorRow ?? 10),
+        first: props?.lazy?.paginationPage === undefined ? 0 : ((props?.lazy?.paginationPage ?? 0) - 1) * (props.paginatorRow ?? 10),
         paginatorClassName: "pagination",
-        paginator: DTOState.paginator ?? false,
-        rows: DTOState.paginator ? (DTOState.paginatorRow ?? 10) : undefined,
+        paginator: props.paginator ?? false,
+        rows: props.paginator ? (props.paginatorRow ?? 10) : undefined,
         rowsPerPageOptions: [5, 10, 15, 20, 50, 100],
-        totalRecords: DTOState?.lazy?.paginationTotal ?? undefined,
+        totalRecords: props?.lazy?.paginationTotal ?? undefined,
         paginatorTemplate: {
             layout: "RowsPerPageDropdown FirstPageLink PageLinks LastPageLink CurrentPageReport",
             CurrentPageReport: options => {
@@ -61,8 +50,8 @@ export function tablePagination(
                 );
             }
         },
-        onPage: DTOState.lazy !== undefined ? onPage : undefined,
-        paginatorRight: DTOState.templatePaginationRight,
-        paginatorLeft: DTOState.templatePaginationLeft
+        onPage: props.lazy !== undefined ? onPage : undefined,
+        paginatorRight: props.templatePaginationRight,
+        paginatorLeft: props.templatePaginationLeft
     };
 }

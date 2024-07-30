@@ -14,6 +14,7 @@ export function tableCore(
         dataKey: "id",
         lazy: props.lazy !== undefined,
         resizableColumns: props.styleResizable ?? false,
+        columnResizeMode: "expand",
         emptyMessage: props.emptyMessage ?? "Não há informações disponíveis no momento.",
     };
 }

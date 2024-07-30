@@ -122,9 +122,16 @@ export function bootstrapColumnStyle(props: TableColumnProps): ColumnPassThrough
         }
     };
 
+    const styleResizable: CSS = {
+        textOverflow: "ellipsis"
+    };
+
     return {
         sort: {
             className: ThemeProvider._currentValue.css(styleSort)
+        },
+        bodyCell: {
+            className: ThemeProvider._currentValue.css(styleResizable)
         },
         headerCell: (options) => {
             return {
