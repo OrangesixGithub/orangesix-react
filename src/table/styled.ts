@@ -14,8 +14,8 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
 
     const stylePagination: CSS = {
         fontSize: ".9em",
-        minWidth: "30px",
-        height: "30px",
+        minWidth: "28px",
+        height: "28px",
         color: "$secondary",
     };
 
@@ -41,9 +41,22 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
         }
     };
 
+    const styleScrollbar: CSS = {
+        "&::-webkit-scrollbar": {
+            height: "8px"
+        },
+        "&::-webkit-scrollbar-thumb": {
+            background: "#e1e1e1",
+            borderRadius: "10px"
+        }
+    };
+
     return {
         root: {
             className: classNames("table-responsive w-100", props.style)
+        },
+        wrapper: {
+            className: ThemeProvider._currentValue.css(styleScrollbar)
         },
         table: {
             className: classNames([
@@ -61,7 +74,7 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
         paginator: {
             root: {
                 className: classNames([
-                    "p-0 d-flex",
+                    "p-0 d-flex mt-1",
                     `justify-content-${props.paginatorAlign ?? "center"}`
                 ]),
                 style: { borderTop: "none" }

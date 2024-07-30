@@ -3,6 +3,11 @@ import { TableProps } from "../types";
 import { STOREAction } from "../@types/context";
 import { DataTableProps, DataTableStateEvent } from "primereact/datatable";
 
+/**
+ * Componente - `Table`
+ *
+ * Define as configurações do modo de ordenação de resultado.
+ */
 export function tableSort(
     DTOState: TableProps<any>,
     DTOSetState: React.Dispatch<STOREAction>

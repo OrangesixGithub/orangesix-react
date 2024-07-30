@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import Table from "./src/table/index";
 import { Theme } from "./src/theme/theme";
-import { ThemeProvider } from "../src/api";
+import { ThemeProvider } from "../dist/api";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";

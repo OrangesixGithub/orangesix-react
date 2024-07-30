@@ -34,6 +34,11 @@ export function Table<T = any>(props: TableProps<T>) {
     //@ts-ignore
     const [DTOState, DTOSetState] = useReducer(reducer, Object.assign(initState, props));
 
+    /*
+    |------------------------------------------
+    | render() - Renderização do componente
+    |------------------------------------------
+    */
     return (
         <TableContext.Provider value={{ DTOState, DTOSetState }}>
             <Box size={props.size ?? "100"}>

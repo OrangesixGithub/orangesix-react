@@ -4,6 +4,11 @@ import { STOREAction } from "../@types/context";
 import { PaginatorChangeEvent } from "primereact/paginator";
 import { DataTableBaseProps, DataTableStateEvent } from "primereact/datatable";
 
+/**
+ * Componente - `Table`
+ *
+ * Define as configurações do modo de paginação de resultado.
+ */
 export function tablePagination(
     DTOState: TableProps<any>,
     DTOSetState: React.Dispatch<STOREAction>
@@ -56,6 +61,8 @@ export function tablePagination(
                 );
             }
         },
-        onPage: DTOState.lazy !== undefined ? onPage : undefined
+        onPage: DTOState.lazy !== undefined ? onPage : undefined,
+        paginatorRight: DTOState.templatePaginationRight,
+        paginatorLeft: DTOState.templatePaginationLeft
     };
 }

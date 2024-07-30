@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box } from "../../../dist/box";
-import { Table } from "../../../src/table";
+import { Table } from "../../../dist/table";
 
 const Core = () => {
     const [select, setSelect] = useState(null);
@@ -10,10 +10,11 @@ const Core = () => {
                  size="50">
                 <Table
                     paginator
+                    styleResizable
                     column={[
-                        { id: "id", header: "Código", sort: true },
-                        { id: "name", header: "Nome", sort: true },
-                        { id: "idade", header: "Idade", sort: true }
+                        { id: "id", header: "Código", sort: true, style: { minWidth: "100px" } },
+                        { id: "name", header: "Nome", sort: true, style: { minWidth: "200px" } },
+                        { id: "idade", header: "Idade", sort: true, style: { minWidth: "150px" } }
                     ]}
                     data={[
                         { id: 1, name: "Luiz Fernando", idade: 30 },
@@ -23,8 +24,12 @@ const Core = () => {
                         { id: 5, name: "Luzia", idade: 55 },
                         { id: 6, name: "Luiz Fernando", idade: 52 },
                     ]}
+                    paginatorAlign="start"
                     paginatorRow={5}
-                    styleSize="small"/>
+                    selection={select}
+                    styleSize="small"
+                    styleType="bordered"
+                    onSelection={setSelect}/>
             </Box>
         </div>
     );

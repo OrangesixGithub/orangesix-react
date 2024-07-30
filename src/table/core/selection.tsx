@@ -3,6 +3,11 @@ import { TableProps } from "../types";
 import { STOREAction } from "../@types/context";
 import { DataTableProps, DataTableSelectionSingleChangeEvent } from "primereact/datatable";
 
+/**
+ * Componente - `Table`
+ *
+ * Define as configurações do modo de seleção de dados.
+ */
 export function tableSelection(
     props: TableProps<any>,
     DTOSetState: React.Dispatch<STOREAction>
