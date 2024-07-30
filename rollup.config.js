@@ -94,7 +94,8 @@ const components = __folder.map(folder => {
             RollupTerser(),
             RollupCommonJs(),
             RollupTypescript({
-                tsconfig: "./tsconfig.json"
+                tsconfig: "./tsconfig.json",
+                noEmitOnError: true
             }),
             RollupResolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx"]

@@ -23,3 +23,4 @@ export type PropsModule = {
 export type STOREType =
     | "setLazy"
     | "setPaginatorRow"
+    | "setOnSelected"

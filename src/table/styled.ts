@@ -17,10 +17,6 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
         minWidth: "30px",
         height: "30px",
         color: "$secondary",
-
-        ".p-highlight": {
-            background: "red"
-        }
     };
 
     const stylePaginationActive: CSS = {
@@ -28,6 +24,20 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
             background: "$primary",
             border: "none",
             color: "#fff"
+        }
+    };
+
+    const styleSelected: CSS = {
+        "& tr[tabindex=\"0\"]": {
+            background: "$light",
+            outline: "none"
+        },
+        ".p-highlight": {
+            background: "$light",
+
+            "& td": {
+                fontWeight: "bolder"
+            }
         }
     };
 
@@ -43,7 +53,10 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
                 props.styleSize === "small" ? "table-sm" : "",
                 props.styleType === "bordered" ? "table-bordered" : props.styleType === "borderless" ? "table-borderless" : "",
                 props.styleTable
-            ])
+            ]),
+        },
+        tbody: {
+            className: ThemeProvider._currentValue.css(styleSelected),
         },
         paginator: {
             root: {

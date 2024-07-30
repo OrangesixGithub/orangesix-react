@@ -1,5 +1,6 @@
 import React from "react";
-import { ColumnHeaderOptions } from "primereact/column";
+import { CSS } from "@stitches/react";
+import { ColumnBodyOptions, ColumnHeaderOptions } from "primereact/column";
 
 export interface TableColumnProps {
 
@@ -36,5 +37,10 @@ export interface TableColumnProps {
     /**
      * Conteúdo do corpo da coluna.
      */
-    body?: React.ReactNode
+    body?: (data: any, options: ColumnBodyOptions) => React.ReactNode
+
+    /**
+     * Define as propriedades `css` para cada coluna
+     */
+    style?: CSS
 }

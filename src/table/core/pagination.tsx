@@ -7,10 +7,10 @@ import { DataTableBaseProps, DataTableStateEvent } from "primereact/datatable";
 export function tablePagination(
     DTOState: TableProps<any>,
     DTOSetState: React.Dispatch<STOREAction>
-): DataTableBaseProps<any> {
+): Partial<DataTableBaseProps<any>> {
 
     function onPage(event: DataTableStateEvent) {
-        let paginationPage = event.first / DTOState.paginatorRow;
+        let paginationPage = event.first / (DTOState.paginatorRow ?? 10);
         DTOSetState({ type: "setPaginatorRow", payload: event.rows });
         DTOSetState({
             type: "setLazy",
@@ -26,7 +26,7 @@ export function tablePagination(
     }
 
     return {
-        first: ((DTOState?.lazy?.paginationPage ?? 0) - 1) * (DTOState.paginatorRow ?? 10),
+        first: DTOState?.lazy?.paginationPage === undefined ? 0 : ((DTOState?.lazy?.paginationPage ?? 0) - 1) * (DTOState.paginatorRow ?? 10),
         paginatorClassName: "pagination",
         paginator: DTOState.paginator ?? false,
         rows: DTOState.paginator ? (DTOState.paginatorRow ?? 10) : undefined,

@@ -6,7 +6,7 @@ import { DataTableProps, DataTableStateEvent } from "primereact/datatable";
 export function tableSort(
     DTOState: TableProps<any>,
     DTOSetState: React.Dispatch<STOREAction>
-): DataTableProps<any> {
+): Partial<DataTableProps<any>> {
 
     function onSort(event: DataTableStateEvent) {
         DTOSetState({

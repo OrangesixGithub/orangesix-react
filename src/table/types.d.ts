@@ -4,9 +4,10 @@ import { ApiComponentProps } from "../api/types";
 import { TableStyleProps } from "./@types/style";
 import { TableColumnProps } from "./@types/column";
 import { TableTemplateProps } from "./@types/template";
+import { TableSelectionProps } from "./@types/selection";
 import { TablePaginationProps } from "./@types/pagination";
 
-export interface TableProps<T> extends TableStyleProps, TableTemplateProps, TableSortProps, TablePaginationProps, Omit<ApiComponentProps, | "margin" | "padding"> {
+export interface TableProps<T> extends TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, Omit<ApiComponentProps, | "margin" | "padding"> {
 
     /**
      * Uma matriz de objeto que renderiza o cabeçalho
