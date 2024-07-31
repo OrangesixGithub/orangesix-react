@@ -30,7 +30,7 @@ export function tablePagination(
             layout: "RowsPerPageDropdown FirstPageLink PageLinks LastPageLink CurrentPageReport",
             CurrentPageReport: options => {
                 return (
-                    <p className="text-secondary-300 mx-2"
+                    <p className="text-secondary mx-2"
                        style={{ fontSize: ".9em" }}>Total de registros: {options.totalRecords}</p>
                 );
             },

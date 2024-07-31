@@ -26,7 +26,8 @@ export function Table<T = any>(props: TableProps<T>) {
     |------------------------------------------
     */
     return (
-        <Box size={props.size ?? "100"}>
+        <Box css={{ padding: "0", margin: "0 auto", ...props.css }}
+             size={props.size ?? "100"}>
             {/*@ts-ignore*/}
             <DataTable<any>
                 pt={{ ...bootstrapTableStyle(props) }}
