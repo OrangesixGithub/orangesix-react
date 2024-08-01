@@ -19,7 +19,7 @@ export function tableSelection(
     return {
         metaKeySelection: props.onSelection !== undefined,
         selection: props.selection,
-        selectionMode: props.onSelection !== undefined ? "single" : undefined,
+        selectionMode: props.onSelection !== undefined ? (props.selectionMode as any ?? "single") : undefined,
         onSelectionChange: onSelect,
     };
 }

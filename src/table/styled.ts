@@ -100,7 +100,7 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
 /**
  * Realiza a personalização na COLUNA da tabela
  */
-export function bootstrapColumnStyle(props: TableColumnProps): ColumnPassThroughOptions {
+export function bootstrapColumnStyle(): ColumnPassThroughOptions {
 
     const styleSort: CSS = {
         cursor: "pointer",
@@ -126,17 +126,35 @@ export function bootstrapColumnStyle(props: TableColumnProps): ColumnPassThrough
         textOverflow: "ellipsis"
     };
 
+    const styleCheckBox: CSS = {
+        ".p-checkbox-box": {
+            height: "17px",
+            width: "17px"
+        },
+        ".p-checkbox.p-highlight .p-checkbox-box": {
+            background: "$primary",
+            borderColor: "$primary"
+        },
+        ".p-checkbox:has(.p-checkbox-input:hover).p-highlight .p-checkbox-box": {
+            borderColor: "$primary"
+        }
+    };
+
     return {
         sort: {
             className: ThemeProvider._currentValue.css(styleSort)
         },
         bodyCell: {
-            className: ThemeProvider._currentValue.css(styleResizable)
+            className: classNames([
+                ThemeProvider._currentValue.css(styleCheckBox),
+                ThemeProvider._currentValue.css(styleResizable),
+            ])
         },
         headerCell: (options) => {
             return {
                 className: classNames([
-                    options?.context.sorted ? ThemeProvider._currentValue.css(styleSortActive) : ""
+                    options?.context.sorted ? ThemeProvider._currentValue.css(styleSortActive) : "",
+                    ThemeProvider._currentValue.css(styleCheckBox),
                 ])
             };
         }

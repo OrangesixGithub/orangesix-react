@@ -5,6 +5,11 @@ export interface TableSelectionProps {
     selection?: any
 
     /**
+     * Define qual tipo de seleção
+     */
+    selectionMode?: "single" | "checkbox"
+
+    /**
      * Realiza a seleção do element
      */
     onSelection?(value: any): void

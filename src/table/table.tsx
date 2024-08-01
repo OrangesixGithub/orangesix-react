@@ -36,6 +36,11 @@ export function Table<T = any>(props: TableProps<T>) {
                 {...tableSelection(props)}
                 {...tableSort(props)}
                 {...tablePagination(props)}>
+                {props.selectionMode === "checkbox"
+                    && <Column align="center"
+                               headerStyle={{ width: "2.5rem" }}
+                               pt={{ ...bootstrapColumnStyle() }}
+                               selectionMode="multiple"/>}
                 {props.column.map(obj => {
                     let css = obj.style !== undefined ? ThemeProvider._currentValue.css(obj.style) : "";
                     return (
@@ -48,7 +53,7 @@ export function Table<T = any>(props: TableProps<T>) {
                             field={obj.id}
                             header={obj.header}
                             key={obj.id}
-                            pt={{ ...bootstrapColumnStyle(obj) }}
+                            pt={{ ...bootstrapColumnStyle() }}
                             sortable={obj.sort ?? false}/>
                     );
                 })}

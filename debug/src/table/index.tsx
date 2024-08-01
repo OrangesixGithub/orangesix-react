@@ -27,6 +27,7 @@ const Core = () => {
                     ]}
                     paginatorAlign="start"
                     selection={select}
+                    selectionMode="checkbox"
                     styleSize="small"
                     styleType="bordered"
                     onSelection={setSelect}/>
