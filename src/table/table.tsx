@@ -47,10 +47,12 @@ export function Table<T = any>(props: TableProps<T>) {
                         <Column
                             unstyled
                             align={obj.align}
+                            alignFrozen={obj.frozen ? "right" : undefined}
                             alignHeader={obj.alignHeader}
                             body={obj.body}
                             className={classNames([obj.className, css])}
                             field={obj.id}
+                            frozen={obj.frozen !== undefined}
                             header={obj.header}
                             key={obj.id}
                             pt={{ ...bootstrapColumnStyle() }}

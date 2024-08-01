@@ -3,7 +3,6 @@ import { CSS } from "@stitches/react";
 import { ThemeProvider } from "../api";
 import { classNames } from "primereact/utils";
 import { circleStyle } from "../api/mixins/styled";
-import { TableColumnProps } from "./@types/column";
 import { ColumnPassThroughOptions } from "primereact/column";
 import { DataTablePassThroughOptions } from "primereact/datatable";
 
@@ -51,9 +50,27 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
         }
     };
 
+    const styleFrozen: CSS = {
+        "& .p-frozen-column": {
+            position: "sticky",
+        },
+        "& tr[data-pc-section=\"bodyrow\"] .p-frozen-column": {
+            background: "#fff"
+        }
+    };
+
     return {
         root: {
             className: classNames("table-responsive w-100", props.style)
+        },
+        header: {
+            className: "m-0 p-0 w-100 d-flex bg-light",
+            style: {
+                borderBottom: "1px solid #dee2e6"
+            }
+        },
+        footer: {
+            className: "m-0 p-0 w-100 d-flex bg-light"
         },
         wrapper: {
             className: ThemeProvider._currentValue.css(styleScrollbar)
@@ -68,13 +85,19 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
                 props.styleTable
             ]),
         },
+        headerRow: {
+            className: ThemeProvider._currentValue.css(styleFrozen)
+        },
         tbody: {
-            className: ThemeProvider._currentValue.css(styleSelected),
+            className: classNames([
+                ThemeProvider._currentValue.css(styleSelected),
+                ThemeProvider._currentValue.css(styleFrozen),
+            ]),
         },
         paginator: {
             root: {
                 className: classNames([
-                    "p-0 d-flex mt-1",
+                    "p-0 d-flex mb-1",
                     `justify-content-${props.paginatorAlign ?? "center"}`
                 ]),
                 style: { borderTop: "none" }
@@ -142,12 +165,8 @@ export function bootstrapColumnStyle(): ColumnPassThroughOptions {
 
     return {
         sort: {
-            className: ThemeProvider._currentValue.css(styleSort)
-        },
-        bodyCell: {
             className: classNames([
-                ThemeProvider._currentValue.css(styleCheckBox),
-                ThemeProvider._currentValue.css(styleResizable),
+                ThemeProvider._currentValue.css(styleSort)
             ])
         },
         headerCell: (options) => {
@@ -157,6 +176,12 @@ export function bootstrapColumnStyle(): ColumnPassThroughOptions {
                     ThemeProvider._currentValue.css(styleCheckBox),
                 ])
             };
-        }
+        },
+        bodyCell: {
+            className: classNames([
+                ThemeProvider._currentValue.css(styleCheckBox),
+                ThemeProvider._currentValue.css(styleResizable),
+            ])
+        },
     };
 }

@@ -43,4 +43,9 @@ export interface TableColumnProps {
      * Define as propriedades `css` para cada coluna
      */
     style?: CSS
+
+    /**
+     * Define se coluna vai ser congelada e qual posição
+     */
+    frozen?: boolean
 }

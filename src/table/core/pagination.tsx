@@ -20,12 +20,12 @@ export function tablePagination(
     }
 
     return {
-        first: props?.lazy?.paginationPage === undefined ? 0 : ((props?.lazy?.paginationPage ?? 0) - 1) * (props.paginatorRow ?? 10),
-        paginatorClassName: "pagination",
         paginator: props.paginator ?? false,
+        paginatorClassName: "pagination",
+        totalRecords: props?.lazy?.paginationTotal ?? undefined,
+        first: props?.lazy?.paginationPage === undefined ? 0 : ((props?.lazy?.paginationPage ?? 0) - 1) * (props.paginatorRow ?? 10),
         rows: props.paginator ? (props.paginatorRow ?? 10) : undefined,
         rowsPerPageOptions: [5, 10, 15, 20, 50, 100],
-        totalRecords: props?.lazy?.paginationTotal ?? undefined,
         paginatorTemplate: {
             layout: "RowsPerPageDropdown FirstPageLink PageLinks LastPageLink CurrentPageReport",
             CurrentPageReport: options => {
@@ -50,8 +50,8 @@ export function tablePagination(
                 );
             }
         },
-        onPage: props.lazy !== undefined ? onPage : undefined,
         paginatorRight: props.templatePaginationRight,
-        paginatorLeft: props.templatePaginationLeft
+        paginatorLeft: props.templatePaginationLeft,
+        onPage: props.lazy !== undefined ? onPage : undefined,
     };
 }
