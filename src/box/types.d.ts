@@ -13,13 +13,13 @@ export interface BoxProps extends ApiComponentProps {
      * A propriedade `align` determina o alinhamento do conteúdo base na propriedade `direction`.
      * Essa propriedade ajusta os estilos CSS `align-items`, permitindo um controle preciso do layout.
      */
-    align?: AlignItemsProps
+    align?: AlignItemsProps | AlignItemsProps[]
 
     /**
      * A propriedade `justify` determina o alinhamento do conteúdo base na propriedade `direction`.
      * Essa propriedade ajusta os estilos CSS `justify-content`, permitindo um controle preciso do layout.
      */
-    justify?: JustifyContentProps
+    justify?: JustifyContentProps | JustifyContentProps[]
 
     /**
      *  A propriedade `children` representa o conteúdo ou elementos filho que serão

@@ -30,7 +30,7 @@ export type TableLazyProps = {
     paginationTotal?: number
 }
 
-export interface TableProps<T> extends TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, Omit<ApiComponentProps, | "margin" | "padding"> {
+export interface TableProps<T> extends TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, ApiComponentProps {
 
     /**
      * Uma matriz de objeto que renderiza o cabeçalho

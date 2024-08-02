@@ -1,8 +1,6 @@
 import { BoxProps } from "./types";
-import { Container } from "./styled";
-import { CSS } from "@stitches/react";
-import { ThemeProvider } from "../api";
-import React, { HTMLAttributes, useContext } from "react";
+import React, { HTMLAttributes } from "react";
+import { classNames } from "primereact/utils";
 
 /**
  * Componente - `Box`
@@ -12,36 +10,34 @@ import React, { HTMLAttributes, useContext } from "react";
  *
  * Exemplo de uso:
  * ```tsx
- * <Box css={{
- *   "@md": {
- *      width: "calc(50% - $$margin)"
- *                 }
- *   }}
- *   align="flex-end"
- *   justify="space-between"
- *   padding="4"
- *   size="25">
+ * <Box align="align-items-center"
+ *      justify="justify-content-end"
+ *      size="25">
  *   ...conteúdo HTML
- *   </Box>
+ * </Box>
  * ```
  */
 export const Box = ({ children, ...props }: BoxProps) => {
-    const theme: any = useContext(ThemeProvider);
-    const css: CSS = {
-        $$size: `var(--${String(theme.prefix)}-sizes-${String(props.size ?? "100")})`,
-        $$margin: `var(--${String(theme.prefix)}-space-${String(props.margin ?? "2")})`,
-        $$padding: `var(--${String(theme.prefix)}-space-${(String(props.padding ?? "1"))})`,
-        $$align: props.align ?? "initial",
-        $$justify: props.justify ?? "initial"
+    const css = {
+        size: `box-size-${(props.size ?? "100")}`,
+        direction: `box-direction-${props.direction ?? "row"}`,
+        justify: props.justify === undefined ? "" : Array.isArray(props.justify) ? props.justify?.join(" ") : props.justify,
+        align: props.align === undefined ? "" : Array.isArray(props.align) ? props.align?.join(" ") : props.align
     };
 
     const attr: HTMLAttributes<"div"> & Omit<BoxProps, "children"> = {
-        css: { ...css, ...props.css },
-        className: props.className ?? "",
-        direction: props.direction
+        className: classNames([
+            "box",
+            props.className ?? "",
+            css.size,
+            css.direction,
+            css.justify,
+            css.align
+        ]),
+        style: props.css
     };
 
     return (
-        <Container {...attr}>{children}</Container>
+        <div {...attr as any}>{children}</div>
     );
 };

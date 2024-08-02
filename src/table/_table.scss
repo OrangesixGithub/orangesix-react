@@ -1,0 +1,129 @@
+:root {
+  --table-frozen: #fff;
+  --table-sort-size: 12px;
+  --table-sort-active: #0D6EFD;
+  --table-checkbox-size: 17px;
+  --table-scrollbar: #e1e1e1;
+  --table-select: var(--bs-light, #e1e1e1);
+  --table-header: var(--bs-light, #f5f5f5);
+  --table-footer: var(--bs-light, #f5f5f5);
+  --table-paginator-color: var(--bs-secondary-300, #b9b9b9);
+  --table-paginator-active: var(--bs-primary, #0D6EFD);
+}
+
+.table-responsive {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+
+  &-footer,
+  &-header {
+    width: 100%;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    background: var(--table-header, #F5F5F5);
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  &-footer {
+    border-top: 1px solid #dee2e6;
+    background: var(--table-footer, #F5F5F5);
+  }
+
+  &-sort {
+    cursor: pointer;
+    color: var(--bs-secondary, #5555);
+
+    svg {
+      width: var(--table-sort-size, 12px);
+      height: var(--table-sort-size, 12px);
+    }
+  }
+
+  &-sort-active {
+    span[data-pc-section='sort'] {
+      svg {
+        color: var(--bs-primary, #0D6EFD);
+      }
+    }
+  }
+
+  &-resizable {
+    text-overflow: ellipsis;
+  }
+}
+
+/**
+ * Personalização do style do PrimeReact
+ */
+.p-datatable {
+
+  .p-datatable-wrapper {
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--table-scrollbar, #e1e1e1);
+      border-radius: 10px;
+    }
+  }
+
+  .p-datatable-tbody {
+    .p-highlight {
+      background: var(--table-select, #e1e1e1);
+
+      td {
+        font-weight: bolder;
+      }
+
+      td.p-frozen-column {
+        background: var(--table-select, #e1e1e1);
+      }
+    }
+  }
+
+  .p-frozen-column {
+    position: sticky;
+  }
+
+  .p-frozen-column[data-pc-section="bodycell"] {
+    background: var(--table-frozen, #fff)
+  }
+
+  .p-checkbox-box {
+    width: var(--table-checkbox-size, 17px);
+    height: var(--table-checkbox-size, 17px);
+  }
+
+  .p-checkbox.p-highlight .p-checkbox-box {
+    background: var(--bs-primary, #0D6EFD);
+    border-color: var(--bs-primary, #0D6EFD);
+  }
+
+  .p-checkbox:has(.p-checkbox-input:hover) .p-highlight .p-checkbox-box {
+    border-color: var(--bs-primary, #0D6EFD);
+  }
+
+  .p-paginator {
+
+    .p-paginator-first,
+    .p-paginator-page,
+    .p-paginator-last, {
+      font-size: .9em;
+      min-width: 28px;
+      height: 28px;
+      color: var(--table-paginator-color, #b9b9b9)
+    }
+
+    .p-paginator-page.p-highlight {
+      color: #fff;
+      border: none;
+      background: var(--table-paginator-active, #0D6EFD);
+    }
+  }
+}
+

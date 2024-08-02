@@ -1,7 +1,7 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.0.6-x7",
+  "version": "1.0.6-x8",
   "description": "Set of components and functions available to be used in a React project.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",
@@ -15,7 +15,6 @@
     "lint:fix": "eslint . --ext .ts --ext .tsx --fix"
   },
   "dependencies": {
-    "@stitches/react": "^1.2.8",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",

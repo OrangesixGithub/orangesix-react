@@ -1,35 +1,80 @@
-import { CSS } from "@stitches/react";
-import { ThemeDefault } from "./theme";
+import React, { CSSProperties } from "react";
 
 /**
  * Realiza o mapeamento dos valores da propriedades css `align-items`
  */
 export type AlignItemsProps =
-    | "stretch"
-    | "center"
-    | "flex-start"
-    | "flex-end"
-    | "baseline"
-    | "initial"
-    | "inherit";
+    | "align-items-start"
+    | "align-items-end"
+    | "align-items-center"
+    | "align-items-baseline"
+    | "align-items-stretch"
+    | "align-items-sm-start"
+    | "align-items-sm-end"
+    | "align-items-sm-center"
+    | "align-items-sm-baseline"
+    | "align-items-sm-stretch"
+    | "align-items-md-start"
+    | "align-items-md-end"
+    | "align-items-md-center"
+    | "align-items-md-baseline"
+    | "align-items-md-stretch"
+    | "align-items-lg-start"
+    | "align-items-lg-end"
+    | "align-items-lg-center"
+    | "align-items-lg-baseline"
+    | "align-items-lg-stretch"
+    | "align-items-xl-start"
+    | "align-items-xl-end"
+    | "align-items-xl-center"
+    | "align-items-xl-baseline"
+    | "align-items-xl-stretch"
+    | "align-items-xxl-start"
+    | "align-items-xxl-end"
+    | "align-items-xxl-center"
+    | "align-items-xxl-baseline"
+    | "align-items-xxl-stretch"
 
 /**
  * Realiza o mapeamento dos valores da propriedades css `justify-content`
  */
 export type JustifyContentProps =
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "space-between"
-    | "space-around"
-    | "space-evenly"
-    | "initial"
-    | "inherit";
-
-/**
- * Define a tipagem `default` do tema dos componentes do pacote
- */
-export type ApiThemeProps = typeof ThemeDefault
+    | "justify-content-start"
+    | "justify-content-end"
+    | "justify-content-center"
+    | "justify-content-between"
+    | "justify-content-around"
+    | "justify-content-evenly"
+    | "justify-content-sm-start"
+    | "justify-content-sm-end"
+    | "justify-content-sm-center"
+    | "justify-content-sm-between"
+    | "justify-content-sm-around"
+    | "justify-content-sm-evenly"
+    | "justify-content-md-start"
+    | "justify-content-md-end"
+    | "justify-content-md-center"
+    | "justify-content-md-between"
+    | "justify-content-md-around"
+    | "justify-content-md-evenly"
+    | "justify-content-lg-start"
+    | "justify-content-lg-end"
+    | "justify-content-lg-center"
+    | "justify-content-lg-between"
+    | "justify-content-lg-around"
+    | "justify-content-lg-evenly"
+    | "justify-content-xl-start"
+    | "justify-content-xl-end"
+    | "justify-content-xl-center"
+    | "justify-content-xl-between"
+    | "justify-content-xl-around"
+    | "justify-content-xl-evenly"
+    | "justify-content-xxl-start"
+    | "justify-content-xxl-end"
+    | "justify-content-xxl-center"
+    | "justify-content-xxl-between"
+    | "justify-content-xxl-around"
+    | "justify-content-xxl-evenly"
 
 /**
  * Define as tipagens `default` de todos os componentes do pacote
@@ -42,25 +87,12 @@ export interface ApiComponentProps {
     className?: string
 
     /**
-     * Define o tamanho da box do componente de acordo com o valores obtidos no arquivo
-     * de configuração do tema "SIZES"
+     * Define o tamanho da box do componente de acordo com o valores abaixo
      */
-    size?: keyof ApiThemeProps["theme"]["sizes"]
+    size?: "5" | "10" | "12-5" | "15" | "17-5" | "20" | "22-5" | "25" | "30" | "33" | "35" | "40" | "45" | "50" | "55" | "60" | "65" | "70" | "75" | "80" | "85" | "90" | "95" | "100"
 
     /**
-     * Define a margin do componente de acordo com o valores obtidos no arquivo
-     * de configuração do tema "SPACE"
+     * Define as propriedades css do component `style`
      */
-    margin?: keyof ApiThemeProps["theme"]["space"],
-
-    /**
-     * Define o padding do componente de acordo com o valores obtidos no arquivo
-     * de configuração do tema "SPACE"
-     */
-    padding?: keyof ApiThemeProps["theme"]["space"],
-
-    /**
-     * Define o CSS individual para o componente
-     */
-    css?: CSS
+    css?: CSSProperties
 }

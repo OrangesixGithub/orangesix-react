@@ -1,5 +1,4 @@
-import React from "react";
-import { CSS } from "@stitches/react";
+import React, { CSSProperties } from "react";
 import { ColumnBodyOptions, ColumnHeaderOptions } from "primereact/column";
 
 export interface TableColumnProps {
@@ -42,7 +41,7 @@ export interface TableColumnProps {
     /**
      * Define as propriedades `css` para cada coluna
      */
-    style?: CSS
+    style?: CSSProperties
 
     /**
      * Define se coluna vai ser congelada e qual posição

@@ -88,6 +88,8 @@ const components = __folder.map(folder => {
             RollupCopy({
                 targets: [
                     { src: `./src/${folder}/package.json`, dest: `./dist/${folder}/` },
+                    { src: `./src/${folder}/css/theme.css`, dest: `./dist/${folder}/` },
+                    { src: `./src/${folder}/_${folder}.scss`, dest: `./dist/${folder}/` },
                 ],
                 verbose: true
             }),

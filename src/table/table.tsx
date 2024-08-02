@@ -1,7 +1,6 @@
 import React from "react";
 import { Box } from "../box";
 import { TableProps } from "./types";
-import { ThemeProvider } from "../api";
 import { tableCore } from "./core/core";
 import { tableSort } from "./core/sort";
 import { Column } from "primereact/column";
@@ -18,20 +17,17 @@ import { bootstrapColumnStyle, bootstrapTableStyle } from "./styled";
  * Permite personalizar o estilo e o conteúdo através de propriedades.
  */
 export function Table<T = any>(props: TableProps<T>) {
-    const css = props.css !== undefined ? ThemeProvider._currentValue.css(props.css) : "";
-
     /*
     |------------------------------------------
     | render() - Renderização do componente
     |------------------------------------------
     */
     return (
-        <Box css={{ padding: "0", margin: "0 auto", ...props.css }}
+        <Box className="p-0"
              size={props.size ?? "100"}>
             {/*@ts-ignore*/}
             <DataTable<any>
                 pt={{ ...bootstrapTableStyle(props) }}
-                tableClassName={classNames([props.className, css])}
                 {...tableCore(props)}
                 {...tableSelection(props)}
                 {...tableSort(props)}
@@ -42,7 +38,6 @@ export function Table<T = any>(props: TableProps<T>) {
                                pt={{ ...bootstrapColumnStyle() }}
                                selectionMode="multiple"/>}
                 {props.column.map(obj => {
-                    let css = obj.style !== undefined ? ThemeProvider._currentValue.css(obj.style) : "";
                     return (
                         <Column
                             unstyled
@@ -50,7 +45,6 @@ export function Table<T = any>(props: TableProps<T>) {
                             alignFrozen={obj.frozen ? "right" : undefined}
                             alignHeader={obj.alignHeader}
                             body={obj.body}
-                            className={classNames([obj.className, css])}
                             field={obj.id}
                             frozen={obj.frozen !== undefined}
                             header={obj.header}

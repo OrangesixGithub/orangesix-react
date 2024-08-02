@@ -1,20 +1,5 @@
 export interface TableStyleProps {
     /**
-     * Define o estilo do container da tabela
-     */
-    style?: object
-
-    /**
-     * Define estilo no elemento table
-     */
-    styleTable?: object
-
-    /**
-     * Define o tamanho da tabela.
-     */
-    styleSize?: "small"
-
-    /**
      * Define estilo da tabela como listrada
      */
     styleStriped?: boolean
@@ -25,12 +10,17 @@ export interface TableStyleProps {
     styleHover?: boolean
 
     /**
+     * Define se as coluna das tabela por ser redimensionadas
+     */
+    styleResizable?: boolean
+
+    /**
      * Define estilo da tabela com bordar ou sem borda
      */
     styleType?: "bordered" | "borderless"
 
     /**
-     * Define se as coluna das tabela por ser redimensionadas
+     * Define o tamanho da tabela.
      */
-    styleResizable?: boolean
+    styleSize?: "small"
 }
