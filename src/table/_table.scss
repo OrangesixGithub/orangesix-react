@@ -85,6 +85,12 @@
         background: var(--table-select, #e1e1e1);
       }
     }
+
+    .p-row-toggler {
+      width: 14px;
+      height: 14px;
+      margin-left: 5px;
+    }
   }
 
   .p-frozen-column {

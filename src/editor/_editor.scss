@@ -4,7 +4,7 @@ $input-border-color: #dee2e6 !default;
 
 :root {
   --editor-border-color: #{$input-border-color};
-  --editor-backgroud: #{$input-bg};
+  --editor-background: #{$input-bg};
   --editor-color: #{$input-color};
   --editor-active: var(--bs-primary, #0D6EFD);
   --editor-toolbar: var(--bs-light, #F6F6F6);
@@ -24,7 +24,7 @@ $input-border-color: #dee2e6 !default;
   //Altera a cor de fundo do palco e cor da fonte
   .ql-editor {
     color: var(--editor-color) !important;
-    background: var(--editor-backgroud) !important;
+    background: var(--editor-background) !important;
   }
 
   //Modifica a cor das opções ativas

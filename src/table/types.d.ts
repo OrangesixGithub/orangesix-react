@@ -1,4 +1,5 @@
 import { TableSortProps } from "./@types/sort";
+import { TableGroupProps } from "./@types/group";
 import { SortOrder } from "primereact/datatable";
 import { ApiComponentProps } from "../api/types";
 import { TableStyleProps } from "./@types/style";
@@ -30,7 +31,7 @@ export type TableLazyProps = {
     paginationTotal?: number
 }
 
-export interface TableProps<T> extends TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, ApiComponentProps {
+export interface TableProps<T> extends TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, TableGroupProps, ApiComponentProps {
 
     /**
      * Uma matriz de objeto que renderiza o cabeçalho

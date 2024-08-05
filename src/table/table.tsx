@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "../box";
 import { TableProps } from "./types";
 import { tableCore } from "./core/core";
 import { tableSort } from "./core/sort";
+import { tableGroup } from "./core/group";
 import { Column } from "primereact/column";
-import { classNames } from "primereact/utils";
 import { DataTable } from "primereact/datatable";
 import { tableSelection } from "./core/selection";
 import { tablePagination } from "./core/pagination";
@@ -17,6 +17,8 @@ import { bootstrapColumnStyle, bootstrapTableStyle } from "./styled";
  * Permite personalizar o estilo e o conteúdo através de propriedades.
  */
 export function Table<T = any>(props: TableProps<T>) {
+    const [expandedRows, setExpandedRows] = useState([]);
+
     /*
     |------------------------------------------
     | render() - Renderização do componente
@@ -30,9 +32,10 @@ export function Table<T = any>(props: TableProps<T>) {
                 pt={{ ...bootstrapTableStyle(props) }}
                 tableClassName={props.className}
                 {...tableCore(props)}
-                {...tableSelection(props)}
                 {...tableSort(props)}
-                {...tablePagination(props)}>
+                {...tableSelection(props)}
+                {...tablePagination(props)}
+                {...tableGroup(props, expandedRows, setExpandedRows)}>
                 {props.selectionMode === "checkbox"
                     && <Column align="center"
                                headerStyle={{ width: "2.5rem" }}
