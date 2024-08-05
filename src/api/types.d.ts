@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import { CSSProperties } from "react";
 
 /**
  * Realiza o mapeamento dos valores da propriedades css `align-items`
@@ -95,4 +95,45 @@ export interface ApiComponentProps {
      * Define as propriedades css do component `style`
      */
     css?: CSSProperties
+}
+
+/**
+ * Define as tipagens ´default´ de tidos os componente de entrada de dados do pacote
+ */
+export interface ApiFieldComponentProps {
+
+    /**
+     * Define o nome do campo
+     */
+    name?: string
+
+    /**
+     * Define o rótulo do campo
+     */
+    label?: string
+
+    /**
+     * Define o espaço reservador do campo
+     */
+    placeholder?: string
+
+    /**
+     * Define o icone do campo
+     */
+    icon?: string
+
+    /**
+     * Define o prefixo dos icones do pacote
+     */
+    iconPrefix?: "bi bi-" | "pi pi-"
+
+    /**
+     * Define se campo é obrigatório
+     */
+    required?: boolean
+
+    /**
+     * Desabilita a entrada de dados no campo
+     */
+    disabled?: boolean
 }

@@ -27,8 +27,9 @@ const __dependeciesExternal = [
     "node-snackbar",
     "@stitches/react",
     "primereact/utils",
+    "primereact/editor",
     "primereact/column",
-    "primereact/datatable"
+    "primereact/datatable",
 ];
 
 /**

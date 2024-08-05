@@ -1,0 +1,53 @@
+$input-bg: #fff !default;
+$input-color: #555 !default;
+$input-border-color: #dee2e6 !default;
+
+:root {
+  --editor-border-color: #{$input-border-color};
+  --editor-backgroud: #{$input-bg};
+  --editor-color: #{$input-color};
+  --editor-active: var(--bs-primary, #0D6EFD);
+  --editor-toolbar: var(--bs-light, #F6F6F6);
+  --editor-toolbar-color: #6c757d;
+}
+
+.p-editor-container {
+
+  .p-editor-toolbar {
+    background: var(--editor-toolbar) !important;
+  }
+
+  .ql-snow {
+    border-color: var(--editor-border-color, #{$input-border-color}) !important;
+  }
+
+  //Altera a cor de fundo do palco e cor da fonte
+  .ql-editor {
+    color: var(--editor-color) !important;
+    background: var(--editor-backgroud) !important;
+  }
+
+  //Modifica a cor das opções ativas
+  .ql-snow.ql-toolbar button.ql-active {
+    .ql-stroke {
+      color: var(--editor-active) !important;
+      stroke: var(--editor-active) !important;
+    }
+
+    .ql-fill {
+      fill: var(--editor-active) !important;
+    }
+  }
+
+  .ql-fill {
+    fill: var(--editor-toolbar-color) !important;
+  }
+
+  .ql-stroke {
+    stroke: var(--editor-toolbar-color) !important;
+  }
+
+  .ql-picker-label {
+    color: var(--editor-toolbar-color) !important;
+  }
+}

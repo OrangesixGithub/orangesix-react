@@ -1,7 +1,7 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.0.6-x8",
+  "version": "1.0.6-x12",
   "description": "Set of components and functions available to be used in a React project.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",
@@ -22,6 +22,7 @@
     "node-snackbar": "^0.1.16",
     "primeicons": "^7.0.0",
     "primereact": "^10.8.0",
+    "quill": "^2.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sweetalert2": "^11.12.3"

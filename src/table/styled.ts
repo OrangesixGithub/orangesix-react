@@ -29,7 +29,7 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
         paginator: {
             root: {
                 className: classNames([
-                    "p-0 d-flex mb-1",
+                    "p-0 d-flex mb-1 mt-2",
                     `justify-content-${props.paginatorAlign ?? "center"}`
                 ]),
                 style: { borderTop: "none" }

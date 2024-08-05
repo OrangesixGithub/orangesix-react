@@ -28,6 +28,7 @@ export function Table<T = any>(props: TableProps<T>) {
             {/*@ts-ignore*/}
             <DataTable<any>
                 pt={{ ...bootstrapTableStyle(props) }}
+                tableClassName={props.className}
                 {...tableCore(props)}
                 {...tableSelection(props)}
                 {...tableSort(props)}
@@ -50,7 +51,8 @@ export function Table<T = any>(props: TableProps<T>) {
                             header={obj.header}
                             key={obj.id}
                             pt={{ ...bootstrapColumnStyle() }}
-                            sortable={obj.sort ?? false}/>
+                            sortable={obj.sort ?? false}
+                            style={obj.style}/>
                     );
                 })}
             </DataTable>
