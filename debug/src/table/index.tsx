@@ -66,7 +66,7 @@ const Core = () => {
     return (
         <Box align="align-items-center"
              className="bg-white"
-             size="50">
+             size="100">
             <Table rowExpandable
                    styleResizable
                    column={[

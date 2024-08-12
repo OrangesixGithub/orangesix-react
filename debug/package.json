@@ -5,9 +5,10 @@
     "sass:dev": "sass --load-path=node_modules/bootstrap/scss assets/scss/theme.scss assets/css/style.css --watch"
   },
   "dependencies": {
-    "@orangesix/react": "^1.0.3",
+    "@orangesix/react": "^1.0.6-x13",
     "@stitches/react": "^1.2.8",
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.11.3",
+    "primereact": "^10.8.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
