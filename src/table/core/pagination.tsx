@@ -41,7 +41,8 @@ export function tablePagination(
                             value={options.value}
                             onChange={(e) => {
                                 const event = {} as PaginatorChangeEvent;
-                                event.value = e.target.value;
+                                // @ts-ignore
+                                event.value = Number(e.target.value);
                                 options.onChange(event);
                             }}>
                         {options.options.map(obj => <option key={obj.value}

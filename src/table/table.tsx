@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { Box } from "../box";
 import { TableProps } from "./types";
+import React, { useState } from "react";
 import { tableCore } from "./core/core";
 import { tableSort } from "./core/sort";
 import { tableGroup } from "./core/group";
