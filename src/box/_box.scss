@@ -63,7 +63,7 @@ $box-space-padding: .5rem !default;
   @each $key, $value in $box-sizes {
     &.box-size-#{$key} {
       width: calc(var(--box-size-#{$key}, #{$value}) - #{$box-space-margin});
-      margin: #{$box-space-margin} calc(#{$box-space-margin} / 2);
+      margin: calc(#{$box-space-margin} / 2) calc(#{$box-space-margin} / 2);
       padding: #{$box-space-padding};
 
       @media (max-width: 576px) {
