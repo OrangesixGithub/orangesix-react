@@ -390,6 +390,20 @@
   display: flex;
   align-items: flex-start;
   gap: .5rem; }
+  .input-filter-content .p-autocomplete-multiple {
+    padding: 0; }
+  .input-filter-content .p-autocomplete-multiple-container {
+    width: 100%;
+    padding: .2rem .5rem; }
+    .input-filter-content .p-autocomplete-multiple-container .form-control {
+      border: none;
+      padding: .2rem; }
+    .input-filter-content .p-autocomplete-multiple-container .p-autocomplete-token {
+      padding: .2rem .5rem;
+      margin: 0; }
+  .input-filter-content .p-autocomplete-multiple-container.p-focus {
+    box-shadow: none;
+    border-color: var(--input-filter-border-color); }
 
 .input-filter-select {
   width: 40%;
@@ -403,3 +417,6 @@
 
 .input-filter-field-date.year {
   flex: 2; }
+
+.input-filter-autocomplete-panel .p-autocomplete-items {
+  padding-left: 0 !important; }

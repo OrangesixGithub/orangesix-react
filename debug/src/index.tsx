@@ -3,18 +3,22 @@ import React, { useState } from "react";
 import { InputFilter } from "../../src/inputfilter";
 
 const Root = () => {
-    const [value, setValue] = useState("10/10/2024{}28/12/2024");
+    const [value, setValue] = useState<any>(undefined);
+
+    console.log(value);
 
     return (
         <Box size="100">
             <p className="w-100">Componente - Filtro</p>
             <InputFilter required
+                         data={[]}
                          icon="funnel-fill"
                          label="Data"
-                         options={["=", ">", "<", ">=", "<=", "{}"]}
-                         type="date"
+                         options={["=", "!="]}
+                         type="autocomplete"
                          value={value}
-                         onChange={setValue}/>
+                         onChange={setValue}
+                         onSearch={() => null}/>
         </Box>
     );
 };

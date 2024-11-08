@@ -1,18 +1,29 @@
 import React from "react";
-import { InputFilterOptionsMap, InputFilterProps } from "../types";
+import { InputFilterCoreProps, InputFilterOptionsMap } from "../types";
 import { handleGetValueDate, handleSetValueDate } from "../function/handle";
 
 /**
  * Core - `Date`
  * Campo do filtro tipo data
  */
-export function Date<T extends keyof InputFilterOptionsMap = "text">(props: InputFilterProps<T> & {
-    options: any[]
-    select: string
-}) {
-    let date = handleGetValueDate<T>(props.value, props.options, props.select);
+export function Date<T extends keyof InputFilterOptionsMap>(props: InputFilterCoreProps<T>) {
+    let date = handleGetValueDate(props.value, props.options, props.select);
 
-    return (props.type === "date") && (
+    function handleChangeValue(value: string) {
+        if (props.select === "{}" && value === "0/0/0{}0/0/0") {
+            props.onChange(null);
+        } else {
+            if ((date[0] == 0 || isNaN(date[0] as number)) &&
+                (date[1] == 0 || isNaN(date[1] as number)) &&
+                (date[2] == 0 || isNaN(date[2] as number))) {
+                props.onChange(null);
+            } else {
+                props.onChange(value);
+            }
+        }
+    }
+
+    return (
         <div className="d-flex w-100 flex-column">
             <div className="w-100 d-flex gap-2">
                 {date.map((item, index) => {
@@ -25,9 +36,7 @@ export function Date<T extends keyof InputFilterOptionsMap = "text">(props: Inpu
                                    name={(props.name ?? "input-filter") + "-" + index}
                                    placeholder={props.placeholder}
                                    value={item === 0 ? "" : item}
-                                   onChange={event => {
-                                       props.onChange(handleSetValueDate(event.target.value, index, date));
-                                   }}/>
+                                   onChange={event => handleChangeValue(handleSetValueDate(event.target.value, index, date))}/>
                         );
                     }
                 })}
@@ -44,9 +53,7 @@ export function Date<T extends keyof InputFilterOptionsMap = "text">(props: Inpu
                                        name={(props.name ?? "input-filter") + "-" + index}
                                        placeholder={props.placeholder}
                                        value={item === 0 ? "" : item}
-                                       onChange={event => {
-                                           props.onChange(handleSetValueDate(event.target.value, index, date));
-                                       }}/>
+                                       onChange={event => handleChangeValue(handleSetValueDate(event.target.value, index, date))}/>
                             );
                         }
                     })}

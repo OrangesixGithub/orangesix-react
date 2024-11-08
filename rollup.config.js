@@ -30,6 +30,7 @@ const __dependeciesExternal = [
     "primereact/editor",
     "primereact/column",
     "primereact/datatable",
+    "primereact/autocomplete",
 ];
 
 /**

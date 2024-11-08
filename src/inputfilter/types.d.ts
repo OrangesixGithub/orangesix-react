@@ -1,23 +1,15 @@
 import { ApiComponentProps, ApiFieldComponentProps } from "../api/types";
 
-export type InputFilterOptionsProps = "=" | "!=" | "<" | ">" | "<=" | ">=" | "{}" | "%" | "!%";
-
-export type InputFilterOptionsMap = {
-    text: "=" | "!=" | "%" | "!%"
-    date: "=" | "!=" | "<" | ">" | "<=" | ">=" | "{}"
-    autocomplete: "=" | "!=" | "%" | "!%"
-}
-
-export interface InputFilterProps<T extends keyof InputFilterOptionsMap = "text"> extends ApiComponentProps, ApiFieldComponentProps {
+interface InputFilterBaseProps<T extends keyof InputFilterOptionsMap> extends ApiComponentProps, ApiFieldComponentProps {
     /**
      * Valor inicial do componente
      */
-    value: string
+    value?: string
 
     /**
      * Retorna o valor modificado pelo componente
      */
-    onChange(value: string): void
+    onChange(value: string | null): void
 
     /**
      * Define o tipo do filtro
@@ -29,3 +21,42 @@ export interface InputFilterProps<T extends keyof InputFilterOptionsMap = "text"
      */
     options?: Array<InputFilterOptionsMap[T]>;
 }
+
+interface InputFilterAutocompleteProps {
+    /**
+     * Sugestões do autocomplete
+     */
+    data: Array<{ id: number, label: string }>
+
+    /**
+     * Realiza a pesquisa do autocomplete de acordo com query
+     */
+    onSearch(query: string, selected?: number[]): void
+
+    /**
+     * Define o número de elementos que poser ser selecionado no autocomplete
+     */
+    autocompleteSelectLimit?: number
+
+    /**
+     * Define a altura da caixa de seleção dos dados
+     */
+    autocompleteScrollHeight?: string
+}
+
+export type InputFilterProps<T extends keyof InputFilterOptionsMap> = T extends "autocomplete"
+    ? InputFilterBaseProps<"autocomplete"> & InputFilterAutocompleteProps
+    : InputFilterBaseProps<T>;
+
+export type InputFilterCoreProps<T extends keyof InputFilterOptionsMap> = InputFilterProps<T> & {
+    options: any[],
+    select: string
+}
+
+export type InputFilterOptionsMap = {
+    text: "=" | "!=" | "%" | "!%"
+    date: "=" | "!=" | "<" | ">" | "<=" | ">=" | "{}"
+    autocomplete: "=" | "!=" | "%" | "!%"
+}
+
+export type InputFilterOptionsProps = "=" | "!=" | "<" | ">" | "<=" | ">=" | "{}" | "%" | "!%";

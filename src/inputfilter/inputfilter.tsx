@@ -3,10 +3,18 @@ import { Text } from "./core/text";
 import { Date } from "./core/date";
 import { InputLabel } from "../api";
 import { classNames } from "primereact/utils";
+import { Autocomplete } from "./core/autocomplete";
 import React, { useState, useEffect } from "react";
 import { optionsDefault, optionsLabel } from "./const";
 import { InputFilterOptionsMap, InputFilterProps } from "./types";
-import { handleGetOption, handleGetValueDate, handleGetValueText, handleSetValueDate } from "./function/handle";
+import {
+    handleGetOption,
+    handleGetValueText,
+    handleGetValueDate,
+    handleSetValueDate,
+    handleGetValueAutocomplete,
+    handleSetValueAutocomplete,
+} from "./function/handle";
 
 /**
  * Componente - `InputFilter`
@@ -24,10 +32,29 @@ export function InputFilter<T extends keyof InputFilterOptionsMap = "text">(
 
     useEffect(() => {
         if (!props.type || props.type === "text") {
-            props.onChange(handleGetValueText<T>(props.value, options) + select);
+            let value = handleGetValueText(props.value, options);
+            if (value !== null) {
+                props.onChange(value + select);
+            }
+            props.onChange(null);
+
         } else if (props.type === "date") {
-            let date = handleGetValueDate<T>(props.value, options, select);
-            props.onChange(handleSetValueDate(date[0] as string, 0, date));
+            let date = handleGetValueDate(props.value, options, select);
+            let setDate = handleSetValueDate("0", null, date);
+
+            if (select === "{}" && setDate === "0/0/0{}0/0/0") {
+                props.onChange(null);
+            } else {
+                if (date[0] == 0 && date[1] == 0 && date[2] == 0) {
+                    props.onChange(null);
+                } else {
+                    props.onChange(setDate);
+                }
+            }
+
+        } else if (props.type === "autocomplete") {
+            let value = handleGetValueAutocomplete(props.value, options, props.data);
+            props.onChange(handleSetValueAutocomplete(value, select));
         }
     }, [select]);
 
@@ -53,12 +80,18 @@ export function InputFilter<T extends keyof InputFilterOptionsMap = "text">(
                                 value={item.options}>{item.label}</option>
                     ))}
                 </select>
-                <Text<T> {...props}
-                         options={options}
-                         select={select}/>
-                <Date<T> {...props}
-                         options={options}
-                         select={select}/>
+                {(!props.type || props.type === "text")
+                    && <Text<"text"> {...props as InputFilterProps<"text">}
+                                     options={options}
+                                     select={select}/>}
+                {props.type === "date"
+                    && <Date<"date"> {...props as InputFilterProps<"date">}
+                                     options={options}
+                                     select={select}/>}
+                {props.type === "autocomplete"
+                    && <Autocomplete<"autocomplete"> {...props as InputFilterProps<"autocomplete">}
+                                                     options={options}
+                                                     select={select}/>}
             </div>
         </Box>
     );
