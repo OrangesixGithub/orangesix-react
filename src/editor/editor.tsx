@@ -1,5 +1,6 @@
 import { Box } from "../box";
 import { EditorMenu } from "./core";
+import { InputLabel } from "../api";
 import { EditorProps } from "./types";
 import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
@@ -66,12 +67,7 @@ export const Editor = ({ options = "basic", iconPrefix = "bi bi-", ...props }: E
         <Box className={props.className}
              css={props.css}
              size={props.size ?? "100"}>
-            {props.label
-                && <p className='form-label'>
-                    {props.icon && <i className={iconPrefix + props.icon + " me-1"}/>}
-                    {props.label}
-                    {props.required && <span className="text-danger">*</span>}
-                </p>}
+            <InputLabel {...props}/>
             <div className="editor-container">
                 {!props.disabled
                     && <EditorMenu editor={editor}
@@ -79,6 +75,7 @@ export const Editor = ({ options = "basic", iconPrefix = "bi bi-", ...props }: E
                 <EditorTipTap className="editor"
                               disabled={props.disabled}
                               editor={editor}
+                              id={props.id}
                               name={props.name}
                               style={{ minHeight: (props.height ?? 100) + "px" }}/>
             </div>

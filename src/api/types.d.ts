@@ -103,6 +103,11 @@ export interface ApiComponentProps {
 export interface ApiFieldComponentProps {
 
     /**
+     * Define o id do campo
+     */
+    id?: string
+
+    /**
      * Define o nome do campo
      */
     name?: string

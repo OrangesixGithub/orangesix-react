@@ -11,13 +11,13 @@ import { Orderlist } from "./orderlist";
 import { Underline } from "./underline";
 import { Highlight } from "./highlight";
 import { Bulletlist } from "./bulletlist";
-import { EditorCoreProps, EditorOptions } from "../types";
+import { EditorCoreProps, EditorOptionsProps } from "../types";
 
 /**
  * Core - `Menu`
  * Componente que renderiza todas as opções de menu do componente
  */
-export const EditorMenu = ({ editor, options }: EditorCoreProps & { options: EditorOptions }) => {
+export const EditorMenu = ({ editor, options }: EditorCoreProps & { options: EditorOptionsProps }) => {
     /*
     |------------------------------------------
     | render() - Renderização do componente

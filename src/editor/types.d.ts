@@ -24,7 +24,7 @@ export interface EditorProps extends ApiComponentProps, ApiFieldComponentProps {
     onChange(value: string): void
 }
 
-export interface EditorOptions {
+export interface EditorOptionsProps {
     text: boolean
     bold: boolean;
     italic: boolean;

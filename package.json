@@ -14,15 +14,15 @@
     "lint:fix": "eslint . --ext .ts --ext .tsx --fix"
   },
   "dependencies": {
-    "@tiptap/extension-color": "^2.8.0",
-    "@tiptap/extension-highlight": "^2.8.0",
-    "@tiptap/extension-image": "^2.8.0",
-    "@tiptap/extension-link": "^2.8.0",
-    "@tiptap/extension-text-style": "^2.8.0",
-    "@tiptap/extension-underline": "^2.8.0",
-    "@tiptap/pm": "^2.8.0",
-    "@tiptap/react": "^2.8.0",
-    "@tiptap/starter-kit": "^2.8.0",
+    "@tiptap/extension-color": "^2.9.1",
+    "@tiptap/extension-highlight": "^2.9.1",
+    "@tiptap/extension-image": "^2.9.1",
+    "@tiptap/extension-link": "^2.9.1",
+    "@tiptap/extension-text-style": "^2.9.1",
+    "@tiptap/extension-underline": "^2.9.1",
+    "@tiptap/pm": "^2.9.1",
+    "@tiptap/react": "^2.9.1",
+    "@tiptap/starter-kit": "^2.9.1",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
@@ -32,7 +32,7 @@
     "primereact": "^10.8.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sweetalert2": "^11.14.2"
+    "sweetalert2": "^11.14.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.7",

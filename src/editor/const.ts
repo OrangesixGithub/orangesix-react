@@ -1,6 +1,6 @@
-import { EditorOptions } from "./types";
+import { EditorOptionsProps } from "./types";
 
-export const editorBasic: EditorOptions = {
+export const editorBasic: EditorOptionsProps = {
     text: true,
     bold: true,
     italic: true,
@@ -15,7 +15,7 @@ export const editorBasic: EditorOptions = {
     image: false
 };
 
-export const editorFull: EditorOptions = {
+export const editorFull: EditorOptionsProps = {
     text: true,
     bold: true,
     italic: true,

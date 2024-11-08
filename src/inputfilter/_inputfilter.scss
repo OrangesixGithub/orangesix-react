@@ -1,0 +1,33 @@
+:root {
+  --input-filter-border-color: var(--gray-400, #ccc);
+  --input-filter-border-radius: var(--input-border-radius, 5px);
+}
+
+.input-filter-container {
+  border-radius: var(--input-filter-border-radius);
+  border: 1px dashed var(--input-filter-border-color);
+}
+
+.input-filter-content {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+
+.input-filter-select {
+  width: 40%;
+  max-width: 200px;
+}
+
+.input-filter-field {
+  width: 100% !important;
+}
+
+.input-filter-field-date {
+  flex: 1;
+}
+
+.input-filter-field-date.year {
+  flex: 2;
+}
