@@ -1,4 +1,5 @@
 import { validateDate } from "./validate";
+import { handleNumber } from "../../utils";
 import { InputFilterOptionsMap } from "../types";
 
 /**
@@ -144,4 +145,26 @@ export function handleSetValueAutocomplete(
 ): string | null {
     let ids = value.map(item => item.id);
     return ids.length === 0 ? null : ids.join(";") + select;
+}
+
+/**
+ * Retorna apenas o valor sem os operadores filtro tipo `Number`.
+ *
+ * @param value - O valor completo, incluindo a opção de filtro.
+ * @param options - Um array de opções de filtro disponíveis.
+ * @returns O valor sem as opções de filtro.
+ */
+export function handleGetValueNumber(
+    value: string | undefined,
+    options: Array<InputFilterOptionsMap["text"]>
+): string {
+    let str = value;
+    let exists = options
+        .slice()
+        .reverse()
+        .find(item => str?.endsWith(item));
+    if (exists && str !== undefined) {
+        return handleNumber(str.slice(0, -exists.length), "decimal");
+    }
+    return handleNumber(str ?? "", "decimal");
 }

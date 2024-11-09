@@ -11,14 +11,12 @@ const Root = () => {
         <Box size="100">
             <p className="w-100">Componente - Filtro</p>
             <InputFilter required
-                         data={[]}
                          icon="funnel-fill"
                          label="Data"
-                         options={["=", "!="]}
-                         type="autocomplete"
+                         options={["=", ">", "<"]}
+                         type="number"
                          value={value}
-                         onChange={setValue}
-                         onSearch={() => null}/>
+                         onChange={setValue}/>
         </Box>
     );
 };

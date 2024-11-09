@@ -57,6 +57,7 @@ export type InputFilterOptionsMap = {
     text: "=" | "!=" | "%" | "!%"
     date: "=" | "!=" | "<" | ">" | "<=" | ">=" | "{}"
     autocomplete: "=" | "!=" | "%" | "!%"
+    number: "=" | "!=" | "<" | ">" | "<=" | ">="
 }
 
 export type InputFilterOptionsProps = "=" | "!=" | "<" | ">" | "<=" | ">=" | "{}" | "%" | "!%";

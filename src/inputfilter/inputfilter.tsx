@@ -2,19 +2,13 @@ import { Box } from "../box";
 import { Text } from "./core/text";
 import { Date } from "./core/date";
 import { InputLabel } from "../api";
+import { Number } from "./core/number";
+import * as handle from "./function/handle";
 import { classNames } from "primereact/utils";
 import { Autocomplete } from "./core/autocomplete";
 import React, { useState, useEffect } from "react";
 import { optionsDefault, optionsLabel } from "./const";
 import { InputFilterOptionsMap, InputFilterProps } from "./types";
-import {
-    handleGetOption,
-    handleGetValueText,
-    handleGetValueDate,
-    handleSetValueDate,
-    handleGetValueAutocomplete,
-    handleSetValueAutocomplete,
-} from "./function/handle";
 
 /**
  * Componente - `InputFilter`
@@ -22,25 +16,23 @@ import {
  * Um componente utilizado para montar o objeto de pesquisa de dados.
  * Permite alterar o seu tipo através do type: `text`, `date`, `autocomplete`.
  */
-export function InputFilter<T extends keyof InputFilterOptionsMap = "text">(
-    { ...props }: InputFilterProps<T>) {
+export function InputFilter<T extends keyof InputFilterOptionsMap = "text">({ ...props }: InputFilterProps<T>) {
 
     const options: any[] = (props.options ?? optionsDefault).sort((a, b) => a.length - b.length);
     const selectOptions = optionsLabel.filter(item => options?.includes(item.options as any));
-
-    const [select, setSelect] = useState<string>(handleGetOption<T>(props.value, options));
+    const [select, setSelect] = useState<string>(handle.handleGetOption<T>(props.value, options));
 
     useEffect(() => {
         if (!props.type || props.type === "text") {
-            let value = handleGetValueText(props.value, options);
+            let value = handle.handleGetValueText(props.value, options);
             if (value !== null) {
                 props.onChange(value + select);
+            } else {
+                props.onChange(null);
             }
-            props.onChange(null);
-
         } else if (props.type === "date") {
-            let date = handleGetValueDate(props.value, options, select);
-            let setDate = handleSetValueDate("0", null, date);
+            let date = handle.handleGetValueDate(props.value, options, select);
+            let setDate = handle.handleSetValueDate("0", null, date);
 
             if (select === "{}" && setDate === "0/0/0{}0/0/0") {
                 props.onChange(null);
@@ -51,10 +43,16 @@ export function InputFilter<T extends keyof InputFilterOptionsMap = "text">(
                     props.onChange(setDate);
                 }
             }
-
         } else if (props.type === "autocomplete") {
-            let value = handleGetValueAutocomplete(props.value, options, props.data);
-            props.onChange(handleSetValueAutocomplete(value, select));
+            let value = handle.handleGetValueAutocomplete(props.value, options, props.data);
+            props.onChange(handle.handleSetValueAutocomplete(value, select));
+        } else if (props.type === "number") {
+            let value = handle.handleGetValueNumber(props.value, options);
+            if (value !== "") {
+                props.onChange(value + select);
+            } else {
+                props.onChange(null);
+            }
         }
     }, [select]);
 
@@ -92,6 +90,10 @@ export function InputFilter<T extends keyof InputFilterOptionsMap = "text">(
                     && <Autocomplete<"autocomplete"> {...props as InputFilterProps<"autocomplete">}
                                                      options={options}
                                                      select={select}/>}
+                {props.type === "number"
+                    && <Number<"number"> {...props}
+                                         options={options}
+                                         select={select}/>}
             </div>
         </Box>
     );
