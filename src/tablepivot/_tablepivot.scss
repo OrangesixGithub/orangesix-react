@@ -1,0 +1,35 @@
+:root {
+  --table-pivot-border-color: var(--gray-400, #ccc);
+  --table-pivot-border-radius: var(--input-border-radius, 5px);
+  --table-pivot-toolbar-font-size: .9em;
+}
+
+.pivot-table {
+  border: 1px dashed var(--table-pivot-border-color);
+  border-radius: var(--table-pivot-border-radius);
+  position: relative;
+
+  //Toolbar - Cabeçalho de opções
+  #wdr-toolbar-wrapper #wdr-toolbar {
+    background: transparent !important;
+
+    span {
+      font-size: var(--table-pivot-toolbar-font-size) !important;
+      font-family: var(--bs-body-font-family), serif !important;
+    }
+  }
+
+  //Grid - Dados
+  #wdr-pivot-view .wdr-ui div {
+    font-family: var(--bs-body-font-family), serif !important;
+  }
+
+  //Opções de dados
+  .wdr-ui {
+    font-family: var(--bs-body-font-family), serif !important;
+  }
+
+  .wdr-credits {
+    display: none !important;
+  }
+}

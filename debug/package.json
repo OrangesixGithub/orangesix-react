@@ -5,12 +5,16 @@
     "sass:dev": "sass --load-path=node_modules/bootstrap/scss assets/scss/theme.scss assets/css/style.css --watch"
   },
   "dependencies": {
-    "@orangesix/react": "^1.0.6"
+    "@orangesix/react": "^1.0.6",
+    "@syncfusion/ej2-icons": "^27.1.50",
+    "@syncfusion/ej2-react-pivotview": "^27.1.58",
+    "@webdatarocks/react-webdatarocks": "^1.4.15"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.3",
     "node-sass": "^9.0.0",
     "sass": "^1.80.6",
-    "vite": "^5.4.10"
+    "vite": "^5.4.11",
+    "vite-plugin-commonjs": "^0.10.3"
   }
 }

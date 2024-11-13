@@ -1,7 +1,7 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.0.10-x5",
+  "version": "1.0.10-x7",
   "description": "Conjunto de componentes e funções disponíveis para serem utilizados em projetos React.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",
@@ -23,6 +23,7 @@
     "@tiptap/pm": "^2.9.1",
     "@tiptap/react": "^2.9.1",
     "@tiptap/starter-kit": "^2.9.1",
+    "@webdatarocks/react-webdatarocks": "^1.4.15",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",

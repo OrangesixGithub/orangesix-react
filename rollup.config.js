@@ -25,12 +25,21 @@ const __dependeciesExternal = [
     "bootstrap",
     "sweetalert2",
     "node-snackbar",
-    "@stitches/react",
     "primereact/utils",
     "primereact/editor",
     "primereact/column",
     "primereact/datatable",
     "primereact/autocomplete",
+    "@webdatarocks/react-webdatarocks",
+    "@tiptap/starter-kit",
+    "@tiptap/react",
+    "@tiptap/pm",
+    "@tiptap/extension-underline",
+    "@tiptap/extension-text-style",
+    "@tiptap/extension-link",
+    "@tiptap/extension-image",
+    "@tiptap/extension-highlight",
+    "@tiptap/extension-color",
 ];
 
 /**
