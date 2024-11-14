@@ -82,6 +82,11 @@ export type JustifyContentProps =
 export interface ApiComponentProps {
 
     /**
+     * Propriedade para identificar o id do elemento
+     */
+    id?: string
+
+    /**
      * Adiciona no atributo `class` do componente o valor atribuido nessa propriedade
      */
     className?: string

@@ -34,7 +34,8 @@ export const Box = ({ children, ...props }: BoxProps) => {
             css.justify,
             css.align
         ]),
-        style: props.css
+        style: props.css,
+        id: props.id
     };
 
     return (

@@ -1,17 +1,27 @@
 :root {
-  --table-pivot-border-color: var(--gray-400, #ccc);
-  --table-pivot-border-radius: var(--input-border-radius, 5px);
   --table-pivot-toolbar-font-size: .9em;
+
+  --table-pivot-border-radius: 5px;
+  --table-pivot-border-color: var(--bs-gray-300, #e5e5e5);
+
+  --table-pivot-background: var(--bs-white, #fff);
+  --table-pivot-background-toolbar: transparent;
+  --table-pivot-background-header: #f2f2f2;
+  --table-pivot-background-filter: #e0e0e0;
+
+  --table-pivot-modal-padding: 1rem;
+  --table-pivot-modal-btn-font-size: .9em;
+  --table-pivot-modal-btn-padding: .375rem .5rem;
 }
 
 .pivot-table {
+  position: relative;
   border: 1px dashed var(--table-pivot-border-color);
   border-radius: var(--table-pivot-border-radius);
-  position: relative;
 
   //Toolbar - Cabeçalho de opções
   #wdr-toolbar-wrapper #wdr-toolbar {
-    background: transparent !important;
+    background: var(--table-pivot-background-toolbar) !important;
 
     span {
       font-size: var(--table-pivot-toolbar-font-size) !important;
@@ -20,8 +30,64 @@
   }
 
   //Grid - Dados
-  #wdr-pivot-view .wdr-ui div {
-    font-family: var(--bs-body-font-family), serif !important;
+  #wdr-pivot-view {
+
+    //Cabeçalho
+    .wdr-grid-layout div.wdr-header {
+      background: var(--table-pivot-background-header) !important;
+    }
+
+    //Filtro
+    .wdr-grid-layout #wdr-cols-filter {
+      background: var(--table-pivot-background-filter);
+    }
+
+    //Linhas e colunas
+    .wdr-ui div {
+      font-family: var(--bs-body-font-family), serif !important;
+
+      &.wdr-cell {
+        //color: #abc502 !important;
+        background: var(--table-pivot-background);
+        border-color: var(--table-pivot-border-color);
+      }
+    }
+
+    //Modal
+    div.wdr-ui-window {
+      padding: var(--table-pivot-modal-padding);
+
+      //Titulo e subtitulo
+      .wdr-popup-subtitle,
+      .wdr-popup-title {
+        margin: 0;
+        padding: 0;
+      }
+
+      .wdr-popup-title {
+        font-size: 20px
+      }
+
+      //Botões
+      .wdr-ui-btn {
+        height: auto;
+        margin: 0 .25rem;
+        padding: var(--table-pivot-modal-btn-padding);
+        font-size: var(--table-pivot-modal-btn-font-size);
+      }
+
+      .wdr-selected,
+      .wdr-unchecked,
+      .wdr-checked {
+        span {
+          font-family: var(--bs-body-font-family), serif !important;
+        }
+      }
+
+      .wdr-ui-toggle-btn-dark {
+        margin-bottom: 15px !important;
+      }
+    }
   }
 
   //Opções de dados

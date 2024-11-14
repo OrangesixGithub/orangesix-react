@@ -132,3 +132,35 @@ export interface OptionsGrid {
      */
     type?: "classic" | "flat" | "compact"
 }
+
+export interface Ref {
+
+    /**
+     * Realiza atualização dos dados do Pivot Table
+     * @param dataSource - Dados
+     */
+    updateData(dataSource: {
+        data: object[]
+    }): void
+
+    /**
+     * Realiza atualização dos dados e configuração do Pivot Table
+     * @param report - Objeto com dados e configuração
+     * @overview - Observação quando utilizar este metodo as configurações do Pivot Table será redefinidas
+     */
+    setReport(report: {
+        slice?: Slice;
+        options?: Options;
+        dataSource?: { data: any }
+    }): void
+
+    /**
+     * Expande todos os nós do pivot Table
+     */
+    expandAllData(): void
+
+    /**
+     * Recolhe todos os nós do Pivot Table
+     */
+    collapseAllData(): void
+}

@@ -1,1 +1,9 @@
-@import "bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&display=swap");
+
+$font-family-sans-serif: "Poppins", sans-serif;
+
+//Bootstrap - 5.3.3
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+//OrangeSix - Package
+@import "../../../src/api/scss/theme";

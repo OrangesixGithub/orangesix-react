@@ -1,7 +1,7 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.0.10-x7",
+  "version": "1.0.10",
   "description": "Conjunto de componentes e funções disponíveis para serem utilizados em projetos React.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",

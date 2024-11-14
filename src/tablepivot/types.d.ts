@@ -40,10 +40,13 @@ export interface TablePivotProps extends ApiComponentProps {
      * Define o comportamento das linhas e colunas do pivot table
      */
     pivotSlice?: Webdatarocks.Slice
+
+    /**
+     * Realiza a personalização visual dos dados do pivot table
+     */
+    pivotCustomizeCell?: (cellBuilder: any, cellData: any) => void
 }
 
 export interface TablePivotRefProps {
-    webdatarocks: {
-        updateData(dataSource: { data: object[] }): void
-    }
+    webdatarocks: Webdatarocks.Ref
 }
