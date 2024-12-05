@@ -91,6 +91,11 @@
       height: 14px;
       margin-left: 5px;
     }
+
+    tr td,
+    tr td span {
+      user-select: text !important;
+    }
   }
 
   .p-frozen-column {
