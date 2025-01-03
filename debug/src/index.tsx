@@ -1,25 +1,35 @@
-import React from "react";
 import { Box } from "../../src/box";
-import { Table } from "../../src/table";
+import React, { useState } from "react";
+import { Autocomplete } from "../../src/autocomplete";
+import { AutocompleteDataProps } from "../../src/autocomplete/types";
 
 const Root = () => {
+    const [value, setValue] = useState("");
+    const [itens, setItens] = useState<AutocompleteDataProps[]>([]);
+
+    const search = () => {
+        console.log("ex");
+        setItens([
+            { code: 1, name: "Brasil" },
+            { code: 2, name: "Argentina" },
+            { code: 3, name: "Alemanha" },
+            { code: 4, name: "Canadá" },
+            { code: 5, name: "Canadá" },
+            { code: 6, name: "Canadá" },
+            { code: 7, name: "Canadá" },
+        ]);
+    };
+
     return (
         <Box size="50">
-            <Table styleResizable
-                   styleStriped
-                   column={[
-                       { id: "id", header: "Cód", style: { userSelect: "text" } },
-                       { id: "name", header: "Nome", style: { userSelect: "text" } },
-                       { id: "age", header: "Idade" },
-                   ]}
-                   data={[
-                       { id: 1, name: "Lara", age: 4 },
-                       { id: 2, name: "Luiz Fernando", age: 30 },
-                       { id: 3, name: "Dayana", age: 28 },
-                       { id: 4, name: "Malu", age: 7 },
-                   ]}
-                   styleSize="small"
-                   styleType="bordered"/>
+            <Autocomplete required
+                          data={itens}
+                          icon="house"
+                          label="Nando"
+                          name="id_pessoa"
+                          value={value}
+                          onChange={setValue}
+                          onSearch={search}/>
         </Box>
     );
 };

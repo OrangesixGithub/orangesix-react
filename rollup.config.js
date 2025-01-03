@@ -61,7 +61,6 @@ function addPackageJson() {
         "bugs": {
             "url": "https://github.com/Nandovga/orangesix-react/issues"
         },
-        "keywords": ${JSON.stringify(pkg.keywords, null, 2)},
         "dependencies": ${JSON.stringify(pkg.dependencies, null, 2)}
     }`;
     fs.writeFileSync(path.join(outputDir, "package.json"), packageJson);

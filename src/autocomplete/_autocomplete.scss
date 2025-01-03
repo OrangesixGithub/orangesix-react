@@ -1,0 +1,38 @@
+.autocomplete {
+
+  /**
+   * Personalização do style do PrimeReact
+   */
+  .p-autocomplete {
+
+    &-input {
+      font-family: var(--bs-body-font-family), serif;
+    }
+
+    &-items {
+      padding-left: 0 !important;
+
+      .p-autocomplete-item {
+        font-family: var(--bs-body-font-family), serif;
+      }
+
+      .p-autocomplete-item.p-highlight {
+        color: var(--bs-body-color) !important;
+        background: var(--bs-light) !important;
+      }
+    }
+
+    &-items-wrapper {
+      &::-webkit-scrollbar {
+        width: 5px;
+        background: var(--bs-light);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: var(--bs-gray-200);
+        border: 0;
+      }
+    }
+  }
+}
