@@ -29,7 +29,8 @@ const Root = () => {
                           name="id_pessoa"
                           value={value}
                           onChange={setValue}
-                          onSearch={search}/>
+                          onSearch={search}
+                          onSelect={console.log}/>
         </Box>
     );
 };

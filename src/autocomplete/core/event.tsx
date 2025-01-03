@@ -2,7 +2,7 @@ import { AutocompleteProps } from "../types";
 import {
     AutoCompleteChangeEvent,
     AutoCompleteCompleteEvent,
-    AutoCompleteProps as AutoCompletePropsPrimeReact
+    AutoCompleteProps as AutoCompletePropsPrimeReact, AutoCompleteSelectEvent
 } from "primereact/autocomplete";
 
 /**
@@ -17,6 +17,11 @@ export function autocompleteEvent(props: AutocompleteProps): Partial<AutoComplet
         },
         onChange(event: AutoCompleteChangeEvent) {
             props.onChange(event.value);
+        },
+        onSelect(event: AutoCompleteSelectEvent) {
+            if (props.onSelect) {
+                props.onSelect(event.value);
+            }
         }
     };
 }

@@ -13,7 +13,6 @@ export interface AutocompleteDataProps {
     name: string;
 }
 
-
 export interface AutocompleteProps extends ApiComponentProps, ApiFieldComponentProps {
 
     /**
@@ -60,4 +59,9 @@ export interface AutocompleteProps extends ApiComponentProps, ApiFieldComponentP
      * Retorno de chamada para invocar a busca por sugestões.
      */
     onSearch(query: string): void;
+
+    /**
+     * Executa após a seleção do objeto do autocomplete.
+     */
+    onSelect?: (value: any) => void;
 }
