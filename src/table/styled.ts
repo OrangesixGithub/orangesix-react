@@ -20,6 +20,12 @@ export function bootstrapTableStyle(props: TableProps<any>): DataTablePassThroug
                 props.styleType === "bordered" ? "table-bordered" : props.styleType === "borderless" ? "table-borderless" : "",
             ]),
         },
+        thead: {
+            className: "table-thead",
+        },
+        tbody: {
+            className: "table-tbody",
+        },
         header: {
             className: "table-header",
         },

@@ -1,17 +1,14 @@
 {
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "sass:dev": "sass --load-path=node_modules/bootstrap/scss assets/scss/theme.scss assets/css/style.css --watch"
+    "build": "vite build"
   },
   "dependencies": {
     "@orangesix/react": "^1.0.10"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.3",
-    "node-sass": "^9.0.0",
-    "sass": "^1.80.6",
-    "vite": "^5.4.11",
-    "vite-plugin-commonjs": "^0.10.3"
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.11",
+    "vite-plugin-commonjs": "^0.10.4"
   }
 }

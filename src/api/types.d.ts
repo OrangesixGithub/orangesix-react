@@ -33,7 +33,7 @@ export type AlignItemsProps =
     | "align-items-xxl-end"
     | "align-items-xxl-center"
     | "align-items-xxl-baseline"
-    | "align-items-xxl-stretch"
+    | "align-items-xxl-stretch";
 
 /**
  * Realiza o mapeamento dos valores da propriedades css `justify-content`
@@ -74,7 +74,7 @@ export type JustifyContentProps =
     | "justify-content-xxl-center"
     | "justify-content-xxl-between"
     | "justify-content-xxl-around"
-    | "justify-content-xxl-evenly"
+    | "justify-content-xxl-evenly";
 
 /**
  * Define as tipagens `default` de todos os componentes do pacote

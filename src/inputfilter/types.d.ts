@@ -51,13 +51,13 @@ export type InputFilterProps<T extends keyof InputFilterOptionsMap> = T extends 
 export type InputFilterCoreProps<T extends keyof InputFilterOptionsMap> = InputFilterProps<T> & {
     options: any[],
     select: string
-}
+};
 
 export type InputFilterOptionsMap = {
     text: "=" | "!=" | "%" | "!%"
     date: "=" | "!=" | "<" | ">" | "<=" | ">=" | "{}"
     autocomplete: "=" | "!=" | "%" | "!%"
     number: "=" | "!=" | "<" | ">" | "<=" | ">="
-}
+};
 
 export type InputFilterOptionsProps = "=" | "!=" | "<" | ">" | "<=" | ">=" | "{}" | "%" | "!%";

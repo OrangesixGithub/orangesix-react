@@ -99,6 +99,7 @@ const components = __folder.map(folder => {
                 targets: [
                     { src: `./src/${folder}/package.json`, dest: `./dist/${folder}/` },
                     { src: `./src/${folder}/css/theme.css`, dest: `./dist/${folder}/` },
+                    { src: `./src/${folder}/bootstrap.scss`, dest: `./dist/${folder}/` },
                     { src: `./src/${folder}/_${folder}.scss`, dest: `./dist/${folder}/` },
                 ],
                 verbose: true

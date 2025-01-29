@@ -1,36 +1,23 @@
+import React from "react";
 import { Box } from "../../src/box";
-import React, { useState } from "react";
-import { Autocomplete } from "../../src/autocomplete";
-import { AutocompleteDataProps } from "../../src/autocomplete/types";
+import { Table } from "../../src/table";
 
 const Root = () => {
-    const [value, setValue] = useState("");
-    const [itens, setItens] = useState<AutocompleteDataProps[]>([]);
-
-    const search = () => {
-        console.log("ex");
-        setItens([
-            { code: 1, name: "Brasil" },
-            { code: 2, name: "Argentina" },
-            { code: 3, name: "Alemanha" },
-            { code: 4, name: "Canadá" },
-            { code: 5, name: "Canadá" },
-            { code: 6, name: "Canadá" },
-            { code: 7, name: "Canadá" },
-        ]);
-    };
-
     return (
-        <Box size="50">
-            <Autocomplete required
-                          data={itens}
-                          icon="house"
-                          label="Nando"
-                          name="id_pessoa"
-                          value={value}
-                          onChange={setValue}
-                          onSearch={search}
-                          onSelect={console.log}/>
+        <Box className="p-2 rounded"
+             css={{ background: "#202020" }}
+             size="50">
+            <Table paginator
+                   column={[
+                       { id: "id", header: "Código", sort: true },
+                       { id: "name", header: "Nome", sort: true },
+                   ]}
+                   data={[
+                       { id: 1, name: "Nando" },
+                       { id: 2, name: "Giovane" },
+                   ]}
+                   paginatorAlign="end"
+                   styleSize="small"/>
         </Box>
     );
 };

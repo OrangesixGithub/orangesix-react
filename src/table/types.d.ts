@@ -29,7 +29,7 @@ export type TableLazyProps = {
      * Define o número total de registro da tabela
      */
     paginationTotal?: number
-}
+};
 
 export interface TableProps<T> extends TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, TableGroupProps, ApiComponentProps {
 
