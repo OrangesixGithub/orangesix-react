@@ -18,6 +18,8 @@ export function tableCore(
         emptyMessage: props.emptyMessage ?? "Não há informações disponíveis no momento.",
         header: props.templeteHeader,
         footer: props.templateFooter,
-        stripedRows: props.styleStriped
+        stripedRows: props.styleStriped,
+        size: props.styleSize,
+        showGridlines: props.styleType === "bordered"
     };
 }

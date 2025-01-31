@@ -44,11 +44,15 @@
     text-align: $tableCellContentAlignment;
     padding: $tableHeaderCellPadding;
     border: $tableHeaderCellBorder;
-    border-width: $tableHeaderCellBorderWidth;
-    font-weight: $tableHeaderCellFontWeight;
+    border-width: $tableHeaderCellBorderWidth !important;
+    border-color: $tableHeaderCellBorderColor !important;
     color: $tableHeaderCellTextColor;
     background: $tableHeaderCellBg;
     transition: $listItemTransition;
+
+    /* Customer */
+    font-weight: $tableHeaderCellFontWeight;
+    font-size: $tableHeaderCellFontSize;
     text-transform: $tableHeaderCellTextTransform;
   }
 
@@ -251,10 +255,10 @@
     .p-datatable-thead {
       > tr {
         > th {
-          border-width: 1px 0 1px 1px;
+          border-width: 1px 0 1px 1px !important;
 
           &:last-child {
-            border-width: 1px;
+            border-width: 1px !important;
           }
         }
       }
@@ -263,19 +267,19 @@
     .p-datatable-tbody {
       > tr {
         > td {
-          border-width: 1px 0 0 1px;
+          border-width: 1px 0 0 1px !important;
 
           &:last-child {
-            border-width: 1px 1px 0 1px;
+            border-width: 1px 1px 0 1px !important;
           }
         }
 
         &:last-child {
           > td {
-            border-width: 1px 0 1px 1px;
+            border-width: 1px 0 1px 1px !important;
 
             &:last-child {
-              border-width: 1px;
+              border-width: 1px !important;
             }
           }
         }

@@ -5,11 +5,6 @@ export interface TableStyleProps {
     styleStriped?: boolean
 
     /**
-     * Define estilo da tabela quando passa mouse sobre a linha da tabela
-     */
-    styleHover?: boolean
-
-    /**
      * Define se as coluna das tabela por ser redimensionadas
      */
     styleResizable?: boolean
@@ -17,10 +12,10 @@ export interface TableStyleProps {
     /**
      * Define estilo da tabela com bordar ou sem borda
      */
-    styleType?: "bordered" | "borderless"
+    styleType?: "bordered"
 
     /**
      * Define o tamanho da tabela.
      */
-    styleSize?: "small"
+    styleSize?: "small" | "normal" | "large"
 }

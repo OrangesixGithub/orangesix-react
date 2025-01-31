@@ -11,8 +11,46 @@ $font-family-sans-serif: "Poppins", sans-serif;
 | Personalização dos componentes
  */
 $fontFamily: "Poppins", sans-serif;
-$fontSize: .8em;
+$fontSize: .9em;
 
+$tableScaleSM: 0.3;
+$tableScaleLG: 1.1;
+
+$primaryLightColor: rgba(19, 180, 151, 0.2) !default;
+$primaryColor: #13B497 !default;
+$primaryDarkColor: #13a189 !default;
+$primaryDarkerColor: #13a189 !default;
+$primaryTextColor: #ffffff !default;
+
+$highlightBg: #EFF5F3 !default;
+$highlightTextColor: #000 !default;
+$highlightFocusBg: darken($primaryColor, 8%) !default;
+
+//Table
+$tableWrapperScrollThumbBg: #e5e5e5;
+$tableHeaderCellBg: #F6F6F6;
+$tableHeaderCellHoverBg: #f3f3f3;
+$tableHeaderCellHighlightBg: #f3f3f3;
+$tableHeaderCellTextTransform: uppercase;
+$tableHeaderCellFontSize: .8rem;
+
+$tableBodyRowEvenBg: #fafafa;
+$tableBodyRowHoverBg: #fafafa;
+
+//Paginator
+$paginatorPadding: .25rem;
+$paginatorBg: #F6F6F6;
+$paginatorTextColor: #000;
+$paginatorElementIconColor: #a8a8a8;
+$paginatorElementHeight: 28px;
+$paginatorElementWidth: 28px;
+
+//Dropdown
+$inputGroupAddOnMinWidth: 2rem;
+
+//Checkbox
+$checkboxWidth: 18px;
+$checkboxHeight: 18px;
 
 /**
 | @OrangeSix - Latest
