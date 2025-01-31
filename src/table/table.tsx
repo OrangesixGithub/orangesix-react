@@ -29,7 +29,7 @@ export function Table<T = any>(props: TableProps<T>) {
              size={props.size ?? "100"}>
             {/*@ts-ignore*/}
             <DataTable<any>
-                pt={{ ...bootstrapTableStyle(props) }}
+                //pt={{ ...bootstrapTableStyle(props) }}
                 tableClassName={props.className}
                 {...tableCore(props)}
                 {...tableSort(props)}
@@ -44,7 +44,8 @@ export function Table<T = any>(props: TableProps<T>) {
                 {props.column.map(obj => {
                     return (
                         <Column
-                            unstyled
+                            //unstyled
+                            //pt={{ ...bootstrapColumnStyle() }}
                             align={obj.align}
                             alignFrozen={obj.frozen ? "right" : undefined}
                             alignHeader={obj.alignHeader}
@@ -53,7 +54,6 @@ export function Table<T = any>(props: TableProps<T>) {
                             frozen={obj.frozen !== undefined}
                             header={obj.header}
                             key={obj.id}
-                            pt={{ ...bootstrapColumnStyle() }}
                             sortable={obj.sort ?? false}
                             style={obj.style}/>
                     );

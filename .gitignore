@@ -1,8 +1,7 @@
 dist/
 .idea/
 node_modules/
-debug/assets/css
-debug/node_modules
+debug/assets/
+debug/build/
+
 package-lock.json
-
-

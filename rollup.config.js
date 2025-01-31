@@ -70,6 +70,8 @@ function addPackageJson() {
  * Realiza a leitura da pasta "src" para gerar o build dos components
  */
 const components = __folder.map(folder => {
+    let folderStyle = folder === "style";
+
     return {
         input: `./src/${folder}/index`,
         output: [
@@ -96,13 +98,20 @@ const components = __folder.map(folder => {
                 ]
             }),
             RollupCopy({
-                targets: [
-                    { src: `./src/${folder}/package.json`, dest: `./dist/${folder}/` },
-                    { src: `./src/${folder}/css/theme.css`, dest: `./dist/${folder}/` },
-                    { src: `./src/${folder}/bootstrap.scss`, dest: `./dist/${folder}/` },
-                    { src: `./src/${folder}/_${folder}.scss`, dest: `./dist/${folder}/` },
-                ],
-                verbose: true
+                targets: folderStyle
+                    ? [
+                        {
+                            src: "src/style/**",
+                            dest: "dist",
+                            globOptions: { cwd: "src/style" }
+                        }
+                    ]
+                    : [
+                        { src: `./src/${folder}/package.json`, dest: `./dist/${folder}/` },
+                        { src: `./src/${folder}/_${folder}.scss`, dest: `./dist/${folder}/` },
+                    ],
+                verbose: true,
+                flatten: !folderStyle
             }),
             RollupTerser(),
             RollupCommonJs(),

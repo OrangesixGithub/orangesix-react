@@ -17,6 +17,7 @@ export function tableCore(
         columnResizeMode: "expand",
         emptyMessage: props.emptyMessage ?? "Não há informações disponíveis no momento.",
         header: props.templeteHeader,
-        footer: props.templateFooter
+        footer: props.templateFooter,
+        stripedRows: props.styleStriped
     };
 }

@@ -1,0 +1,10 @@
+@import '../core/mixins';
+@import '../core/colors';
+@import '../core/extensions';
+
+@layer primereact {
+  @import '../core/reset';
+
+  //Data
+  @import 'data/datatable';
+}

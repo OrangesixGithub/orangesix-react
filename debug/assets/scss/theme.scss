@@ -1,24 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700;900&display=swap");
+@import "variables";
 
-$font-family-sans-serif: "Poppins", sans-serif;
-
-$body-bg: #161717;
-
-$box-space-margin: 1rem;
-
-//Bootstrap - 5.3.3
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import "../../../src/api/bootstrap";
-
-:root {
-  --table-font-size: .9rem;
-  --table-border-color: #333434;
-  --table-thead-bg: #202020;
-  --table-tbody-bg: #202020;
-  --table-tbody-color: #84848c;
-  --table-thead-color: var(--bs-light);
-  --table-paginator-bg: #2a2a2a;
-  --table-paginator-border-radius: 5px;
-}
-
-
+@import "../../../dist/style/scss/bootstrap";
