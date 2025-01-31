@@ -61,6 +61,17 @@
   border-radius: $borderRadius;
   box-shadow: $inputOverlayShadow;
 
+  .p-autocomplete-items-wrapper {
+    &::-webkit-scrollbar {
+      width: $scrollBarWidth;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollThumbBg;
+      border-radius: $scrollTopBorderRadius;
+    }
+  }
+
   .p-autocomplete-items {
     padding: $inputListPadding;
 

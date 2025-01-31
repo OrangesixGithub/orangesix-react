@@ -1,11 +1,6 @@
-:root {
-  --input-filter-border-color: var(--gray-400, #ccc);
-  --input-filter-border-radius: var(--input-border-radius, 5px);
-}
-
 .input-filter-container {
-  border-radius: var(--input-filter-border-radius);
-  border: 1px dashed var(--input-filter-border-color);
+  border-radius: $borderRadius;
+  border: 1px dashed #{$shade300};
 }
 
 .input-filter-content {

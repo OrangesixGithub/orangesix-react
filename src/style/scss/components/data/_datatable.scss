@@ -3,12 +3,12 @@
 
   .p-datatable-wrapper {
     &::-webkit-scrollbar {
-      height: $tableWrapperScrollBarHeight;
+      height: $scrollBarHeight;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: $tableWrapperScrollThumbBg;
-      border-radius: $tableWrapperScrollThumbRadius;
+      background: $scrollThumbBg;
+      border-radius: $scrollTopBorderRadius;
     }
   }
 

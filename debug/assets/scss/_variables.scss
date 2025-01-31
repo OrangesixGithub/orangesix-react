@@ -6,12 +6,17 @@
  */
 $font-family-sans-serif: "Poppins", sans-serif;
 
+$input-btn-focus-box-shadow: none;
+
 /**
 | Primereact 10.9.1
 | Personalização dos componentes
  */
 $fontFamily: "Poppins", sans-serif;
 $fontSize: .9em;
+
+$scrollThumbBg: #e5e5e5;
+$scrollThumbRadius: 8px;
 
 $tableScaleSM: 0.3;
 $tableScaleLG: 1.1;
@@ -27,7 +32,6 @@ $highlightTextColor: #000 !default;
 $highlightFocusBg: darken($primaryColor, 8%) !default;
 
 //Table
-$tableWrapperScrollThumbBg: #e5e5e5;
 $tableHeaderCellBg: #F6F6F6;
 $tableHeaderCellHoverBg: #f3f3f3;
 $tableHeaderCellHighlightBg: #f3f3f3;

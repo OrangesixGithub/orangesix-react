@@ -46,6 +46,11 @@ $maskBg: rgba(0, 0, 0, 0.4) !default;
 $loadingIconFontSize: 2rem !default;
 $errorColor: #dc3545 !default;
 
+$scrollThumbBg: $shade700 !default;
+$scrollThumbRadius: 10px;
+$scrollBarHeight: 8px;
+$scrollBarWidth: 5px;
+
 //scale
 $scaleSM: 0.875 !default;
 $scaleLG: 1.25 !default;
@@ -455,6 +460,7 @@ $cardShadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
 $editorToolbarBg: $panelHeaderBg !default;
 $editorToolbarBorder: $panelHeaderBorder !default;
 $editorToolbarPadding: $panelHeaderPadding !default;
+$editorToolbarBorderRadius: 3px !default;
 $editorToolbarIconColor: $textSecondaryColor !default;
 $editorToolbarIconHoverColor: $textColor !default;
 $editorIconActiveColor: $primaryColor !default;
@@ -480,10 +486,6 @@ $paginatorElementMargin: 0 0 0 -1px !default;
 $paginatorElementPadding: 0 !default;
 
 //table
-$tableWrapperScrollThumbBg: $shade700 !default;
-$tableWrapperScrollThumbRadius: 10px;
-$tableWrapperScrollBarHeight: 8px;
-
 $tableHeaderBorder: solid #dee2e6 !default;
 $tableHeaderBorderWidth: 1px 0 0 0 !default;
 $tableHeaderBg: $shade100 !default;
@@ -542,6 +544,16 @@ $tableBottomPaginatorBorderWidth: 1px 0 0 0 !default;
 
 $tableScaleSM: 0.5 !default;
 $tableScaleLG: 1.25 !default;
+
+//tablePivot
+$tablePivotBg: $shade000 !default;
+$tablePivotBorderColor: $shade300 !default;
+
+$tablePivotViewBg: $shade100 !default;
+$tablePivotViewFilterBg: $shade300 !default;
+$tablePivotModalPadding: 1rem !default;
+$tablePivotModalBtnFontSize: .9rem !default;
+$tablePivotModalBtnPadding: .375rem .5rem !default;
 
 //dataview
 $dataViewContentPadding: 0 !default;

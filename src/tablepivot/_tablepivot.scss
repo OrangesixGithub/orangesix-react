@@ -1,31 +1,15 @@
-:root {
-  --table-pivot-toolbar-font-size: .9em;
-
-  --table-pivot-border-radius: 5px;
-  --table-pivot-border-color: var(--bs-gray-300, #e5e5e5);
-
-  --table-pivot-background: var(--bs-white, #fff);
-  --table-pivot-background-toolbar: transparent;
-  --table-pivot-background-header: #f2f2f2;
-  --table-pivot-background-filter: #e0e0e0;
-
-  --table-pivot-modal-padding: 1rem;
-  --table-pivot-modal-btn-font-size: .9em;
-  --table-pivot-modal-btn-padding: .375rem .5rem;
-}
-
 .pivot-table {
   position: relative;
-  border: 1px dashed var(--table-pivot-border-color);
-  border-radius: var(--table-pivot-border-radius);
+  border: 1px dashed #{$tablePivotBorderColor};
+  border-radius: $borderRadius;
 
   //Toolbar - Cabeçalho de opções
   #wdr-toolbar-wrapper #wdr-toolbar {
-    background: var(--table-pivot-background-toolbar) !important;
+    background: transparent !important;
 
     span {
-      font-size: var(--table-pivot-toolbar-font-size) !important;
-      font-family: var(--bs-body-font-family), serif !important;
+      font-size: $fontSize !important;
+      font-family: $fontFamily;
     }
   }
 
@@ -34,28 +18,28 @@
 
     //Cabeçalho
     .wdr-grid-layout div.wdr-header {
-      background: var(--table-pivot-background-header) !important;
+      background: $tablePivotViewBg !important;
     }
 
     //Filtro
     .wdr-grid-layout #wdr-cols-filter {
-      background: var(--table-pivot-background-filter);
+      background: $tablePivotViewFilterBg;
     }
 
     //Linhas e colunas
     .wdr-ui div {
-      font-family: var(--bs-body-font-family), serif !important;
+      font-family: $fontFamily !important;
 
       &.wdr-cell {
         //color: #abc502 !important;
-        background: var(--table-pivot-background);
-        border-color: var(--table-pivot-border-color);
+        background: $tablePivotBg;
+        border-color: $tablePivotBorderColor;
       }
     }
 
     //Modal
     div.wdr-ui-window {
-      padding: var(--table-pivot-modal-padding);
+      padding: $tablePivotModalPadding;
 
       //Titulo e subtitulo
       .wdr-popup-subtitle,
@@ -72,15 +56,15 @@
       .wdr-ui-btn {
         height: auto;
         margin: 0 .25rem;
-        padding: var(--table-pivot-modal-btn-padding);
-        font-size: var(--table-pivot-modal-btn-font-size);
+        padding: $tablePivotModalBtnPadding;
+        font-size: $tablePivotModalBtnFontSize;
       }
 
       .wdr-selected,
       .wdr-unchecked,
       .wdr-checked {
         span {
-          font-family: var(--bs-body-font-family), serif !important;
+          font-family: $fontFamily !important;
         }
       }
 
@@ -92,7 +76,7 @@
 
   //Opções de dados
   .wdr-ui {
-    font-family: var(--bs-body-font-family), serif !important;
+    font-family: $fontFamily !important;
   }
 
   .wdr-credits {

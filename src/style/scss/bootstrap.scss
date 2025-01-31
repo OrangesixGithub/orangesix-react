@@ -13,6 +13,9 @@ $highlightFocusBg: darken($primaryColor, 8%) !default;
 
 //Components
 @import "../../box/box";
+@import "../../editor/editor";
+@import "../../tablepivot/tablepivot";
+@import "../../inputfilter/inputfilter";
 
 // Reboot - Boostrap 5.3.3
 ol,

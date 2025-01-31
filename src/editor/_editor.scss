@@ -1,25 +1,15 @@
-:root {
-  --editor-font-size: 1em;
-  --editor-border-radius: 3px;
-  --editor-background: transparent;
-  --editor-border-color: var(--bs-gray-500, #adb5bd);
-  --editor-menu-font-size: 1.2em;
-
-  --editor-active-menu-color: var(--bs-primary, #0D6EFD);
-}
-
 .editor-container {
   position: relative;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  border-radius: var(--editor-border-radius);
-  border: 1px solid var(--editor-border-color);
+  border-radius: $editorToolbarBorderRadius;
+  border: 1px solid #{$shade300};
 
   .editor {
     width: 100%;
-    font-size: var(--editor-font-size);
-    background: var(--editor-background);
+    font-size: $fontSize;
+    background: $editorContentBg;
   }
 
   .editor-menu {
@@ -28,7 +18,7 @@
     width: 100%;
     padding: 2.5px;
     align-items: center;
-    border-bottom: 1px solid var(--editor-border-color);
+    border-bottom: 1px solid #{$shade300};
 
     &-group {
       display: flex;
@@ -36,12 +26,13 @@
     }
 
     &-item {
+      color: $editorToolbarIconColor;
       margin: auto 5px;
-      font-size: var(--editor-menu-font-size);
+      font-size: calc($fontSize * 1.2);
     }
 
     &-item.active {
-      color: var(--editor-active-menu-color);
+      color: $editorIconActiveColor;
     }
   }
 
@@ -53,7 +44,7 @@
 
   .editor-menu::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: var(--editor-border-color);
+    background: $scrollThumbBg;
     border: none;
   }
 
@@ -93,8 +84,8 @@
     padding: 10px;
 
     a {
-      color: var(--bs-primary);
-      text-decoration: underline solid var(--bs-primary);
+      color: $primaryColor;
+      text-decoration: underline solid $primaryColor;
     }
 
     code {
@@ -110,7 +101,7 @@
   }
 
   .tiptap.ProseMirror-focused {
-    border-radius: var(--editor-border-radius, 3px);
+    border-radius: $editorToolbarBorderRadius;
     outline: none !important;
   }
 }
