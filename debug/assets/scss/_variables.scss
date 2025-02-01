@@ -5,6 +5,7 @@
 | Personalização dos componentes
  */
 $font-family-sans-serif: "Poppins", sans-serif;
+$link-decoration: none;
 
 $input-btn-focus-box-shadow: none;
 
@@ -47,6 +48,7 @@ $paginatorBg: #F6F6F6;
 $paginatorTextColor: #000;
 $paginatorElementIconColor: #a8a8a8;
 $paginatorElementHeight: 28px;
+
 $paginatorElementWidth: 28px;
 
 //Dropdown
@@ -55,6 +57,15 @@ $inputGroupAddOnMinWidth: 2rem;
 //Checkbox
 $checkboxWidth: 18px;
 $checkboxHeight: 18px;
+
+//Tabview
+$tabviewNavBorder: 1px 0px 1px 1px;
+$tabviewHeaderActiveBg: #f6f6f6;
+$tabviewHeaderTextColor: #2c323f;
+$tabviewHeaderFontWeight: normal;
+$tabviewHeaderPadding: .5rem 1rem;
+$tabviewContentPadding: 0;
+$tabviewContentBorder: 1px solid #f3f3f3;
 
 /**
 | @OrangeSix - Latest

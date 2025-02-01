@@ -1,32 +1,19 @@
 import React from "react";
 import { Box } from "../../src/box";
-import { Table } from "../../src/table";
+import { Tabview } from "../../src/tabview";
 
 const Root = () => {
+    const [index, setIndex] = React.useState(1);
+
     return (
         <>
-            <Box css={{ fontSize: ".9em" }}
-                 size="50">
-                <Table paginator
-                       styleStriped
-                       column={[
-                           { id: "id", header: "Código", sort: true },
-                           { id: "name", header: "Nome", sort: true },
-                       ]}
-                       data={[
-                           { id: 1, name: "Nando" },
-                           { id: 2, name: "Giovane" },
-                           { id: 3, name: "Lara" },
-                           { id: 4, name: "Dayana" },
-                           { id: 5, name: "Dayana" },
-                           { id: 6, name: "Dayana" },
-                           { id: 7, name: "Dayana" },
-                           { id: 8, name: "Dayana" },
-                           { id: 9, name: "Dayana" },
-                       ]}
-                       paginatorRow={5}
-                       selectionMode="checkbox"
-                       styleSize="small"/>
+            <Box size="30">
+                <Tabview tabs={[
+                    { tab: "Aba 1", content: <p>Aba n° 1</p>, icon: "house" },
+                    { tab: "Aba 2", content: <p>Aba n° 2</p>, icon: "gear" },
+                ]}
+                         tabIndex={index}
+                         onChange={event => setIndex(event.index)}/>
             </Box>
         </>
     );
