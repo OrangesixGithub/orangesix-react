@@ -3,6 +3,7 @@
 
   .p-datatable-wrapper {
     &::-webkit-scrollbar {
+      width: $scrollBarWidth;
       height: $scrollBarHeight;
     }
 
@@ -122,6 +123,7 @@
       transition: $listItemTransition;
       border-width: $tableBodyCellBorderWidth !important;
       border-color: $tableBodyCellBorderColor !important;
+      font-size: $tableBodyCellFontSize !important;
       user-select: text !important;
 
       > td {

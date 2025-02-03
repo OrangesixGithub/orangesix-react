@@ -14,7 +14,7 @@ $input-btn-focus-box-shadow: none;
 | Personalização dos componentes
  */
 $fontFamily: "Poppins", sans-serif;
-$fontSize: .9em;
+$fontSize: .95em;
 
 $scrollThumbBg: #e5e5e5;
 $scrollThumbRadius: 8px;
@@ -41,6 +41,7 @@ $tableHeaderCellFontSize: .8rem;
 
 $tableBodyRowEvenBg: #fafafa;
 $tableBodyRowHoverBg: #fafafa;
+$tableBodyCellFontSize: .9em;
 
 //Paginator
 $paginatorPadding: .25rem;

@@ -436,6 +436,7 @@ $tabviewContentBorder: 0 none !default;
 $tabviewContentBg: $panelContentBg !default;
 $tabviewContentTextColor: $panelContentTextColor !default;
 $tabviewContentPadding: $panelContentPadding !default;
+$tabviewContentFontSize: $fontSize !default;
 
 //upload
 $fileUploadProgressBarHeight: 0.25rem !default;
@@ -521,6 +522,7 @@ $tableBodyCellBorder: 1px solid #dee2e6 !default;
 $tableBodyCellBorderColor: $shade200 !default;
 $tableBodyCellBorderWidth: 1px 0 0 0 !default;
 $tableBodyCellPadding: 1rem 1rem !default;
+$tableBodyCellFontSize: $fontSize !default;
 
 $tableFooterCellPadding: 1rem 1rem !default;
 $tableFooterCellBg: $shade000 !default;
