@@ -10,7 +10,7 @@ import RollupCommonJs from "@rollup/plugin-commonjs";
 import RollupResolve from "@rollup/plugin-node-resolve";
 import RollupTypescript from "@rollup/plugin-typescript";
 
-import pkg from "./package.json" assert { type: "json" };
+const pkg = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 
 /**
  * Configuração para realizar o build

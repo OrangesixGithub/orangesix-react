@@ -1,19 +1,23 @@
 import React from "react";
 import { Box } from "../../src/box";
-import { Tabview } from "../../src/tabview";
+import { Table } from "../../src/table";
 
 const Root = () => {
-    const [index, setIndex] = React.useState(1);
-
     return (
         <>
             <Box size="30">
-                <Tabview tabs={[
-                    { tab: "Aba 1", content: <p>Aba n° 1</p>, icon: "house" },
-                    { tab: "Aba 2", content: <p>Aba n° 2</p>, icon: "gear" },
-                ]}
-                         tabIndex={index}
-                         onChange={event => setIndex(event.index)}/>
+                <Table paginator
+                       column={[
+                           { id: "id", header: "Cód" },
+                           { id: "nome", header: "Nome" },
+                           { id: "sobrenome", header: "Sobrenome" },
+                       ]}
+                       data={[
+                           { id: 1, nome: "Luiz Fernando" },
+                           { id: 2, nome: "Dayana" },
+                           { id: 3, nome: "Lara" },
+                       ]}
+                       styleSize="small"/>
             </Box>
         </>
     );

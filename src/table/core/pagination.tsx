@@ -32,6 +32,7 @@ export function tablePagination(
                 );
             },
         },
+        paginatorDropdownAppendTo: "self",
         paginatorRight: props.templatePaginationRight,
         paginatorLeft: props.templatePaginationLeft,
         onPage: props.lazy !== undefined ? onPage : undefined,
