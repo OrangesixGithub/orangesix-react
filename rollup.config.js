@@ -29,6 +29,8 @@ const __dependeciesExternal = [
     "primereact/editor",
     "primereact/column",
     "primereact/tabview",
+    "primereact/inputtext",
+    "primereact/keyfilter",
     "primereact/datatable",
     "primereact/autocomplete",
     "@webdatarocks/react-webdatarocks",

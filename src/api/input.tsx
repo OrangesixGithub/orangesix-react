@@ -4,7 +4,7 @@ import { ApiFieldComponentProps } from "./types";
 /**
  * API - `InputLabel`
  *
- * Um componente utilizado como label em todos os componente de campo do pacote.
+ * Um componente utilizado como label em todos os componente de entrada de dados do pacote.
  * Permite personalizar o estilo e o conteúdo através de propriedades.
  */
 export const InputLabel = ({ iconPrefix = "bi bi-", ...props }: ApiFieldComponentProps) => {
@@ -19,4 +19,25 @@ export const InputLabel = ({ iconPrefix = "bi bi-", ...props }: ApiFieldComponen
             {props.label}
             {props.required && <span className="text-danger">*</span>}
         </p>;
+};
+
+/**
+ * API - `InputFeedback`
+ *
+ * Um componente utilizado como container de feedback em todos os componente de entrada de dados do pacote.
+ * Permite personalizar o estilo e o conteúdo através de propriedades.
+ */
+export const InputFeedback = ({ errors, name, ...props }: ApiFieldComponentProps & { errors?: any }) => {
+    /*
+    |------------------------------------------
+    | render() - Renderização do componente
+    |------------------------------------------
+    */
+    return !props.mode || props.mode === "Controlled"
+        ? <div data-name={name}
+               id="j_feedback"/>
+        : <div className={(!errors[name ?? ""] ? "" : "invalid-feedback is-invalid")}
+               data-name={name ?? ""}
+               id="j_feedback"
+               style={{ display: errors[name ?? ""] ? "block" : "none" }}>{!errors[name ?? ""] ? "" : errors[name ?? ""].message}</div>;
 };

@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "cd debug && npm run dev",
-    "dev:package": "rollup -c --watch",
+    "dev:package": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --watch",
     "build:package": "npm run test && rollup -c",
     "test": "jest",
     "lint": "eslint",
@@ -33,6 +33,7 @@
     "primereact": "^10.9.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
     "sweetalert2": "^11.15.10"
   },
   "devDependencies": {
@@ -46,13 +47,13 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
+    "@stylistic/eslint-plugin-jsx": "^3.0.1",
+    "@stylistic/eslint-plugin-ts": "^3.0.1",
     "@types/jest": "^29.5.14",
     "@types/jquery": "^3.5.32",
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@stylistic/eslint-plugin-jsx": "^3.0.1",
-    "@stylistic/eslint-plugin-ts": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "eslint": "^9.19.0",

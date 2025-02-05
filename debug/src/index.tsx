@@ -1,25 +1,23 @@
 import React from "react";
-import { Box } from "../../src/box";
-import { Table } from "../../src/table";
+import { Input } from "../../src/input";
+import { useForm } from "react-hook-form";
 
 const Root = () => {
+    const { register, formState: { errors }, handleSubmit } = useForm({});
+
     return (
-        <>
-            <Box size="30">
-                <Table paginator
-                       column={[
-                           { id: "id", header: "Cód" },
-                           { id: "nome", header: "Nome" },
-                           { id: "sobrenome", header: "Sobrenome" },
-                       ]}
-                       data={[
-                           { id: 1, nome: "Luiz Fernando" },
-                           { id: 2, nome: "Dayana" },
-                           { id: 3, nome: "Lara" },
-                       ]}
-                       styleSize="small"/>
-            </Box>
-        </>
+        <form className="w-100"
+              onSubmit={handleSubmit(data => console.log(data))}>
+            <Input required
+                   errors={errors}
+                   icon="gear"
+                   label="Entrada de dados"
+                   mode="HookForm"
+                   name="pessoa"
+                   placeholder="Digite o texto"
+                   register={register}
+                   size="25"/>
+        </form>
     );
 };
 export default Root;

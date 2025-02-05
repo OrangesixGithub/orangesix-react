@@ -1,6 +1,6 @@
 import { Box } from "../box";
 import { EditorMenu } from "./core";
-import { InputLabel } from "../api";
+import { InputFeedback, InputLabel } from "../api";
 import { EditorProps } from "./types";
 import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
@@ -79,8 +79,7 @@ export const Editor = ({ options = "basic", iconPrefix = "bi bi-", ...props }: E
                               name={props.name}
                               style={{ minHeight: (props.height ?? 100) + "px" }}/>
             </div>
-            <div data-name={props.name}
-                 id="j_feedback"/>
+            <InputFeedback {...props}/>
         </Box>
     );
 };

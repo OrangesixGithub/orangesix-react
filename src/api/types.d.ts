@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+import { UseFormRegister } from "react-hook-form";
 
 /**
  * Realiza o mapeamento dos valores da propriedades css `align-items`
@@ -103,7 +104,12 @@ export interface ApiComponentProps {
 }
 
 /**
- * Define as tipagens ´default´ de tidos os componente de entrada de dados do pacote
+ * Define o modo do componente de entrada de dados
+ */
+export type ApiFieldModeProps = "Controlled" | "HookForm";
+
+/**
+ * Define os tipos `default` para componente de entrada de dados
  */
 export interface ApiFieldComponentProps {
 
@@ -146,4 +152,61 @@ export interface ApiFieldComponentProps {
      * Desabilita a entrada de dados no campo
      */
     disabled?: boolean
+
+    /**
+     * Define o modo do componente de entrada de dados
+     */
+    mode?: ApiFieldModeProps
+}
+
+/**
+ * Define os tipos `default` para componente de entrada de dados controlled
+ */
+export interface ApiFieldControlledProps {
+
+    /**
+     * Define o valor do componente controlado
+     */
+    value: any
+
+    /**
+     * Função para alterar o valor do componente controlado
+     */
+    onChange(value: any): void
+
+    /**
+     * Função quando um usuário sai de um componente controlado
+     */
+    onBlur?: (value: any) => void
+}
+
+/**
+ * Define os tipos `default` para componente de entrada de dados HookFomr
+ */
+export interface ApiFieldHookFormProps {
+
+    /**
+     * Define o nome do campo
+     */
+    name: string
+
+    /**
+     * Define o objeto `register` da lib HookForm
+     */
+    register: UseFormRegister<any>
+
+    /**
+     * Define o objeto `errors` da lib HookForm
+     */
+    errors: any
+
+    /**
+     * Função executada quando alterar o valor do componente
+     */
+    onChange?: (value: any) => void
+
+    /**
+     * Função executada quando um usuário sai de um componente
+     */
+    onBlur?: (value: any) => void
 }
