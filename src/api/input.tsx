@@ -1,5 +1,5 @@
 import React from "react";
-import { ApiFieldComponentProps } from "./types";
+import { ApiComponentProps, ApiFieldComponentProps } from "./types";
 
 /**
  * API - `InputLabel`
@@ -41,3 +41,25 @@ export const InputFeedback = ({ errors, name, ...props }: ApiFieldComponentProps
                id="j_feedback"
                style={{ display: errors[name ?? ""] ? "block" : "none" }}>{!errors[name ?? ""] ? "" : errors[name ?? ""].message}</div>;
 };
+
+/**
+ * API - `InputProps`
+ *
+ * Retorna o objeto com as `Props` do core dos componentes de entrada de dados
+ */
+export function InputProps<T extends ApiComponentProps & ApiFieldComponentProps & { ref: any }>(props: T) {
+    return {
+        ref: props.ref,
+
+        id: props.id,
+        name: props.name,
+        required: props.required,
+        disabled: props.disabled,
+        placeholder: props.placeholder,
+
+        className: props.className,
+        style: { width: "100%" },
+
+        keyfilter: props.keyfilter,
+    };
+}

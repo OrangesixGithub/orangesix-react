@@ -18,6 +18,7 @@ export function InputControlled({ core, ...props }: InputProps<"Controlled"> & P
     */
     return (
         <InputText {...core}
+                   ref={props.ref}
                    value={props.value}
                    onBlur={event => {
                        if (props.onBlur) {

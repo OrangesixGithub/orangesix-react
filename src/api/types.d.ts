@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { UseFormRegister } from "react-hook-form";
+import { KeyFilterType } from "primereact/keyfilter";
 
 /**
  * Realiza o mapeamento dos valores da propriedades css `align-items`
@@ -157,6 +158,11 @@ export interface ApiFieldComponentProps {
      * Define o modo do componente de entrada de dados
      */
     mode?: ApiFieldModeProps
+
+    /**
+     * Define a opção de filtro de dados do componente
+     */
+    keyfilter?: KeyFilterType;
 }
 
 /**

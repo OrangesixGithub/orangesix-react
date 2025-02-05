@@ -3,9 +3,9 @@ import { Box } from "../box";
 import { InputProps } from "./types";
 import { InputHookForm } from "./core/hookForm";
 import { ApiFieldModeProps } from "../api/types";
-import { InputFeedback, InputLabel } from "../api";
 import { InputControlled } from "./core/controlled";
-import { InputTextProps } from "primereact/inputtext";
+import { InputText, InputTextProps } from "primereact/inputtext";
+import { InputFeedback, InputLabel, InputProps as getInputProps } from "../api";
 
 /**
  * Componente - `Input`
@@ -17,15 +17,8 @@ export function Input<T extends ApiFieldModeProps = "Controlled">(props: InputPr
     let propsCore = props as any;
     let sizes = props.sizes === "small" ? "p-inputtext-sm" : props.sizes === "large" ? "p-inputtext-lg" : "";
     let core: InputTextProps & { ref: React.Ref<HTMLInputElement> | undefined } = {
+        ...getInputProps(propsCore),
         className: sizes,
-        disabled: props.disabled,
-        id: props.id,
-        keyfilter: props.keyFilter,
-        name: props.name,
-        placeholder: props.placeholder,
-        ref: props.ref,
-        required: props.required,
-        style: { width: "100%" },
         type: props.type ?? "text",
     };
 

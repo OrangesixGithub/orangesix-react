@@ -23,6 +23,7 @@ export function InputHookForm({ core, ...props }: InputProps<"HookForm"> & Props
                        onBlur: (e) => props.onBlur ? props.onBlur(e.target.value) : null,
                        onChange: (e) => props.onChange ? props.onChange(e.target.value) : null
                    })}
-                   invalid={props.errors[props.name]}/>
+                   invalid={props.errors[props.name]}
+                   ref={props.ref}/>
     );
 }
