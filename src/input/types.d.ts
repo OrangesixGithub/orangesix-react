@@ -21,11 +21,6 @@ interface InputBaseProps extends ApiComponentProps, ApiFieldComponentProps {
     ref?: React.Ref<HTMLInputElement>
 
     /**
-     * Define a opção de filtro de dados do componente
-     */
-    keyFilter?: KeyFilterType;
-
-    /**
      * Define o tamanho do componente
      */
     sizes?: "small" | "large"
