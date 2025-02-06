@@ -1,11 +1,11 @@
 import React from "react";
 import { Box } from "../box";
 import { TextareaProps } from "./types";
+import { InputLabel, InputProps } from "../api";
 import { ApiFieldModeProps } from "../api/types";
 import { TextareaHookForm } from "./core/hookForm";
 import { TextareaControlled } from "./core/controlled";
 import { InputTextareaProps } from "primereact/inputtextarea";
-import { InputFeedback, InputLabel, InputProps } from "../api";
 
 /**
  * Componente - `Textarea`
@@ -35,7 +35,6 @@ export function Textarea<T extends ApiFieldModeProps = "Controlled">(props: Text
                                       {...propsCore}/>
                 : <TextareaHookForm core={core}
                                     {...propsCore}/>}
-            <InputFeedback {...propsCore}/>
         </Box>
     );
 }

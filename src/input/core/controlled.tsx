@@ -1,5 +1,6 @@
 import React from "react";
 import { InputProps } from "../types";
+import { InputFeedback } from "../../api";
 import { InputText, InputTextProps } from "primereact/inputtext";
 
 type Props = {
@@ -17,14 +18,17 @@ export function InputControlled({ core, ...props }: InputProps<"Controlled"> & P
     |------------------------------------------
     */
     return (
-        <InputText {...core}
-                   ref={props.ref}
-                   value={props.value}
-                   onBlur={event => {
-                       if (props.onBlur) {
-                           props.onBlur(event.target.value);
-                       }
-                   }}
-                   onChange={event => props.onChange(event.target.value)}/>
+        <>
+            <InputText {...core}
+                       ref={props.ref}
+                       value={props.value}
+                       onBlur={event => {
+                           if (props.onBlur) {
+                               props.onBlur(event.target.value);
+                           }
+                       }}
+                       onChange={event => props.onChange(event.target.value)}/>
+            <InputFeedback {...props}/>
+        </>
     );
 }

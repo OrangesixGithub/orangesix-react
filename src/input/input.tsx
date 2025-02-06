@@ -4,8 +4,8 @@ import { InputProps } from "./types";
 import { InputHookForm } from "./core/hookForm";
 import { ApiFieldModeProps } from "../api/types";
 import { InputControlled } from "./core/controlled";
-import { InputText, InputTextProps } from "primereact/inputtext";
-import { InputFeedback, InputLabel, InputProps as getInputProps } from "../api";
+import { InputTextProps } from "primereact/inputtext";
+import { InputLabel, InputProps as getInputProps } from "../api";
 
 /**
  * Componente - `Input`
@@ -37,7 +37,6 @@ export function Input<T extends ApiFieldModeProps = "Controlled">(props: InputPr
                                    {...propsCore}/>
                 : <InputHookForm core={core}
                                  {...propsCore}/>}
-            <InputFeedback {...propsCore}/>
         </Box>
     );
 }

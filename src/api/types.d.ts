@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { UseFormRegister } from "react-hook-form";
+import { Control } from "react-hook-form";
 import { KeyFilterType } from "primereact/keyfilter";
 
 /**
@@ -197,19 +197,9 @@ export interface ApiFieldHookFormProps {
     name: string
 
     /**
-     * Define o objeto `register` da lib HookForm
+     * Objeto de controle do HookForm
      */
-    register: UseFormRegister<any>
-
-    /**
-     * Define o objeto `errors` da lib HookForm
-     */
-    errors: any
-
-    /**
-     * Função executada quando alterar o valor do componente
-     */
-    onChange?: (value: any) => void
+    control: Control<any>
 
     /**
      * Função executada quando um usuário sai de um componente
