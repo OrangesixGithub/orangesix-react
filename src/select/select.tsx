@@ -1,10 +1,10 @@
 import React from "react";
 import { Box } from "../box";
+import { InputLabel } from "../api";
 import { SelectProps } from "./types";
 import { ApiFieldModeProps } from "../api/types";
-import { SelectControlled } from "./core/controlled";
-import { InputFeedback, InputLabel } from "../api";
 import { SelectHookForm } from "./core/hookForm";
+import { SelectControlled } from "./core/controlled";
 
 /**
  * Componente - `Select`
@@ -27,7 +27,6 @@ export function Select<T extends ApiFieldModeProps = "Controlled">(props: Select
             {!props.mode || props.mode === "Controlled"
                 ? <SelectControlled {...propsCore}/>
                 : <SelectHookForm {...propsCore}/>}
-            <InputFeedback {...propsCore}/>
         </Box>
     );
 }

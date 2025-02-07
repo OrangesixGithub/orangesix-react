@@ -1,5 +1,6 @@
 import React from "react";
 import { SelectProps } from "../types";
+import { InputFeedback } from "../../api";
 
 /**
  * Core - `SelectControlled`
@@ -19,20 +20,23 @@ export function SelectControlled(props: SelectProps<"Controlled"> & { mode?: any
     |------------------------------------------
     */
     return (
-        <select className={`form-select ${sizes}`}
-                disabled={props.disabled}
-                id={props.id}
-                name={props.name}
-                ref={props.ref}
-                required={props.required}
-                value={props.value}
-                onChange={event => props.onChange(event.target.value)}>
-            {init}
-            {props.options.map((item) => (
-                <option disabled={item.disabled}
-                        key={item.id}
-                        value={item.id}>{item.name}</option>
-            ))}
-        </select>
+        <>
+            <select className={`form-select ${sizes}`}
+                    disabled={props.disabled}
+                    id={props.id}
+                    name={props.name}
+                    ref={props.ref}
+                    required={props.required}
+                    value={props.value}
+                    onChange={event => props.onChange(event.target.value)}>
+                {init}
+                {props.options.map((item) => (
+                    <option disabled={item.disabled}
+                            key={item.id}
+                            value={item.id}>{item.name}</option>
+                ))}
+            </select>
+            <InputFeedback {...props}/>
+        </>
     );
 }

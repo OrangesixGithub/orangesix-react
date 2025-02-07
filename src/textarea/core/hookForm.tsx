@@ -1,8 +1,8 @@
 import React from "react";
 import { TextareaProps } from "../types";
-import { InputTextarea, InputTextareaProps } from "primereact/inputtextarea";
-import { Controller } from "react-hook-form";
 import { InputFeedback } from "../../api";
+import { Controller } from "react-hook-form";
+import { InputTextarea, InputTextareaProps } from "primereact/inputtextarea";
 
 type Props = {
     core: InputTextareaProps & { ref: React.Ref<HTMLInputElement> | undefined }
@@ -26,7 +26,8 @@ export function TextareaHookForm({ core, ...props }: TextareaProps<"HookForm"> &
                                invalid={!!errors[props.name]}
                                ref={props.ref}
                                required={props.required}
-                               onBlur={(e) => props.onBlur ? props.onBlur(e.target.value) : null}/>
+                               onBlur={e => props.onBlur ? props.onBlur(e.target.value) : field.onBlur()}
+                               onChange={e => props.onChange !== undefined ? props.onChange(e.target.value) : field.onChange(e)}/>
                 <InputFeedback {...props}
                                errors={errors}/>
             </>;

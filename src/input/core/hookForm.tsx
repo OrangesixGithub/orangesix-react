@@ -27,7 +27,8 @@ export function InputHookForm({ core, ...props }: InputProps<"HookForm"> & Props
                                invalid={!!errors[props.name]}
                                ref={props.ref}
                                required={props.required}
-                               onBlur={(e) => props.onBlur ? props.onBlur(e.target.value) : null}/>
+                               onBlur={e => props.onBlur ? props.onBlur(e.target.value) : field.onBlur()}
+                               onChange={e => props.onChange !== undefined ? props.onChange(e.target.value) : field.onChange(e)}/>
                     <InputFeedback {...props}
                                    errors={errors}/>
                 </>

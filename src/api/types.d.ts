@@ -202,6 +202,11 @@ export interface ApiFieldHookFormProps {
     control: Control<any>
 
     /**
+     * Função executada quando o valor é modificado
+     */
+    onChange?: (value: any) => void
+
+    /**
      * Função executada quando um usuário sai de um componente
      */
     onBlur?: (value: any) => void

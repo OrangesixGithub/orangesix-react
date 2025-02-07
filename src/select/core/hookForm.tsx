@@ -1,5 +1,7 @@
 import React from "react";
 import { SelectProps } from "../types";
+import { InputFeedback } from "../../api";
+import { Controller } from "react-hook-form";
 
 /**
  * Core - `SelectHookForm`
@@ -19,19 +21,28 @@ export function SelectHookForm(props: SelectProps<"HookForm"> & { mode?: any }) 
     |------------------------------------------
     */
     return (
-        <select className={`form-select ${sizes}`}
-                disabled={props.disabled}
-                id={props.id}
-                {...props.register(props.name, {
-                    required: !props.required ? false : "Campo obrigatório",
-                    onChange: (e) => props.onChange ? props.onChange(e.target.value) : null
-                })}>
-            {init}
-            {props.options.map((item) => (
-                <option disabled={item.disabled}
-                        key={item.id}
-                        value={item.id}>{item.name}</option>
-            ))}
-        </select>
+        <Controller render={({ field, formState: { errors } }) => {
+            return (
+                <>
+                    <select {...field}
+                            className={`form-select ${sizes}`}
+                            disabled={props.disabled}
+                            id={props.id}
+                            onChange={event => props.onChange ? props.onChange(event.target.value) : field.onChange(event)}>
+                        {init}
+                        {props.options.map((item) => (
+                            <option disabled={item.disabled}
+                                    key={item.id}
+                                    value={item.id}>{item.name}</option>
+                        ))}
+                    </select>
+                    <InputFeedback {...props}
+                                   errors={errors}/>
+                </>
+            );
+        }}
+                    control={props.control}
+                    name={props.name}
+                    rules={{ required: !props.required ? false : "Campo obrigatório" }}/>
     );
 }

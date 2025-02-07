@@ -48,18 +48,19 @@ const Root = () => {
                    mode="HookForm"
                    name="radio"
                    size="25"/>
-            {/*<Select init*/}
-            {/*        required*/}
-            {/*        options={[*/}
-            {/*            { id: 1, name: "Nando" },*/}
-            {/*            { id: 2, name: "Dayana" },*/}
-            {/*        ]}*/}
-            {/*        icon="list"*/}
-            {/*        label="Select"*/}
-            {/*        mode="HookForm"*/}
-            {/*        name="select"*/}
-            {/*        placeholder="Selecione o dados"*/}
-            {/*        size="25"/>*/}
+            <Select init
+                    required
+                    options={[
+                        { id: 1, name: "Nando" },
+                        { id: 2, name: "Dayana" },
+                    ]}
+                    control={control}
+                    icon="list"
+                    label="Select"
+                    mode="HookForm"
+                    name="select"
+                    placeholder="Selecione o dados"
+                    size="25"/>
             <button type="submit">Enviar</button>
         </form>
     );
