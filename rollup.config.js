@@ -29,6 +29,7 @@ const __dependeciesExternal = [
     "primereact/editor",
     "primereact/column",
     "primereact/tabview",
+    "primereact/password",
     "primereact/datatable",
     "primereact/keyfilter",
     "primereact/inputtext",
