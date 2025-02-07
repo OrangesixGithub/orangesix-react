@@ -7,6 +7,7 @@ import { PasswordProps } from "primereact/password";
 import { InputControlled } from "./core/controlled";
 import { InputTextProps } from "primereact/inputtext";
 import { InputLabel, InputProps as getInputProps } from "../api";
+import { InputMaskProps } from "primereact/inputmask";
 
 /**
  * Componente - `Input`
@@ -36,6 +37,14 @@ export function Input<T extends ApiFieldModeProps = "Controlled">(props: InputPr
         weakLabel: "Fraca",
         content: props.passwordTemplate
     };
+    let mask: InputMaskProps = {
+        mask: props.mask === "cpf"
+            ? "999.999.999-99"
+            : props.mask === "cnpj"
+                ? "00.000.000/0000-00"
+                : props.mask,
+        autoClear: props.maskAutoClear
+    };
 
     /*
     |------------------------------------------
@@ -49,9 +58,11 @@ export function Input<T extends ApiFieldModeProps = "Controlled">(props: InputPr
             <InputLabel {...props}/>
             {!props.mode || props.mode === "Controlled"
                 ? <InputControlled core={core}
+                                   masker={mask}
                                    password={password}
                                    {...propsCore}/>
                 : <InputHookForm core={core}
+                                 masker={mask}
                                  password={password}
                                  {...propsCore}/>}
         </Box>

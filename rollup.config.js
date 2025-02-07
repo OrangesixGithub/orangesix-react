@@ -33,6 +33,7 @@ const __dependeciesExternal = [
     "primereact/datatable",
     "primereact/keyfilter",
     "primereact/inputtext",
+    "primereact/inputmask",
     "primereact/autocomplete",
     "primereact/inputtextarea",
     "@webdatarocks/react-webdatarocks",

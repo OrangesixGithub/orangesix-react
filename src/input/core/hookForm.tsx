@@ -4,17 +4,19 @@ import { InputFeedback } from "../../api";
 import { Controller } from "react-hook-form";
 import { InputText } from "primereact/inputtext";
 import { Password, PasswordProps } from "primereact/password";
+import { InputMask, InputMaskProps } from "primereact/inputmask";
 
 type Props = {
-    core: any & { ref: React.Ref<HTMLInputElement> | undefined },
+    masker: InputMaskProps
     password: PasswordProps
+    core: any & { ref: React.Ref<HTMLInputElement> | undefined }
 };
 
 /**
  * Core - `InputHookForm`
  * Define o componente utilizando o HookForm
  */
-export function InputHookForm({ core, password, ...props }: InputProps<"HookForm"> & Props) {
+export function InputHookForm({ core, password, masker, ...props }: InputProps<"HookForm"> & Props) {
     /*
     |------------------------------------------
     | render() - Renderização do componente
@@ -24,21 +26,29 @@ export function InputHookForm({ core, password, ...props }: InputProps<"HookForm
         <Controller render={({ field, formState: { errors } }) => {
             return (
                 <>
-                    {props.type === "password"
-                        ? <Password {...core}
-                                    {...field}
-                                    {...password}
-                                    invalid={!!errors[props.name]}
-                                    required={props.required}
-                                    onBlur={e => props.onBlur ? props.onBlur(e.target.value) : field.onBlur()}
-                                    onChange={e => props.onChange !== undefined ? props.onChange(e.target.value) : field.onChange(e)}/>
-                        : <InputText {...core}
+                    {props.mask !== undefined
+                        ? <InputMask {...core}
                                      {...field}
+                                     {...masker}
                                      invalid={!!errors[props.name]}
-                                     ref={props.ref}
                                      required={props.required}
                                      onBlur={e => props.onBlur ? props.onBlur(e.target.value) : field.onBlur()}
-                                     onChange={e => props.onChange !== undefined ? props.onChange(e.target.value) : field.onChange(e)}/>}
+                                     onChange={e => props.onChange !== undefined ? props.onChange(e.target.value) : field.onChange(e)}/>
+                        : (props.type === "password"
+                            ? <Password {...core}
+                                        {...field}
+                                        {...password}
+                                        invalid={!!errors[props.name]}
+                                        required={props.required}
+                                        onBlur={e => props.onBlur ? props.onBlur(e.target.value) : field.onBlur()}
+                                        onChange={e => props.onChange !== undefined ? props.onChange(e.target.value) : field.onChange(e)}/>
+                            : <InputText {...core}
+                                         {...field}
+                                         invalid={!!errors[props.name]}
+                                         ref={props.ref}
+                                         required={props.required}
+                                         onBlur={e => props.onBlur ? props.onBlur(e.target.value) : field.onBlur()}
+                                         onChange={e => props.onChange !== undefined ? props.onChange(e.target.value) : field.onChange(e)}/>)}
                     <InputFeedback {...props}
                                    errors={errors}/>
                 </>

@@ -1,3 +1,4 @@
+import { PasswordProps } from "primereact/password";
 import React, { HTMLInputTypeAttribute } from "react";
 import {
     ApiComponentProps,
@@ -6,7 +7,13 @@ import {
     ApiFieldComponentProps,
     ApiFieldControlledProps,
 } from "../api/types";
-import { PasswordProps } from "primereact/password";
+
+interface InputMaskProps {
+    /**
+     * Define se campo vai ser limpo se mascara tiver imcompleta
+     */
+    maskAutoClear?: boolean
+}
 
 interface InputPasswordProps {
     /**
@@ -35,12 +42,12 @@ interface InputPasswordProps {
     passwordTemplate?: (props: PasswordProps) => React.ReactNode
 }
 
-interface InputBaseProps extends ApiComponentProps, ApiFieldComponentProps, InputPasswordProps {
+interface InputBaseProps extends ApiComponentProps, ApiFieldComponentProps, InputPasswordProps, InputMaskProps {
 
     /**
      * Define o tipo de dados do componente
      */
-    type?: Extract<HTMLInputTypeAttribute, "text" | "date" | "email" | "time" | "number", "password">
+    type?: Extract<HTMLInputTypeAttribute, "text" | "date" | "email" | "time" | "number" | "password">
 
     /**
      * A propriedade `ref` retorna a referência do componente
@@ -51,6 +58,11 @@ interface InputBaseProps extends ApiComponentProps, ApiFieldComponentProps, Inpu
      * Define o tamanho do componente
      */
     sizes?: "small" | "large"
+
+    /**
+     * Define mascara no campo de dados
+     */
+    mask?: string | "cpf" | "cnpj"
 }
 
 export type InputProps<T extends ApiFieldModeProps> = T extends "Controlled"

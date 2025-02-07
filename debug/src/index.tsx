@@ -9,7 +9,7 @@ import { Textarea } from "../../src/textarea";
 const Root = () => {
     const { handleSubmit, control } = useForm({
         defaultValues: {
-            input: "Entrada de texto simples",
+            input: "123",
             textarea: "Entrada de texto longo",
             radio: "radio1",
             select: 1
@@ -23,6 +23,7 @@ const Root = () => {
                    control={control}
                    icon="gear"
                    label="Input"
+                   mask="cpf"
                    mode="HookForm"
                    name="input"
                    placeholder="Digite o texto"
