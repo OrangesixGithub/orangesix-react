@@ -9,8 +9,8 @@ import { Textarea } from "../../src/textarea";
 const Root = () => {
     const { handleSubmit, control } = useForm({
         defaultValues: {
-            input: "teste",
-            textarea: "nando",
+            input: "Entrada de texto simples",
+            textarea: "Entrada de texto longo",
             radio: "radio1",
             select: 1
         }
@@ -36,17 +36,18 @@ const Root = () => {
                       name="textarea"
                       placeholder="Digite o textarea"
                       size="25"/>
-            {/*<Radio required*/}
-            {/*       options={[*/}
-            {/*           { value: "radio1", label: "Radio 1" },*/}
-            {/*           { value: "radio2", label: "Radio 2" },*/}
-            {/*           { value: "radio3", label: "Radio 3" },*/}
-            {/*       ]}*/}
-            {/*       icon="toggle-on"*/}
-            {/*       label="Radio"*/}
-            {/*       mode="HookForm"*/}
-            {/*       name="radio"*/}
-            {/*       size="25"/>*/}
+            <Radio required
+                   options={[
+                       { value: "radio1", label: "Radio 1" },
+                       { value: "radio2", label: "Radio 2" },
+                       { value: "radio3", label: "Radio 3" },
+                   ]}
+                   control={control}
+                   icon="toggle-on"
+                   label="Radio"
+                   mode="HookForm"
+                   name="radio"
+                   size="25"/>
             {/*<Select init*/}
             {/*        required*/}
             {/*        options={[*/}
