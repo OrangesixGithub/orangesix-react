@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "../../src/input";
 import { Radio } from "../../src/radio";
 import { Select } from "../../src/select";
+import { Switch } from "../../src/switch";
 import { Textarea } from "../../src/textarea";
 
 const Root = () => {
@@ -12,7 +13,8 @@ const Root = () => {
             input: "123",
             textarea: "Entrada de texto longo",
             radio: "radio1",
-            select: 1
+            select: 1,
+            switch: true
         }
     });
 
@@ -39,13 +41,13 @@ const Root = () => {
                       size="25"/>
             <Radio required
                    options={[
-                       { value: "radio1", label: "Radio 1" },
-                       { value: "radio2", label: "Radio 2" },
-                       { value: "radio3", label: "Radio 3" },
+                       { value: "radio1", label: "Switch 1" },
+                       { value: "radio2", label: "Switch 2" },
+                       { value: "radio3", label: "Switch 3" },
                    ]}
                    control={control}
                    icon="toggle-on"
-                   label="Radio"
+                   label="Switch"
                    mode="HookForm"
                    name="radio"
                    size="25"/>
@@ -61,6 +63,13 @@ const Root = () => {
                     mode="HookForm"
                     name="select"
                     placeholder="Selecione o dados"
+                    size="25"/>
+            <Switch control={control}
+                    icon="gear"
+                    label="Status"
+                    legend="lorem ipsum dolor"
+                    mode="HookForm"
+                    name="switch"
                     size="25"/>
             <button type="submit">Enviar</button>
         </form>
