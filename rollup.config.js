@@ -25,6 +25,7 @@ const __dependeciesExternal = [
     "bootstrap",
     "sweetalert2",
     "node-snackbar",
+    "primereact/dialog",
     "primereact/utils",
     "primereact/editor",
     "primereact/column",
