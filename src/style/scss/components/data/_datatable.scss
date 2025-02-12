@@ -157,6 +157,7 @@
       &.p-highlight {
         background: $highlightBg;
         color: $highlightTextColor;
+        font-weight: $tableBodyCellSelectedFontWeight;
       }
 
       &.p-highlight-contextmenu {

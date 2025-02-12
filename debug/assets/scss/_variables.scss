@@ -30,9 +30,29 @@ $primaryDarkColor: #13a189 !default;
 $primaryDarkerColor: #13a189 !default;
 $primaryTextColor: #ffffff !default;
 
-$highlightBg: #EFF5F3 !default;
+$highlightBg: #f6f6f6 !default;
 $highlightTextColor: #000 !default;
-$highlightFocusBg: darken($primaryColor, 8%) !default;
+$highlightFocusBg: darken(#f8f8f8, 8%) !default;
+$disabledOpacity: .3;
+
+//List
+$inputListItemHoverBg: #f3f3f3;
+$inputListItemFocusBg: #f3f3f3;
+$inputListItemPadding: .5rem;
+
+//Button
+$borderRadius: 5px;
+$buttonBg: #efefef;
+$buttonTextColor: #000;
+$buttonBorder: 1px solid #ccc;
+$buttonPadding: 4px 8px;
+
+//Input
+$inputPadding: .25rem .5rem;
+
+//Panel
+$panelHeaderPadding: 8px 10px;
+$panelHeaderBg: #f6f6f6;
 
 //Table
 $tableHeaderCellBg: #F6F6F6;
@@ -40,7 +60,6 @@ $tableHeaderCellHoverBg: #f3f3f3;
 $tableHeaderCellHighlightBg: #f3f3f3;
 $tableHeaderCellTextTransform: uppercase;
 $tableHeaderCellFontSize: .8rem;
-
 $tableBodyRowEvenBg: #fafafa;
 $tableBodyRowHoverBg: #fafafa;
 $tableBodyCellFontSize: .9em;
@@ -51,7 +70,6 @@ $paginatorBg: #F6F6F6;
 $paginatorTextColor: #000;
 $paginatorElementIconColor: #a8a8a8;
 $paginatorElementHeight: 28px;
-
 $paginatorElementWidth: 28px;
 
 //Dropdown
@@ -69,6 +87,9 @@ $tabviewHeaderFontWeight: normal;
 $tabviewHeaderPadding: .5rem 1rem;
 $tabviewContentPadding: 0;
 $tabviewContentBorder: 1px solid #f3f3f3;
+
+//PickList
+$inlineSpacing: .5rem;
 
 /**
 | @OrangeSix - Latest

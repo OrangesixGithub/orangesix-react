@@ -1,27 +1,25 @@
+import { Box } from "../../src/box";
 import React, { useState } from "react";
-import { Modal } from "../../src/modal";
+import { PickList } from "../../src/picklist";
 
 const Root = () => {
-    const [show, setShow] = useState<boolean>(false);
+    const [data, setData] = useState<any>([
+        { id: 1, label: "i.Maq", active: false },
+        { id: 2, label: "Terra", active: false },
+        { id: 3, label: "Legislador", active: true },
+    ]);
+    console.log(data);
 
     return (
-        <>
-            <a href="#"
-               onClick={event => {
-                   event.preventDefault();
-                   setShow(true);
-               }}>Abrir</a>
-            <Modal draggable
-                   maximizable
-                   header="Modal title"
-                   icon="gear"
-                   visible={show}
-                   onVisible={setShow}>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad asperiores at est id impedit ipsam,
-                    iste maiores modi neque nesciunt possimus quasi quod repellat sapiente sint sit tempora
-                    voluptas.</p>
-            </Modal>
-        </>
+        <Box className="bg-light rounded"
+             css={{ fontSize: ".95em" }}
+             size="50">
+            <PickList filter
+                      data={data}
+                      sourceHeader="Disponível"
+                      targetHeader="Utilizado"
+                      onChange={setData}/>
+        </Box>
     );
 };
 export default Root;
