@@ -16,7 +16,7 @@ export function PickList(props: PickListProps) {
     useEffect(() => {
         setSource(props.data.filter(item => item.active === undefined || !item.active));
         setTarget(props.data.filter(item => item.active));
-    }, []);
+    }, [props.data]);
 
     /*
     |------------------------------------------

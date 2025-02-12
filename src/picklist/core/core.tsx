@@ -35,8 +35,8 @@ export function pickListCore(
         targetHeader: props.targetHeader,
         itemTemplate: pickListItemTemplate,
 
-        filter: props.filter,
-        filterBy: props.filterBy ?? "label",
+        filter: props.filter ?? undefined,
+        filterBy: props.filter ? (props.filterBy ?? "label") : undefined,
         sourceFilterPlaceholder: "Pesquisa pelo nome",
         targetFilterPlaceholder: "Pesquisa pelo nome",
     };

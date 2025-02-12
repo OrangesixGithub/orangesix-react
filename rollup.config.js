@@ -29,6 +29,7 @@ const __dependeciesExternal = [
     "primereact/utils",
     "primereact/editor",
     "primereact/column",
+    "primereact/picklist",
     "primereact/checkbox",
     "primereact/tabview",
     "primereact/password",
