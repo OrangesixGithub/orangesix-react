@@ -1,7 +1,7 @@
 {
   "name": "@orangesix/react",
   "type": "module",
-  "version": "1.2.1-beta.5",
+  "version": "1.2.1-beta.6",
   "description": "Biblioteca de components React UI pronto para uso.",
   "author": "Luiz Fernando Bernardes de Paula",
   "license": "MIT",
@@ -64,6 +64,16 @@
     "rollup-plugin-dts": "^6.1.1",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3"
+  },
+  "peerDependencies": {
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "jquery": "^3.7.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.9.2"
   },
   "files": [
     "dist"

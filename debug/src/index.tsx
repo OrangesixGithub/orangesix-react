@@ -1,29 +1,32 @@
 import { Box } from "../../src/box";
-import React, { useEffect, useState } from "react";
-import { PickList } from "../../src/picklist";
+import { Select } from "../../src/select";
+import React, { useEffect, useRef } from "react";
+import { useForm } from "react-hook-form";
 
 const Root = () => {
-    const [data, setData] = useState<any>([]);
+    const ref = useRef<any>(null);
+    const { control } = useForm();
 
     useEffect(() => {
-        setTimeout(() => {
-            setData([
-                { id: 1, label: "i.Maq", active: false },
-                { id: 2, label: "Terra", active: false },
-                { id: 3, label: "Legislador", active: true },
-            ]);
-        }, 1000);
+        console.log(ref);
     }, []);
 
     return (
-        <Box className="bg-light rounded"
-             css={{ fontSize: ".95em" }}
-             size="50">
-            <PickList data={data}
-                      sourceHeader="Disponível"
-                      targetHeader="Utilizado"
-                      onChange={setData}/>
-        </Box>
+        <form id="formLogin">
+            <Box className="bg-light rounded"
+                 css={{ fontSize: ".95em" }}
+                 size="50">
+                <Select init
+                        options={[
+                            { id: 1, name: "Nando" }
+                        ]}
+                        control={control}
+                        label="E-mail"
+                        mode="HookForm"
+                        name="select"
+                        ref={ref}/>
+            </Box>
+        </form>
     );
 };
 export default Root;
