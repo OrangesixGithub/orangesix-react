@@ -36,17 +36,17 @@ export function Table<T = any>(props: TableProps<T>) {
                 tableClassName={props.className}
                 {...tableCore(props)}
                 {...tableSort(props)}
-                {...tableSelection(props)}
                 {...tableReorder(props)}
+                {...tableSelection(props)}
                 {...tablePagination(props)}
                 {...tableGroup(props, expandedRows, setExpandedRows)}>
-                {props.reorderableRows
-                    && <Column rowReorder
-                               align="center"
-                               columnKey="key-fixed-reorder"
-                               field="key-fixed-reorder"
-                               headerStyle={{ width: "2.5rem" }}
-                               key="key-fixed-reorder"/>}
+                {(props.reorderable === "all" || props.reorderable === "rows") && (
+                    <Column rowReorder
+                            align="center"
+                            columnKey="key-fixed-reorder"
+                            field="key-fixed-reorder"
+                            headerStyle={{ width: "2.5rem" }}
+                            key="key-fixed-reorder"/>)}
                 {props.selectionMode === "checkbox"
                     && <Column align="center"
                                columnKey="key-fixed-select"

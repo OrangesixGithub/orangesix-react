@@ -38,13 +38,12 @@ const Root = () => {
         <Box className="bg-light rounded"
              css={{ fontSize: ".95em" }}
              size="85">
-            <Table reorderableColumns={false}
-                   reorderableRows={false}
-                   column={column}
+            <Table column={column}
                    data={registers}
+                   reorderable="all"
                    selection={selectedRow}
                    selectionMode="checkbox"
-                   onRowReorder={setRegisters}
+                   onReorder={setRegisters}
                    onSelection={setSelectedRow}/>
         </Box>
     );

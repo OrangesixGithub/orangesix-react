@@ -10,15 +10,15 @@ export function tableReorder(
     props: TableProps<any>
 ): Partial<DataTableProps<any>> {
 
-    function onRowReorder (e: DataTableRowReorderEvent<any>) {
-        if (props.onRowReorder) {
-            props.onRowReorder(e.value);
+    function onReorder (e: DataTableRowReorderEvent<any>) {
+        if (props.onReorder) {
+            props.onReorder(e.value);
         }
     }
 
     return {
-        reorderableColumns: props.reorderableColumns,
-        reorderableRows: props.reorderableRows,
-        onRowReorder: onRowReorder
+        reorderableColumns: props.reorderable === "all" || props.reorderable === "columns",
+        reorderableRows: props.reorderable === "all" || props.reorderable === "rows",
+        onRowReorder: onReorder
     };
 }
