@@ -10,6 +10,7 @@
     "dev:package": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --watch",
     "build:package": "npm run test && rollup -c",
     "test": "jest",
+    "test:components": "cd debug && npm run test",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
