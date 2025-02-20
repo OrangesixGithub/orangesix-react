@@ -8,18 +8,9 @@ const Root = () => {
     const [registers, setRegisters] = useState<any>([]);
 
     let column = [
-        {
-            id: "id",
-            header: "ID",
-        },
-        {
-            id: "nome",
-            header: "Nome",
-        },
-        {
-            id: "usuario",
-            header: "Usuário",
-        },
+        { id: "id", header: "ID" },
+        { id: "nome", header: "Nome" },
+        { id: "usuario", header: "Usuário" },
     ];
 
     useEffect(() => {
