@@ -9,6 +9,7 @@ import { bootstrapTableStyle } from "./styled";
 import { DataTable } from "primereact/datatable";
 import { tableSelection } from "./core/selection";
 import { tablePagination } from "./core/pagination";
+import { tableReorder } from "./core/reorder";
 
 /**
  * Componente - `Table`
@@ -18,6 +19,8 @@ import { tablePagination } from "./core/pagination";
  */
 export function Table<T = any>(props: TableProps<T>) {
     const [expandedRows, setExpandedRows] = useState([]);
+
+    console.log(props);
 
     /*
     |------------------------------------------
@@ -34,11 +37,22 @@ export function Table<T = any>(props: TableProps<T>) {
                 {...tableCore(props)}
                 {...tableSort(props)}
                 {...tableSelection(props)}
+                {...tableReorder(props)}
                 {...tablePagination(props)}
                 {...tableGroup(props, expandedRows, setExpandedRows)}>
+                {props.reorderableRows
+                    && <Column rowReorder
+                               align="center"
+                               columnKey="key-fixed-reorder"
+                               field="key-fixed-reorder"
+                               headerStyle={{ width: "2.5rem" }}
+                               key="key-fixed-reorder"/>}
                 {props.selectionMode === "checkbox"
                     && <Column align="center"
+                               columnKey="key-fixed-select"
+                               field="key-fixed-select"
                                headerStyle={{ width: "2.5rem" }}
+                               key="key-fixed-select"
                                selectionMode="multiple"/>}
                 {props.column.map(obj => {
                     return (
@@ -46,6 +60,7 @@ export function Table<T = any>(props: TableProps<T>) {
                                 alignFrozen={obj.frozen ? "right" : undefined}
                                 alignHeader={obj.alignHeader}
                                 body={obj.body}
+                                columnKey={obj.id}
                                 field={obj.id}
                                 frozen={obj.frozen !== undefined}
                                 header={obj.header}

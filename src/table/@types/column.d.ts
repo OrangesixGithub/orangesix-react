@@ -47,4 +47,14 @@ export interface TableColumnProps {
      * Define se coluna vai ser congelada e qual posição
      */
     frozen?: boolean
+
+    /**
+     * Define se a linha poderá ser reordenada.
+     */
+    rowReorder?: boolean;
+
+    /**
+     * Identifier of a column if field property is not defined. Only utilized by reorderableColumns feature at the moment.
+     */
+    columnKey?: string;
 }
