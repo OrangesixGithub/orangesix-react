@@ -10,15 +10,21 @@ export function tableReorder(
     props: TableProps<any>
 ): Partial<DataTableProps<any>> {
 
-    function onReorder (e: DataTableRowReorderEvent<any>) {
+    function onReorder(e: DataTableRowReorderEvent<any>) {
+        //Desenvolver função do range de dados
+        // [
+        //     {id: ???, order: ???},
+        //     {id: ???, order: ???},
+        //     {id: ???, order: ???},
+        // ]
         if (props.onReorder) {
-            props.onReorder(e.value);
+            props.onReorder([]);
         }
     }
 
     return {
-        reorderableColumns: props.reorderable === "all" || props.reorderable === "columns",
-        reorderableRows: props.reorderable === "all" || props.reorderable === "rows",
+        reorderableColumns: props.reorder === "all" || props.reorder === "columns",
+        reorderableRows: props.reorder === "all" || props.reorder === "rows",
         onRowReorder: onReorder
     };
 }

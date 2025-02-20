@@ -5,7 +5,7 @@ import { Table } from "../../src/table";
 const Root = () => {
 
     const [selectedRow, setSelectedRow] = useState<any>(null);
-    const [registers, setRegisters] = useState<any>([]);
+    const [registers, setRegisters] = useState<any[]>([]);
 
     let column = [
         { id: "id", header: "ID" },
@@ -15,15 +15,13 @@ const Root = () => {
 
     useEffect(() => {
         setRegisters([
-            { id: 123, nome: "Paulo Henrique", usuario: "paulo.souza" },
-            { id: 231, nome: "Poliana", usuario: "poliana.frogeri" },
-            { id: 332, nome: "Yasmin", usuario: "yasmin.souza" },
-            { id: 532, nome: "Geovana", usuario: "geovana.souza" },
-            { id: 432, nome: "Rafaela", usuario: "rafaela.alves" }
+            { id: 123, nome: "Paulo Henrique", usuario: "paulo.souza", order: 20 },
+            { id: 231, nome: "Poliana", usuario: "poliana.frogeri", order: 21 },
+            { id: 332, nome: "Yasmin", usuario: "yasmin.souza", order: 22 },
+            { id: 532, nome: "Geovana", usuario: "geovana.souza", order: 23 },
+            { id: 432, nome: "Rafaela", usuario: "rafaela.alves", order: 24 }
         ]);
     }, []);
-
-    console.log(registers);
 
     return (
         <Box className="bg-light rounded"
@@ -31,10 +29,10 @@ const Root = () => {
              size="85">
             <Table column={column}
                    data={registers}
-                   reorderable="all"
+                   reorder="all"
                    selection={selectedRow}
                    selectionMode="checkbox"
-                   onReorder={setRegisters}
+                   onReorder={console.log}
                    onSelection={setSelectedRow}/>
         </Box>
     );

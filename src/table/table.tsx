@@ -5,11 +5,11 @@ import { tableCore } from "./core/core";
 import { tableSort } from "./core/sort";
 import { tableGroup } from "./core/group";
 import { Column } from "primereact/column";
+import { tableReorder } from "./core/reorder";
 import { bootstrapTableStyle } from "./styled";
 import { DataTable } from "primereact/datatable";
 import { tableSelection } from "./core/selection";
 import { tablePagination } from "./core/pagination";
-import { tableReorder } from "./core/reorder";
 
 /**
  * Componente - `Table`
@@ -19,8 +19,6 @@ import { tableReorder } from "./core/reorder";
  */
 export function Table<T = any>(props: TableProps<T>) {
     const [expandedRows, setExpandedRows] = useState([]);
-
-    console.log(props);
 
     /*
     |------------------------------------------
@@ -40,7 +38,7 @@ export function Table<T = any>(props: TableProps<T>) {
                 {...tableSelection(props)}
                 {...tablePagination(props)}
                 {...tableGroup(props, expandedRows, setExpandedRows)}>
-                {(props.reorderable === "all" || props.reorderable === "rows") && (
+                {(props.reorder === "all" || props.reorder === "rows") && (
                     <Column rowReorder
                             align="center"
                             columnKey="key-fixed-reorder"
