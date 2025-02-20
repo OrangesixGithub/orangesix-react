@@ -38,6 +38,7 @@ export function InputHookForm({ core, password, masker, ...props }: InputProps<"
                             ? <Password {...core}
                                         {...field}
                                         {...password}
+                                        autoComplete="current-password"
                                         invalid={!!errors[props.name]}
                                         required={props.required}
                                         onBlur={e => props.onBlur ? props.onBlur(e.target.value) : field.onBlur()}

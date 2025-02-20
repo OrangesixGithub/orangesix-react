@@ -36,6 +36,7 @@ export function InputControlled({ core, password, masker, ...props }: InputProps
                 : (props.type === "password"
                     ? <Password {...core}
                                 {...password}
+                                autoComplete="current-password"
                                 value={props.value}
                                 onBlur={event => {
                                     if (props.onBlur) {

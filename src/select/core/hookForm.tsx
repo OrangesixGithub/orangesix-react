@@ -28,6 +28,7 @@ export function SelectHookForm(props: SelectProps<"HookForm"> & { mode?: any }) 
                             className={`form-select ${sizes}`}
                             disabled={props.disabled}
                             id={props.id}
+                            ref={props.ref}
                             onChange={event => props.onChange ? props.onChange(event.target.value) : field.onChange(event)}>
                         {init}
                         {props.options.map((item) => (

@@ -1,3 +1,4 @@
+import React from "react";
 import { Box } from "../../src/box";
 import React, { useEffect, useState } from "react";
 import { Table } from "../../src/table";
