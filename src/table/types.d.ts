@@ -7,6 +7,7 @@ import { TableColumnProps } from "./@types/column";
 import { TableTemplateProps } from "./@types/template";
 import { TableSelectionProps } from "./@types/selection";
 import { TablePaginationProps } from "./@types/pagination";
+import { TableReorderProps } from "./@types/reorder";
 
 export type TableLazyProps = {
 
@@ -31,7 +32,7 @@ export type TableLazyProps = {
     paginationTotal?: number
 };
 
-export interface TableProps<T> extends TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, TableGroupProps, ApiComponentProps {
+export interface TableProps<T> extends TableReorderProps, TableStyleProps, TableSelectionProps, TableTemplateProps, TableSortProps, TablePaginationProps, TableGroupProps, ApiComponentProps {
 
     /**
      * Uma matriz de objeto que renderiza o cabeçalho
