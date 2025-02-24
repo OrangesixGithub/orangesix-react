@@ -5,6 +5,7 @@ import { tableCore } from "./core/core";
 import { tableSort } from "./core/sort";
 import { tableGroup } from "./core/group";
 import { Column } from "primereact/column";
+import { tableReorder } from "./core/reorder";
 import { bootstrapTableStyle } from "./styled";
 import { DataTable } from "primereact/datatable";
 import { tableSelection } from "./core/selection";
@@ -33,12 +34,23 @@ export function Table<T = any>(props: TableProps<T>) {
                 tableClassName={props.className}
                 {...tableCore(props)}
                 {...tableSort(props)}
+                {...tableReorder(props)}
                 {...tableSelection(props)}
                 {...tablePagination(props)}
                 {...tableGroup(props, expandedRows, setExpandedRows)}>
+                {(props.reorder === "all" || props.reorder === "rows") && (
+                    <Column rowReorder
+                            align="center"
+                            columnKey="key-fixed-reorder"
+                            field="key-fixed-reorder"
+                            headerStyle={{ width: "2.5rem" }}
+                            key="key-fixed-reorder"/>)}
                 {props.selectionMode === "checkbox"
                     && <Column align="center"
+                               columnKey="key-fixed-select"
+                               field="key-fixed-select"
                                headerStyle={{ width: "2.5rem" }}
+                               key="key-fixed-select"
                                selectionMode="multiple"/>}
                 {props.column.map(obj => {
                     return (
@@ -46,6 +58,7 @@ export function Table<T = any>(props: TableProps<T>) {
                                 alignFrozen={obj.frozen ? "right" : undefined}
                                 alignHeader={obj.alignHeader}
                                 body={obj.body}
+                                columnKey={obj.id}
                                 field={obj.id}
                                 frozen={obj.frozen !== undefined}
                                 header={obj.header}
