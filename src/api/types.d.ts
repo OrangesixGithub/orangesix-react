@@ -114,6 +114,7 @@ export type ApiColorProps =
     "danger" |
     "light" |
     "warning" |
+    "gray" |
     "info" |
     "dark" |
     "white";
