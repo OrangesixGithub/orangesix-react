@@ -105,6 +105,20 @@ export interface ApiComponentProps {
 }
 
 /**
+ * Define as cores padrão as UI de componentes
+ */
+export type ApiColorProps =
+    "primary" |
+    "secondary" |
+    "success" |
+    "danger" |
+    "light" |
+    "warning" |
+    "info" |
+    "dark" |
+    "white";
+
+/**
  * Define o modo do componente de entrada de dados
  */
 export type ApiFieldModeProps = "Controlled" | "HookForm";
