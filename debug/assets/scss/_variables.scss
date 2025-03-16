@@ -35,7 +35,7 @@ $highlightTextColor: #000 !default;
 $highlightFocusBg: darken(#f8f8f8, 8%) !default;
 
 $disabledOpacity: .8;
-$disabledBackground: red;
+$disabledBackground: rgba(0, 0, 0, 0.1);
 
 //List
 $inputListItemHoverBg: #f3f3f3;
