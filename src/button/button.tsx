@@ -25,6 +25,7 @@ export const Button = ({ ...props }: ButtonProps) => {
                           label={props.label}
                           link={props.isLink}
                           loading={props.isLoading}
+                          pt={{ loadingIcon: { className: "me-1" } }}
                           ref={props.ref}
                           severity={props.color}
                           size={props.size}
