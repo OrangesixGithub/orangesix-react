@@ -39,3 +39,17 @@ export function handleHours(valor: string): string {
     }
     return value;
 }
+
+/**
+ * Retonar a data do dia no formato (Y-m-d) para ser utilizado
+ * em input do tipo Date.
+ *
+ * @return Data
+ */
+export function handleDateNow(): string {
+    const hoje = new Date();
+    const ano = hoje.getFullYear();
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoje.getDate()).padStart(2, "0");
+    return `${ano}-${mes}-${dia}`;
+}

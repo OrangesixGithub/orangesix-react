@@ -7,6 +7,7 @@ const Root = () => {
         <Box className="bg-light rounded"
              size="100">
             <Button icon="gear"
+                    id="nando"
                     label="Teste"/>
         </Box>
     );
